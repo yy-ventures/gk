@@ -1,0 +1,10 @@
+@import '../../../style/utils/base';
+
+.footer{
+    height: 50rem;
+    background-color: $color-secondary;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

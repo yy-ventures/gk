@@ -1,0 +1,69 @@
+@import '../../../style/utils/base';
+
+.navbar{
+    position: relative;
+    padding: 0 10rem;
+    height: 15rem;
+    background-color:  white;
+
+    display: flex;
+    justify-content: space-between;
+
+    .logoContainer{
+        align-self: center;
+        height: 8rem;
+        width: 50rem;
+
+        .logo{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            background-color: palegreen;
+        }
+    }
+    .list{
+        background-color: $color-primary;
+        height: max-content;
+        padding: 0 5rem;
+        border-radius: 1rem 0 0 1rem;
+        
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+
+        position: absolute;
+        bottom: -2.5rem;
+        right: 0;
+        
+        .item,
+        .dropdownItem{
+            padding: 1rem 2rem;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: $color-text-light;
+            list-style: none;
+        }
+        .dropdownItem{
+            position: relative;
+            background-color: peru;
+
+            &:hover .dropdownList{
+                display: inline-block;
+            }
+
+            .dropdownList{
+                display: none;
+                background-color: orangered;
+                position: absolute;
+                top: 5.2rem;
+                left: 0;
+                width: max-content;
+                
+                .subItem{
+                    list-style: none;
+                    padding: 1rem 2rem;
+                }
+            }
+        }
+    }
+}
