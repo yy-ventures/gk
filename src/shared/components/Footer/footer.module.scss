@@ -112,7 +112,7 @@
                 align-items: center;
                 gap: 2rem;
 
-                @include response(phone){
+                @include response(vp-800){
                     justify-content: center;
                 }
 
