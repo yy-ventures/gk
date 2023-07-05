@@ -2,13 +2,14 @@
 
 .navbar{
     position: relative;
+    z-index: 9999;
     padding: 3rem 10rem;
     background-color:  white;
 
     display: flex;
     justify-content: space-between;
     gap: 5rem;
-    
+
     @include response(phone){
         padding: 3rem;
     }

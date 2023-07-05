@@ -8,7 +8,7 @@
     justify-content: space-between;
     gap: 5rem;
     
-    @include response(phone){
+    @include response(vp-800){
         flex-direction: column;
         align-items: normal;
         gap: 2rem;
@@ -24,7 +24,7 @@
         align-items: center;
         justify-content: center;
 
-        @include response(phone){
+        @include response(vp-800){
             flex: auto;
             height: 15rem;
         }
@@ -51,7 +51,7 @@
         @include response(s-desktop){
             padding: 10rem 5rem 10rem 15rem;
         }
-        @include response(phone){
+        @include response(vp-800){
             flex: auto;
             flex-direction: column;
             align-items: center;
@@ -112,7 +112,7 @@
                 align-items: center;
                 gap: 2rem;
 
-                @include response(phone){
+                @include response(vp-800){
                     justify-content: center;
                 }
 
