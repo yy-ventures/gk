@@ -1,7 +1,6 @@
 @import '../../../style/utils/base';
 
 .footer{
-    // height: 50rem;
     padding-left: 5rem;
 
     display: flex;
@@ -18,8 +17,8 @@
 
     .logoContainer{
         flex: 1;
+        padding: 3rem;
         height: 20rem;
-        background-color: peru;
 
         display: flex;
         align-items: center;
@@ -27,10 +26,13 @@
 
         @include response(phone){
             flex: auto;
+            height: 15rem;
         }
         
         .logo{
             height: 100%;
+            width: 100%;
+            object-fit: contain;
         }
     }
     .contentContainer{
@@ -43,6 +45,9 @@
         justify-content: space-between;
         gap: 2rem;
         
+        @include response(M-desktop){
+            padding: 15rem 10rem 15rem 20rem;
+        }
         @include response(s-desktop){
             padding: 10rem 5rem 10rem 15rem;
         }
@@ -58,7 +63,7 @@
         .address,
         .contact,
         .socialmedia{
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: $color-text-light;
         }
 
@@ -68,9 +73,6 @@
 
             .addressTitle{
                 font-weight: 600;
-            }
-            .addressData{
-
             }
         }
 
@@ -110,6 +112,10 @@
                 align-items: center;
                 gap: 2rem;
 
+                @include response(phone){
+                    justify-content: center;
+                }
+
                 .link{
                     height: 3.5rem;
                     aspect-ratio: 1;
@@ -122,8 +128,13 @@
                     justify-content: center;
 
                     .icon{
-                        font-size: 1.6rem;
+                        font-size: 1.8rem;
                         color: $color-primary;
+                        transition: all 500ms;
+                    }
+
+                    &:hover .icon{
+                        color: white;
                     }
                 }
             }
