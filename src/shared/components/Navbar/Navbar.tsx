@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+
+import gkLogo from '@/assets/logo/gk-logo.svg';
 
 import style from './navbar.module.scss';
 
@@ -30,7 +33,7 @@ const Navbar = () => {
   return (
     <div className={navbar}>
       <div className={logoContainer}>
-        <div className={logo}></div>
+        <Image className={logo} src={gkLogo} alt='GK logo'/>
       </div>
       <ul className={toggle ? `${list} ${openList}` : `${list}`}>
         <li className={item}>home</li>

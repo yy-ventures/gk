@@ -7,6 +7,8 @@ import {
   FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn
 } from 'react-icons/fa6';
 
+import gkLogo from '@/assets/logo/gk-logo.svg';
+
 import style from './footer.module.scss';
 
 const {
@@ -33,8 +35,7 @@ const Footer = () => {
   return (
     <div className={footer}>
       <div className={logoContainer}>
-        {/* <Image className={logo} src={'#'} alt='logo'/> */}
-        <h1>GK Logo</h1>
+        <Image className={logo} src={gkLogo} alt='logo'/>
       </div>
       <div className={contentContainer}>
         <div className={address}>

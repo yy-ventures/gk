@@ -1,35 +1,118 @@
 @import '../../../style/utils/base';
 
 .heroSection{
-    height: 100vh;
+    height: calc(100Svh - 16rem);
     background-color: plum;
+    position: relative;
+    
+    @include response(phone){
+        height: calc(100Svh - 12rem);
+        
+    }
 
-    h1{
-        font-size: $heading-6;
-        color: $color-text-light;
+    .bgImage{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+
+        .img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: left;
+
+            @include response(vp-800){
+                object-position: 20%;
+            }
+            @include response(phone){
+                object-position: 29%;
+            }
+        }
     }
-    h2{
-        font-size: $heading-5;
-        color: $color-text-light;
+
+    .layout{
+        height: 45rem;
+        width: 45rem;
+        background-color: rgba(172, 255, 47, 0.479);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+
+        @include response(phone){
+            height: 35rem;
+            width: 35rem;
+        }
     }
-    h3{
-        font-size: $heading-4;
-        color: $color-text-light;
+
+    .glory{
+        height: 20rem;
+        width: 20rem;
+        background-color: rgba(128, 0, 128, 0.486);
+
+        position: absolute;
+        top: 15rem;
+        right: 15rem;
+        z-index: 2;
+
+        @include response(phone){
+            top: 10rem;
+            right: 10rem;
+        }
     }
-    h4{
-        font-size: $heading-3;
-        color: $color-text-light;
-    }
-    h5{
-        font-size: $heading-2;
-        color: $color-text-light;
-    }
-    h6{
-        font-size: $heading-1;
-        color: $color-text-light;
-    }
-    .small{
-        font-size: $heading-0;
-        color: $color-text-light;
+
+    .contentContainer{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+
+        display: flex;
+
+        .emptyBox{
+            flex: 1;
+        }
+        .content{
+            flex: 1;
+
+            font-family: "Siyam Rupali";
+            font-weight: 900;
+            line-height: 1.1;
+            padding: 3rem;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @include response(vp-800){
+                justify-content: end;
+                margin-bottom: 10rem;
+            }
+            
+            .darkText{
+                font-size: 10rem;
+                color: white;
+
+                @include response(phone){
+                    font-size: 8rem;
+                    margin-left: 4rem;
+                }
+            }
+            .lightText{
+                font-size: 12rem;
+                color: transparent;
+                margin-left: 10rem;
+                -webkit-text-stroke: 1px white;
+                
+                @include response(phone){
+                    font-size: 10rem;
+                }
+            }
+        }
     }
 }

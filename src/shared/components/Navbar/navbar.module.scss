@@ -2,8 +2,9 @@
 
 .navbar{
     position: relative;
+    z-index: 99999;
+    
     padding: 3rem 10rem;
-    // height: 15rem;
     background-color:  white;
 
     display: flex;
@@ -21,6 +22,10 @@
         align-self: center;
         height: 10rem;
         width: 50rem;
+        
+        @include response(phone){
+            height: 6rem;
+        }
 
         @include response(phone){
             height: 8rem;
@@ -30,7 +35,7 @@
             height: 100%;
             width: 100%;
             object-fit: contain;
-            background-color: palegreen;
+            object-position: left;
         }
     }
 
@@ -97,12 +102,11 @@
             .dropdownList{
                 display: none;
                 background-color: $color-primary;
-                // position: absolute;
-                // top: 5.2rem;
-                // left: 0;
+                position: absolute;
+                top: 5.2rem;
+                left: 0;
                 width: max-content;
                 border-radius: 0  0 5px 5px;
-
                 
                 .subItem{
                     list-style: none;
