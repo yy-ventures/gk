@@ -57,6 +57,12 @@ $breakpoint arguments choice:
         @content;
       }
     }
+    @if $breakpoint == s-desktop {
+      // media size 1024px
+      @media (max-width: 64em) {
+        @content;
+      }
+    }
     @if $breakpoint == desktop {
       // media size 1366px
       @media (max-width: 85.375em) {
@@ -66,6 +72,12 @@ $breakpoint arguments choice:
     @if $breakpoint == M-desktop {
       // media size 1440px
       @media (max-width: 90em) {
+        @content;
+      }
+    }
+    @if $breakpoint == L-desktop {
+      // media size 1600px
+      @media (max-width: 100em) {
         @content;
       }
     }

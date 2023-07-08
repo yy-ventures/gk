@@ -1,0 +1,212 @@
+@import '../../../style/utils/base';
+
+.navbar{
+    position: relative;
+    z-index: 99999;
+    
+    padding: 3rem 10rem;
+    background-color:  white;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+
+    @include response(M-desktop){
+        padding: 5rem 10rem;
+    }
+    @include response(phone){
+        padding: 3rem;
+    }
+
+    .logoContainer{
+        align-self: center;
+        height: 10rem;
+        width: 50rem;
+        
+        @include response(phone){
+            height: 6rem;
+        }
+
+        @include response(phone){
+            height: 8rem;
+        }
+
+        .logo{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: left;
+        }
+    }
+
+    .list{
+        background-color: $color-primary;
+        height: max-content;
+        padding: 0 3rem;
+        border-radius: 1rem 0 0 1rem;
+        transition: all 500ms ease-in-out;
+        
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        position: absolute;
+        bottom: -2.5rem;
+        right: 0;
+
+        @include response(tab-port){
+            bottom: -59rem;
+            left: -100%;
+            width: 100%;
+            padding: 5rem;
+            border-radius: 0;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .item{
+            cursor: pointer;
+            transition: all 500ms;
+            
+            &:hover{
+                color: $color-secondary-goldenrod;
+            }
+        }
+        
+        .item,
+        .dropdownItem{
+            padding: 1.5rem 2.5rem;
+            font-size: 2rem;
+            font-weight: 400;
+            list-style: none;
+            color: $color-text-light;
+
+        }
+
+        .dropdownItem{
+            position: relative;
+
+            &:hover .dropdownList{
+                display: inline-block;
+            }
+            
+            .itemText{
+                color: $color-text-light;
+                cursor: pointer;
+            }
+
+            &:hover .itemText{
+                color: $color-secondary-goldenrod;
+            }
+
+            .dropdownList{
+                display: none;
+                background-color: $color-primary;
+                position: absolute;
+                top: 5.2rem;
+                left: 0;
+                width: max-content;
+                border-radius: 0  0 5px 5px;
+                
+                .subItem{
+                    list-style: none;
+                    padding: 1rem 2rem;
+                    cursor: pointer;
+                    text-align: center;
+                    color: $color-text-light;
+                    transition: color 500ms;
+
+                    &:not(:last-child){
+                        border-bottom: 1px solid $color-secondary-goldenrod;
+                    }
+
+                    &:hover{
+                        color: $color-secondary-goldenrod;
+                    }
+                }
+            }
+        }
+    }
+    .openList{
+        left: 0;
+    }
+    .menuBtn {
+        display: none;
+        background-color: transparent;
+        border: none;
+        margin: 0px;
+        min-height: 2.5rem;
+        min-width: 3rem;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        // position: absolute;
+        // right: 3rem;
+        // z-index: 99;
+
+        @include response(tab-port){
+            display: block;
+        }
+        
+        &:hover,
+        &:focus,
+        &:active {
+          outline: none;
+        }
+
+        .bar {
+            background-color: $color-text-darkGrey;
+            width: 3rem;
+            height: 3px;
+            margin: 4px auto;
+            border-radius: 3px;
+            display: block;
+            position: relative;
+            transition: all 0.3s;
+            backface-visibility: hidden;
+        }
+          
+        .bar:before,
+        .bar:after {
+            content: '';
+            background-color: $color-text-darkGrey;
+            border-radius: 3px;
+            width: 3rem;
+            height: 3px;
+            margin: 4px auto;
+            position: absolute;
+            transition: all 0.3s;
+            backface-visibility: hidden;
+        }
+          
+        .bar:before {
+            top: -12px;
+            left: 0px;
+        }
+          
+        .bar:after {
+            bottom: -12px;
+            left: 0px;
+        }
+    }
+      
+    .menuBtn.active {
+    
+        > .bar {
+            background-color: transparent;
+            transition: .2s;
+        }
+        > .bar:before {
+            transform: rotate(45deg) translate(4px, 9px);
+            transition: .3s;
+            width: 28px;
+            left: 1px;
+        }
+        > .bar:after {
+            transform: rotate(-45deg) translate(3px, -7px);
+            transition: .3s;
+            width: 28px;
+            left: 1px;
+        }
+    }
+}
