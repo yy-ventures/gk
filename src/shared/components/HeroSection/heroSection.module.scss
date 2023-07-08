@@ -1,0 +1,85 @@
+@import '../../../style/utils/base';
+
+.heroSection{
+    position: relative;
+    height: calc(100svh - 16rem);
+    
+    @include response(phone){
+        height: calc(100svh - 12rem);        
+    }
+
+    .bgImageContainer{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+
+        .bgImage{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    .content{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+
+        background-color: $color-secondary;
+        border-radius: 35rem 0 0 0;
+        
+        @include response(phone){
+            width: 100%;
+            border-radius: 25rem 0 0 0;
+        }
+
+        .heading{
+            position: relative;
+            z-index: 2;
+            font-size: clamp(1.20rem, calc(0.35rem + 4.27vw), 5.47rem);
+            font-weight: 900;
+            line-height: 1.2;
+            padding: 14rem 21rem;
+            color: white;
+            
+            @include response(M-desktop){
+                padding: 12rem 19rem;
+            }
+            @include response(phone){
+                padding: 10rem 15rem;
+                font-size: clamp(1.44rem, calc(0.36rem + 5.40vw), 6.84rem);
+            }
+
+            span{
+                display: block;
+                white-space: nowrap;
+            }
+        }
+        .layoutContainer{
+            height: 45rem;
+            width: 45rem;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            @include response(M-desktop){
+                height: 40rem;
+                width: 40rem;
+            }
+            @include response(phone){
+                height: 25rem;
+                width: 25rem;
+            }
+
+            .layoutImage{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
