@@ -2,8 +2,7 @@
 
 .navbar{
     position: relative;
-    z-index: 99999;
-    
+    z-index: 9999;
     padding: 3rem 10rem;
     background-color:  white;
 
@@ -11,9 +10,6 @@
     justify-content: space-between;
     gap: 5rem;
 
-    @include response(M-desktop){
-        padding: 5rem 10rem;
-    }
     @include response(phone){
         padding: 3rem;
     }
@@ -25,10 +21,6 @@
         
         @include response(phone){
             height: 6rem;
-        }
-
-        @include response(phone){
-            height: 8rem;
         }
 
         .logo{
