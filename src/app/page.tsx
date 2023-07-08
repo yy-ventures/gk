@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeroSection } from '@/components/Home';
+import { HeroSection } from '@/shared/components/HeroSection';
 
 const Home = () => {
   return (
