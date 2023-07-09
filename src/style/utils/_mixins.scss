@@ -75,12 +75,12 @@ $breakpoint arguments choice:
         @content;
       }
     }
-    @if $breakpoint == L-desktop {
+    @if $breakpoint == lg-desktop {
       // media size 1600px
       @media (max-width: 100em) {
         @content;
       }
-    }
+    }    
     @if $breakpoint == big-desktop {
       // media size 1800px
       @media (min-width: 112.5em) {
