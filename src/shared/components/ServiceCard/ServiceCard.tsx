@@ -1,22 +1,24 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
-import healthcare from '@/assets/images/services/DSC_1195.png';
+import { IServiceCardProps } from './service.type';
 
 import style from './serviceCard.module.scss';
 
 const {
-  service, mask, heading, imgContainer, img
+  serviceCard, mask, heading, imgContainer, img
 } = style;
 
-const ServiceCard = () => {
+const ServiceCard = ({ service }: IServiceCardProps) => {
   return (
-    <div className={service}>
+    <div className={serviceCard}>
       <div className={mask}>
-        <h4 className={heading}>healthcare</h4>
+        <h4 className={heading}>{service.title}</h4>
       </div>
       <div className={imgContainer}>
-        <Image className={img} src={healthcare} alt='service'/>
+        <Image className={img} src={service.image} alt='service' width={100} height={100}/>
       </div>
     </div>
   );

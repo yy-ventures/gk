@@ -2,27 +2,31 @@
 
 .serviceSection{
     position: relative;
-    height: 100vh;
     background-color: $color-primary;
 
     .layout{
         height: 80%;
         width: 60%;
         background-color: $color-secondary;
-        border-radius: 0 0 0 50rem;
-
+        border-radius: 0 0 0 70rem;
+        
         position: absolute;
         top: 0;
         right: 0;
-
+        
         @include response(tab-port){
             height: 50%;
+            border-radius: 0 50rem 0 0;
+            
+            top: auto;
+            bottom: 0;
+            left: 0;
         }
     }
     .contentContainer{
         padding: 15rem 20rem;
         
-        position: absolute;
+        position: relative;
         top: 0;
         bottom: 0;
         left: 0;
@@ -30,10 +34,11 @@
         z-index: 1;
         
         display: flex;
-        gap: 5rem;
+        gap: 7rem;
         
         @include response(tab-port){
             flex-direction: column;
+            padding: 10rem;
         }
         @include response(phone){
             padding: 5rem;            
@@ -43,13 +48,17 @@
         }
 
         .services{
-            flex: 5;
+            flex: 6;
             height: 100%;
 
             display: grid;
             grid-template-columns: [col-left-start] 1fr [col-left-end col-mid-start] min-content [col-mid-end col-right-start] 1fr [col-right-end];
             grid-template-rows: [row-top-start] 1fr [row-top-end row-mid-start] min-content [row-mid-end row-bottom-start] 1fr [row-bottom-end];
             gap: 2rem;
+
+            @include response(phone){
+                gap: 1rem;
+            }
 
             .serviceOne{
                 grid-column: col-left-start / col-left-end;
@@ -110,7 +119,6 @@
             .serviceTwo,
             .serviceThree,
             .serviceFour {
-                background-color: orangered;
                 width: 100%;
             }
 
@@ -130,7 +138,7 @@
         }
         
         .content{
-            flex: 3;
+            flex: 4;
             height: 100%;
 
             .text{
@@ -143,9 +151,6 @@
                 @include response(tab-port){
                     color: $color-text-light;
                 }
-            }
-            .btn{
-
             }
         }
     }
