@@ -12,7 +12,7 @@ html{
   box-sizing: border-box;
   font-size: 62.5%;
 
-  @include response(L-desktop){
+  @include response(lg-desktop){
     font-size: 55%;
   }
   @include response(M-desktop){

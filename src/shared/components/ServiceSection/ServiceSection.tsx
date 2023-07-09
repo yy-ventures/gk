@@ -1,6 +1,7 @@
 import React from 'react';
 import { ServiceCard } from '../ServiceCard';
 
+import { Button } from '@/shared/components';
 import { serviceData } from '@/assets/data';
 
 import style from './serviceSection.module.scss';
@@ -12,7 +13,6 @@ const {
   services,
   content,
   text,
-  btn,
   serviceOne,
   serviceTwo,
   serviceThree,
@@ -37,18 +37,6 @@ const ServiceSection = () => {
               </div>
             ))
           }
-          {/* <div className={serviceOne}>
-            <ServiceCard/>
-          </div>
-          <div className={serviceTwo}>
-            <ServiceCard/>
-          </div>
-          <div className={serviceThree}>
-            <ServiceCard/>
-          </div>
-          <div className={serviceFour}>
-            <ServiceCard/>
-          </div> */}
           <div className={vLineOne}/>
           <div className={vLineTwo}/>
           <div className={hLineOne}/>
@@ -59,7 +47,7 @@ const ServiceSection = () => {
           <h2 className={text}>
             Millions of People at Bottom of the Pyramid are Served with Empathy and Care
           </h2>
-          <button className={btn}>Read More</button>
+          <Button text='read more' url='#'/>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { IServiceCardProps } from './serice.type';
+import { IServiceCardProps } from './service.type';
 
 import style from './serviceCard.module.scss';
 
