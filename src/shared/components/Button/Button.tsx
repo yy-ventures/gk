@@ -5,11 +5,11 @@ import { IbuttonProps } from './button.type';
 import style from './button.module.scss';
 import Link from 'next/link';
 
-const { btn } = style;
+const { btn, btnSecond } = style;
 
-const Button = ({ text, url }: IbuttonProps) => {
+const Button = ({ text, url, btnSecondary }: IbuttonProps) => {
   return (
-    <Link className={btn} href={url}>{text}</Link>
+    <Link className={btnSecondary ? `${btn} ${btnSecond}` : `${btn}`} href={url}>{text}</Link>
   );
 };
 

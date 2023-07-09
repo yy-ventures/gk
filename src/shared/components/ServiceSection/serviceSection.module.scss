@@ -14,7 +14,7 @@
         top: 0;
         right: 0;
         
-        @include response(tab-port){
+        @include response(s-desktop){
             height: 50%;
             border-radius: 0 50rem 0 0;
             
@@ -36,15 +36,16 @@
         display: flex;
         gap: 7rem;
         
-        @include response(tab-port){
+        @include response(s-desktop){
             flex-direction: column;
             padding: 10rem;
         }
         @include response(phone){
-            padding: 5rem;            
+            padding: 10rem 5rem;
+            gap: 5rem;          
         }
         @include response(s-phone){
-            padding: 3rem;            
+            padding: 8rem 3rem;            
         }
 
         .services{
