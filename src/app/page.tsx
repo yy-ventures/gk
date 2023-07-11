@@ -5,10 +5,12 @@ import {
   AboutSection,
   BoardMember,
   AnnuallyServe,
-  AnnualSection,
   MicroHealthSection
 } from '@/components/Home';
-import { ServiceSection, StorySection, WorkTogether } from '@/shared/components';
+
+import {
+  ServiceSection, StorySection, WorkTogether, AnnualReportSection
+} from '@/shared/components';
 
 const Home = () => {
   return (
@@ -18,7 +20,7 @@ const Home = () => {
       <ServiceSection/>
       <BoardMember/>
       <AnnuallyServe/>
-      <AnnualSection/>
+      <AnnualReportSection headingText='Annual'/>
       <MicroHealthSection/>
       <StorySection/>
       <WorkTogether/>
