@@ -2,12 +2,10 @@
 
 .heroSection{
     height: calc(100Svh - 16rem);
-    background-color: plum;
     position: relative;
     
     @include response(phone){
         height: calc(100Svh - 12rem);
-        
     }
 
     .bgImage{
@@ -35,7 +33,6 @@
     .layout{
         height: 45rem;
         width: 45rem;
-        background-color: rgba(172, 255, 47, 0.479);
 
         position: absolute;
         top: 0;
@@ -46,21 +43,27 @@
             height: 35rem;
             width: 35rem;
         }
+
+        .img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
     }
 
     .glory{
         height: 20rem;
         width: 20rem;
-        background-color: rgba(128, 0, 128, 0.486);
 
         position: absolute;
-        top: 15rem;
-        right: 15rem;
+        top: 8rem;
+        right: 13rem;
         z-index: 2;
 
-        @include response(phone){
-            top: 10rem;
-            right: 10rem;
+        .img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
         }
     }
 
@@ -104,7 +107,7 @@
                 }
             }
             .lightText{
-                font-size: 12rem;
+                font-size: 15rem;
                 color: transparent;
                 margin-left: 10rem;
                 -webkit-text-stroke: 1px white;

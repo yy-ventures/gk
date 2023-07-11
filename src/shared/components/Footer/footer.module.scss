@@ -8,7 +8,7 @@
     justify-content: space-between;
     gap: 5rem;
     
-    @include response(vp-800){
+    @include response(s-desktop){
         flex-direction: column;
         align-items: normal;
         gap: 2rem;
@@ -24,7 +24,7 @@
         align-items: center;
         justify-content: center;
 
-        @include response(vp-800){
+        @include response(s-desktop){
             flex: auto;
             height: 15rem;
         }

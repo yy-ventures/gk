@@ -23,3 +23,14 @@ $color-text-midGrey: #ddd;
 
 $color-error: rgb(151, 61, 61);
 $color-success: rgb(61, 151, 109);
+
+
+// ============================
+// Functions
+// ============================
+
+@mixin alignItem(){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

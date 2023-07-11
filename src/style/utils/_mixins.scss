@@ -52,8 +52,8 @@ $breakpoint arguments choice:
       }
     }
     @if $breakpoint == tab-port {
-      // media size 960px
-      @media (max-width: 60em) {
+      // media size 962px
+      @media (max-width: 60.125em) {
         @content;
       }
     }
