@@ -1,13 +1,18 @@
 import React from 'react';
 
-import { MissionVision } from '@/components/About';
-import { HeroSection } from '@/shared/components';
+import { MissionVision, AboutUs, EmpoweringSection, OurProudSection } from '@/components/About';
+import { HeroSection, ServiceSection, AnnualReportSection } from '@/shared/components';
 
 const page = () => {
   return (
     <>
       <HeroSection/>
       <MissionVision/>
+      <ServiceSection/>
+      <AboutUs/>
+      <AnnualReportSection headingTop={true} headingText='Story of Inception'/>
+      <EmpoweringSection/>
+      <OurProudSection headingText='Our Proud Presence' subHeadingText='Across the Country'/>
     </>
   );
 };
