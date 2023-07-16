@@ -1,7 +1,17 @@
 import React from 'react';
 
-import { MissionVision, AboutUs, EmpoweringSection, OurProudSection } from '@/components/About';
-import { HeroSection, ServiceSection, AnnualReportSection } from '@/shared/components';
+import {
+  MissionVision,
+  AboutUs,
+  EmpoweringSection,
+  OurProudSection,
+  AboutGrameenKalyan,
+  AchievementSection,
+  BoardMemberSection
+} from '@/components/About';
+import {
+  HeroSection, ServiceSection, AnnualReportSection, WorkTogether
+} from '@/shared/components';
 
 const page = () => {
   return (
@@ -13,6 +23,10 @@ const page = () => {
       <AnnualReportSection headingTop={true} headingText='Story of Inception'/>
       <EmpoweringSection/>
       <OurProudSection headingText='Our Proud Presence' subHeadingText='Across the Country'/>
+      <AboutGrameenKalyan/>
+      <AchievementSection/>
+      <BoardMemberSection/>
+      <WorkTogether/>
     </>
   );
 };
