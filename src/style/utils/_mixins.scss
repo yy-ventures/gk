@@ -46,8 +46,8 @@ $breakpoint arguments choice:
       }
     }
     @if $breakpoint == vp-800 {
-      // media size 800px
-      @media (max-width: 50em) {
+      // media size 810px
+      @media (max-width: 50.625em) {
         @content;
       }
     }

@@ -18,9 +18,9 @@ const BoardMember = () => {
       <div className={layoutRight}>
         <Image className={img} src={layoutTR} alt='layout'/>
       </div>
-      {/* <div className={layoutLeft}>
+      <div className={layoutLeft}>
         <Image className={img} src={layoutBL} alt='layout'/>
-      </div> */}
+      </div>
       {
         boardMemberData.map((data) => (
           <div className={memberCardContainer} key={data.id}>
