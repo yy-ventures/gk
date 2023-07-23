@@ -1,0 +1,10 @@
+@import '../../../../style/utils/base';
+
+.chittagong-division{
+
+    &:hover{
+        path{
+            fill: red;
+        }
+    }
+}

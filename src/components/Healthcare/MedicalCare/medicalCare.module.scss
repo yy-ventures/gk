@@ -1,0 +1,57 @@
+@import '../../../style/utils/base';
+
+.medicalCare{
+    padding-bottom: 15rem;
+
+    .contentContainer{
+        position: relative;
+        padding: 20rem;
+
+        .layoutLeft{
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            height: 55rem;
+
+            .img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        .layoutRight{
+            position: absolute;
+            bottom: -1rem;
+            right: 0;
+
+            height: 40rem;
+            
+            .img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;                
+            }
+        }
+
+        .heading{
+            color: $color-primary;
+            font-size: 6.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-align: center;
+            margin-bottom: 4rem;
+
+            span{
+                display: block;
+            }
+        }
+        .parag{
+            font-size: 1.8rem;
+            max-width: 50%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
