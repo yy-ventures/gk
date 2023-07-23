@@ -1,13 +1,15 @@
 import React from 'react';
 
 import { HeroSection } from '@/shared/components';
-import { AreaWeServe } from '@/components/Services';
+import { AreaWeServe, ServiceSection } from '@/components/Services';
 
 const Services = () => {
   return (
     <>
       <HeroSection/>
       <AreaWeServe/>
+      <ServiceSection/>
+      <ServiceSection reverse={true}/>
     </>
   );
 };
