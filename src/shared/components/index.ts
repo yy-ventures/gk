@@ -6,3 +6,6 @@ export * from './ServiceCard';
 export * from './Button';
 export * from './WorkTogether';
 export * from './AnnualReportSection';
+export * from './TeamGroup';
+export * from './TeamGrid';
+export * from './TeamMemberCard';
