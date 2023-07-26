@@ -5,11 +5,12 @@ import {
   AboutSection,
   BoardMember,
   AnnuallyServe,
-  MicroHealthSection
+  MicroHealthSection,
+  StorySection
 } from '@/components/Home';
 
 import {
-  ServiceSection, StorySection, WorkTogether, AnnualReportSection
+  ServiceSection, WorkTogether, AnnualReportSection
 } from '@/shared/components';
 
 const Home = () => {
