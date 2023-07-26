@@ -13,7 +13,7 @@ import {
   HeroSection, ServiceSection, AnnualReportSection, WorkTogether
 } from '@/shared/components';
 
-const page = () => {
+const About = () => {
   return (
     <>
       <HeroSection/>
@@ -31,4 +31,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default About;
