@@ -26,10 +26,12 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        z-index: 1;
-
+        z-index: 1;        
+        
         background-color: $color-secondary;
         border-radius: 35rem 0 0 0;
+        overflow: hidden;
+        padding: 14rem 21rem;
         
         @include response(phone){
             width: 100%;
@@ -42,7 +44,6 @@
             font-size: clamp(1.20rem, calc(0.35rem + 4.27vw), 5.47rem);
             font-weight: 900;
             line-height: 1.2;
-            padding: 14rem 21rem;
             color: white;
             
             @include response(M-desktop){
@@ -58,6 +59,43 @@
                 white-space: nowrap;
             }
         }
+
+        .juSubHeading{
+            position: relative;
+            z-index: 2;
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 2rem;
+
+            @include response(phone){
+                font-size: 2rem;
+            }
+
+            span{
+                display: block;
+                white-space: nowrap;
+            }
+        }
+        .juHeading{
+            position: relative;
+            z-index: 2;
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: white;
+
+            @include response(phone){
+                font-size: 2.5rem;
+            }
+
+            span{
+                display: block;
+                white-space: nowrap;
+            }
+        }
+
         .layoutContainer{
             height: 45rem;
             width: 45rem;
@@ -80,6 +118,15 @@
                 width: 100%;
                 object-fit: contain;
             }
+        }
+    }
+    .juContent{
+        padding: 10rem 18rem;
+        border-radius: 30rem 0 0 0;
+        
+        @include response(phone){
+            border-radius: 20rem 0 0 0;
+            padding: 8rem 10rem;
         }
     }
 }

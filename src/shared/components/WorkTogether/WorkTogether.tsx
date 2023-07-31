@@ -27,7 +27,7 @@ const WorkTogether = () => {
         <p className={parag}>
           Reach out to know more about partnership and collaboration opportunities.
         </p>
-        <Button text='Join Us' url='#' btnSecondary={true}/>
+        <Button text='Join Us' url='/join-us' btnSecondary={true}/>
       </div>
     </div>
   );
