@@ -13,6 +13,41 @@ const {
 } = style;
 
 const ImageDisplay = () => {
+  // const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // const items = [
+  //   {
+  //     id: 1
+  //     itemName: 'somthing'
+  //     image: 'asdasdasd'
+  //   },
+  //   {
+  //     id: 2
+  //     itemName: 'somthing'
+  //     image: 'asdasdasd'
+  //   },
+  //   {
+  //     id: 3
+  //     itemName: 'somthing'
+  //     image: 'asdasdasd'
+  //   },
+  //   {
+  //     id: 4
+  //     itemName: 'somthing'
+  //     image: 'asdasdasd'
+  //   },
+  //   {
+  //     id: 5
+  //     itemName: 'somthing'
+  //     image: 'asdasdasd'
+  //   },
+  //   {
+  //     id: 6
+  //     itemName: 'somthing'
+  //     image: 'asdasdasd'
+  //   }
+  // ]
+
   return (
     <div className={contentContainer}>
       <h2 className={heading}>Stories</h2>
@@ -37,7 +72,7 @@ const ImageDisplay = () => {
         </div>
       </div>
       <div className={imageContainer}>
-        <h1>Image here</h1>
+        <h1>Image</h1>
       </div>
       <div className={rightContent}>
         <div className={content}>

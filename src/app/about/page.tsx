@@ -13,13 +13,25 @@ import {
   HeroSection, ServiceSection, AnnualReportSection, WorkTogether
 } from '@/shared/components';
 
-const About = () => {
+import { useFetch } from '@/shared/hook';
+
+const About = async () => {
+  const data = await useFetch({ url: '/about-us-contents' });
+
+  const mission = data.data[0].mission;
+  const vision = data.data[0].vision;
+
+  const aboutSectionData = {
+    heading: data.data[0].company_intro_title,
+    description: data.data[0].company_intro_description
+  };
+
   return (
     <>
       <HeroSection/>
-      <MissionVision/>
+      <MissionVision mission={mission} vision={vision}/>
       <ServiceSection/>
-      <AboutUs/>
+      <AboutUs data={aboutSectionData}/>
       <AnnualReportSection headingTop={true} headingText='Story of Inception'/>
       <EmpoweringSection/>
       <OurProudSection headingText='Our Proud Presence' subHeadingText='Across the Country'/>

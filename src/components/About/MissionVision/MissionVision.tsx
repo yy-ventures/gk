@@ -10,7 +10,12 @@ const {
   missionVision, missionContainer, title, desc, visionContainer, layoutLeft, layoutRight, img
 } = style;
 
-const MissionVision = () => {
+interface IMissionVisionProps {
+  mission: string
+  vision: string
+}
+
+const MissionVision = ({ mission, vision }: IMissionVisionProps) => {
   return (
     <div className={missionVision}>
       <div className={layoutLeft}>
@@ -22,14 +27,13 @@ const MissionVision = () => {
       <div className={visionContainer}>
         <h2 className={title}>vision</h2>
         <p className={desc}>
-          An inclusive world-class primary healthcare ecosystem across Bangladesh.
+          {vision}
         </p>
       </div>
       <div className={missionContainer}>
         <h2 className={title}>mission</h2>
         <p className={desc}>
-          Delivering quality Primary Healthcare and minimize
-          health inequalities and economic setbacks.
+          {mission}
         </p>
       </div>
     </div>
