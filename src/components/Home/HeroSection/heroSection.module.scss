@@ -15,6 +15,24 @@
         left: 0;
         bottom: 0;
 
+        background-color: orangered;
+
+        .imgContainer{
+            height: 100%;
+            width: 100%;
+
+            @include alignItem();
+        }
+        .imgOne{
+            background-color: purple;
+        }
+        .imgTwo{
+            background-color: pink;
+        }
+        .imgThree{
+            background-color: greenyellow;
+        }
+
         .img{
             height: 100%;
             width: 100%;
@@ -79,41 +97,36 @@
 
         .emptyBox{
             flex: 1;
+
+            @include response(phone){
+                flex: 2;
+            }
         }
         .content{
             flex: 1;
 
-            font-family: "Siyam Rupali";
-            font-weight: 900;
-            line-height: 1.1;
-            padding: 3rem;
-            
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: flex-end;
 
-            @include response(vp-800){
-                justify-content: end;
+            @include response(phone){
+                flex: 6;
+            }
+
+            .imgContainer{
+                height: 45rem;
+                width: 45rem;
                 margin-bottom: 10rem;
-            }
-            
-            .darkText{
-                font-size: 10rem;
-                color: white;
 
-                @include response(phone){
-                    font-size: 8rem;
-                    margin-left: 4rem;
+                @include response(tab-port){
+                    height: 35rem;
+                    width: 35rem;
+                    margin-bottom: 5rem;
                 }
-            }
-            .lightText{
-                font-size: 15rem;
-                color: transparent;
-                margin-left: 10rem;
-                -webkit-text-stroke: 1px white;
-                
-                @include response(phone){
-                    font-size: 10rem;
+
+                .img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
                 }
             }
         }

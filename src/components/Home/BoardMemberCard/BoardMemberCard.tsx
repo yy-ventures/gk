@@ -13,7 +13,6 @@ const {
   memberCard,
   contentContainer,
   descContainer,
-  desc,
   memberName,
   desig,
   imageContainer,
@@ -33,8 +32,7 @@ const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
               <Image className={img} src={memberData.image} width={100} height={100} alt='Yunus'/>
             </div>
             <div className={contentContainer}>
-              <div className={`${descContainer} ${reverseDescContainer}`}>
-                <p className={desc}>{memberData.description}</p>
+              <div className={`${descContainer} ${reverseDescContainer}`} dangerouslySetInnerHTML={{ __html: memberData.description }}>
               </div>
               <h5 className={memberName}>{memberData.name}</h5>
               <span className={desig}>{memberData.designation}</span>
@@ -44,8 +42,7 @@ const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
       {
         !memberData.reverse ? <div className={memberCard}>
           <div className={contentContainer}>
-            <div className={descContainer}>
-              <p className={desc}>{memberData.description}</p>
+            <div className={descContainer} dangerouslySetInnerHTML={{ __html: memberData.description }}>
             </div>
             <h5 className={memberName}>{memberData.name}</h5>
             <span className={desig}>{memberData.designation}</span>

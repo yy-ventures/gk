@@ -33,6 +33,10 @@
             max-width: 70%;
             color: $color-secondary-goldenrod;
 
+            span{
+                display: block;
+            }
+
             @include response(phone){
                 max-width: 90%;
             }

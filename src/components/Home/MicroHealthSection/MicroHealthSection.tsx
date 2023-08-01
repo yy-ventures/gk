@@ -1,10 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
-import bgImage from '@/assets/images/home/annual-section-bg.webp';
+import { Button } from '@/shared/components';
 
 import style from './microHealthSection.module.scss';
-import { Button } from '@/shared/components';
 
 const {
   microHealthSection,
@@ -12,15 +11,14 @@ const {
   container,
   bgContainer,
   img,
-  contentContainer,
-  content,
-  gridContainer,
-  text,
-  number,
-  title
+  contentContainer
 } = style;
 
-const MicroHealthSection = () => {
+interface IMicroHealthSectionProps {
+  image: string
+}
+
+const MicroHealthSection = ({ image }: IMicroHealthSectionProps) => {
   return (
     <div className={microHealthSection}>
       <h1 className={heading}>
@@ -29,7 +27,7 @@ const MicroHealthSection = () => {
       </h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={bgImage} alt='bg-img'/>
+          <Image className={img} src={image} alt='bg-img' width={100} height={100}/>
         </div>
         <div className={contentContainer}>
           <Button text='Read More' url='#' btnSecondary={true}/>

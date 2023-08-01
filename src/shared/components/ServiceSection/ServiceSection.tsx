@@ -47,7 +47,7 @@ const ServiceSection = () => {
           <h2 className={text}>
             Millions of People at Bottom of the Pyramid are Served with Empathy and Care
           </h2>
-          <Button text='read more' url='#'/>
+          <Button text='read more' url='/services'/>
         </div>
       </div>
     </div>

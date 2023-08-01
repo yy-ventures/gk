@@ -32,3 +32,15 @@ body {
 .PhotoView-Portal {
   z-index: 9999 !important;
 }
+
+// Slick Slider card height adjustment
+.slick-track {
+  height: calc(100Svh - 16rem);
+
+  @include response(phone){
+    height: calc(100Svh - 12rem);
+  }
+}
+.slick-track .slick-slide > div{
+  height: 100%;
+}
