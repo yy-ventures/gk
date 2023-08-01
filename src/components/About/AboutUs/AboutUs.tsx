@@ -6,7 +6,7 @@ import layoutTL from '@/assets/layout/grid-top-leaf.svg';
 import style from './aboutUs.module.scss';
 
 const {
-  aboutUs, heading, parag, layoutLeft, img, description
+  aboutUs, heading, layoutLeft, img, description
 } = style;
 
 interface IAboutUsProps {

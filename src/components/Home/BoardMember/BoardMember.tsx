@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-import boardMemberData from '@/assets/data/boardMember';
 import layoutTR from '@/assets/layout/layout-tr-large.svg';
 import layoutBL from '@/assets/layout/line-leaf.svg';
 
@@ -12,7 +11,18 @@ const {
   boardMember, layoutRight, layoutLeft, img, memberCardContainer
 } = style;
 
-const BoardMember = () => {
+interface IBoardMemberProps {
+  memberData: {
+    id: number
+    name: string
+    description: string
+    designation: string
+    image: string
+    reverse: boolean
+  }[]
+}
+
+const BoardMember = ({ memberData }: IBoardMemberProps) => {
   return (
     <div className={boardMember}>
       <div className={layoutRight}>
@@ -22,7 +32,7 @@ const BoardMember = () => {
         <Image className={img} src={layoutBL} alt='layout'/>
       </div>
       {
-        boardMemberData.map((data) => (
+        memberData.map((data) => (
           <div className={memberCardContainer} key={data.id}>
             <BoardMemberCard memberData={data}/>
           </div>

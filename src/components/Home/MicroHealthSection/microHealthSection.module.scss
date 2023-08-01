@@ -17,34 +17,34 @@
 
     .heading{
         font-size: 25rem;
-        line-height: .8;
+        line-height: 1;
         text-align: center;
         color: $color-primary;
         opacity: .3;
 
         position: relative;
-        top: -20rem;
+        top: -22.5rem;
         z-index: 1;
 
         @include response(s-desktop){
             font-size: 20rem;
-            top: -16rem;
+            top: -18.5rem;
         }
         @media screen and (max-width: 810px){
             font-size: 16rem;
-            top: -13rem;
+            top: -15.5rem;
         }
         @include response(phone){
             font-size: 12rem;
-            top: -10rem;
+            top: -12.5rem;
         }
         @include response(M-phone){
             font-size: 10rem;
-            top: -8rem;
+            top: -10.5rem;
         }
         @include response(s-phone){
             font-size: 7rem;
-            top: -6rem;
+            top: -8.5rem;
         }
 
         span{
@@ -57,19 +57,6 @@
         left: 0;
         right: 0;
         bottom: 0;
-
-        // @include response(s-desktop){
-        //     top: 14rem;
-        // }
-        // @include response(vp-800){
-        //     top: 8rem;
-        // }
-        // @include response(phone){
-        //     top: 5rem;
-        // }
-        // @include response(M-phone){
-        //     top: 0;
-        // }
 
         .bgContainer{
             height: 100%;
