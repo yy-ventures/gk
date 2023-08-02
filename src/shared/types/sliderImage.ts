@@ -1,4 +1,4 @@
 export interface ISliderImage {
     id: number
-    bannerImage: string
+    banner_image: string
 }
