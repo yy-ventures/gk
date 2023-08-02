@@ -21,7 +21,7 @@ const {
   subHeading
 } = style;
 
-const AnnualReportSection = ({ headingText, subHeadingText }: IOurProudSection) => {
+const OurProudSection = ({ proudPresenceData, headingText, subHeadingText }: IOurProudSection) => {
   return (
     <div className={annualSection}>
       <h1 className={heading}>
@@ -34,30 +34,14 @@ const AnnualReportSection = ({ headingText, subHeadingText }: IOurProudSection) 
         </div>
         <div className={contentContainer}>
           <div className={gridContainer}>
-            <div className={content}>
-              <p className={text}>
-                <span className={number}>144</span>
-                <span className={title}>Health Centers</span>
-              </p>
-            </div>
-            <div className={content}>
-              <p className={text}>
-                <span className={number}>30</span>
-                <span className={title}>Districts</span>
-              </p>
-            </div>
-            <div className={content}>
-              <p className={text}>
-                <span className={number}>7</span>
-                <span className={title}>Divisions</span>
-              </p>
-            </div>
-            <div className={content}>
-              <p className={text}>
-                <span className={number}>4900</span>
-                <span className={title}>Villages</span>
-              </p>
-            </div>
+            {
+              proudPresenceData.map(data => <div key={data.id} className={content}>
+                <p className={text}>
+                  <span className={number}>{data.value}</span>
+                  <span className={title}>{data.title}</span>
+                </p>
+              </div>)
+            }
           </div>
         </div>
       </div>
@@ -65,4 +49,4 @@ const AnnualReportSection = ({ headingText, subHeadingText }: IOurProudSection) 
   );
 };
 
-export default AnnualReportSection;
+export default OurProudSection;

@@ -14,17 +14,31 @@ import {
 } from '@/shared/components';
 
 import { useFetch } from '@/shared/hook';
+import { reverseFilterDataByKey } from '@/shared/utils/pageHelpers/filterDataByKey.helper';
 
 const About = async () => {
-  const data = await useFetch({ url: '/about-us-contents' });
+  const aboutUsData = await useFetch({ url: '/about-us-contents' });
+  const summeryReportData = await useFetch({ url: '/summary-report-settings/basic', revalidateIn: 86400 });
+  const ourProudPresenceData = await useFetch({ url: '/summary-report-settings/healthcare', revalidateIn: 86400 });
+  const achievementData = await useFetch({ url: '/timeline', revalidateIn: 86400 });
+  const boardMemberData = await useFetch({ url: '/members', revalidateIn: 86400 });
 
-  const mission = data.data[0].mission;
-  const vision = data.data[0].vision;
+  const mission = aboutUsData.data[0].mission;
+  const vision = aboutUsData.data[0].vision;
 
   const aboutSectionData = {
-    heading: data.data[0].company_intro_title,
-    description: data.data[0].company_intro_description
+    heading: aboutUsData.data[0].company_intro_title,
+    description: aboutUsData.data[0].company_intro_description
   };
+
+  const annuallyReportData = reverseFilterDataByKey(summeryReportData.data, 'annually_we_serve');
+
+  const empoweringSectionData = {
+    title: aboutUsData.data[0].inception_title,
+    details: aboutUsData.data[0].inception_details
+  };
+
+  const aboutGrameenKalyanSectionData = aboutUsData.data[0].presence_details;
 
   return (
     <>
@@ -32,12 +46,12 @@ const About = async () => {
       <MissionVision mission={mission} vision={vision}/>
       <ServiceSection/>
       <AboutUs data={aboutSectionData}/>
-      <AnnualReportSection headingTop={true} headingText='Story of Inception'/>
-      <EmpoweringSection/>
-      <OurProudSection headingText='Our Proud Presence' subHeadingText='Across the Country'/>
-      <AboutGrameenKalyan/>
-      <AchievementSection/>
-      <BoardMemberSection/>
+      <AnnualReportSection data={annuallyReportData} headingTop={true} headingText='Story of Inception'/>
+      <EmpoweringSection empoweringData={empoweringSectionData}/>
+      <OurProudSection proudPresenceData={ourProudPresenceData.data} headingText='Our Proud Presence' subHeadingText='Across the Country'/>
+      <AboutGrameenKalyan aboutGkData={aboutGrameenKalyanSectionData}/>
+      <AchievementSection achievementData={achievementData.data}/>
+      <BoardMemberSection boardMembersData={boardMemberData.data} />
       <WorkTogether/>
     </>
   );

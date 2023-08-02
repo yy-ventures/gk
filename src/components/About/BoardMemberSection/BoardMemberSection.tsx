@@ -1,10 +1,10 @@
 import React from 'react';
 
-import boardMembersData from '@/assets/data/boardMembers';
 import { handleMiddleIndex } from './boardMemberSection.helpers';
-
+import { IBoardMemberSectionProps } from './BoardMemberSection.types';
 import BoardMemberCard from './BoardMemberCard/BoardMemberCard';
 import HorizontalLayout from './HorizontalLayout/HorizontalLayout';
+
 import style from './boardMemberSection.module.scss';
 
 const {
@@ -15,7 +15,7 @@ const {
   cardContainer
 } = style;
 
-const BoardMemberSection = () => {
+const BoardMemberSection = ({ boardMembersData }: IBoardMemberSectionProps) => {
   const chairman = boardMembersData.filter(data => data.designation === 'Chairman');
   const boardMembers = boardMembersData.filter(data => data.designation !== 'Chairman');
   const middleDataOne = handleMiddleIndex(boardMembers, 1);
