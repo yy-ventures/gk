@@ -2,7 +2,7 @@
 
 .navbar{
     position: relative;
-    z-index: 9999;
+    z-index: 999999;
     padding: 3rem 10rem;
     background-color:  white;
 
@@ -10,6 +10,9 @@
     justify-content: space-between;
     gap: 5rem;
 
+    @include response(s-desktop){
+        padding: 5rem;
+    }
     @include response(phone){
         padding: 3rem;
     }
@@ -19,6 +22,9 @@
         height: 10rem;
         width: 50rem;
         
+        @include response(s-desktop){
+            height: 8rem;
+        }
         @include response(phone){
             height: 6rem;
         }
@@ -32,22 +38,22 @@
     }
 
     .list{
+        position: relative;
         background-color: $color-primary;
         height: max-content;
-        padding: 0 3rem;
+        padding: 0 5rem 0 3rem;
         border-radius: 1rem 0 0 1rem;
         transition: all 500ms ease-in-out;
         
         display: flex;
         align-items: center;
-        gap: 2rem;
 
         position: absolute;
         bottom: -2.5rem;
         right: 0;
 
         @include response(tab-port){
-            bottom: -59rem;
+            top: 12rem;
             left: -100%;
             width: 100%;
             padding: 5rem;
@@ -67,11 +73,12 @@
         
         .item,
         .dropdownItem{
-            padding: 1.5rem 2.5rem;
+            padding: 1.5rem 2rem;
             font-size: 2rem;
             font-weight: 400;
             list-style: none;
             color: $color-text-light;
+            text-transform: capitalize;
 
         }
 
@@ -85,6 +92,14 @@
             .itemText{
                 color: $color-text-light;
                 cursor: pointer;
+
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+
+                @include response(tab-port){
+                    justify-content: center;
+                }
             }
 
             &:hover .itemText{
@@ -99,6 +114,12 @@
                 left: 0;
                 width: max-content;
                 border-radius: 0  0 5px 5px;
+
+                @include response(tab-port){
+                    position: relative;
+                    top: 0;
+                    background-color: $color-secondary;
+                }
                 
                 .subItem{
                     list-style: none;
@@ -107,18 +128,44 @@
                     text-align: center;
                     color: $color-text-light;
                     transition: color 500ms;
-
-                    &:not(:last-child){
-                        border-bottom: 1px solid $color-secondary-goldenrod;
-                    }
+                    border-bottom: 1px solid $color-secondary-goldenrod;
 
                     &:hover{
                         color: $color-secondary-goldenrod;
                     }
                 }
+                .subItemNoBorder{
+                    border: none;
+                }
             }
         }
+
+        .badgeContainer{
+            position: absolute;
+            top: 50%;
+            right: 5rem;
+            transform: translateY(-50%);
+
+            height: 10rem;
+            list-style: none;
+            
+            .img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .link{
+            text-decoration: none;
+        }
     }
+    .spaceBox{
+        display: block;
+        width: 15rem;
+        height: 100%;
+    }
+
     .openList{
         left: 0;
     }
@@ -131,10 +178,6 @@
         min-width: 3rem;
         transition: all 0.3s;
         cursor: pointer;
-
-        // position: absolute;
-        // right: 3rem;
-        // z-index: 99;
 
         @include response(tab-port){
             display: block;
