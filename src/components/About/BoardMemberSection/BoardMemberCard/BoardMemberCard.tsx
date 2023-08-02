@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
-import bmImage from '@/assets/images/about/boardMember/1643174518_Nurjahan-Begum.png';
+import { IMAGE_BASE_URL } from '@/config';
 import { IBoardMember } from '@/shared/types/boardMember';
 
 import style from './boardMemberCard.module.scss';
@@ -27,10 +29,12 @@ interface IBoardMemberCardProps {
 const BoardMemberCard = ({
   data, typeOne, typeTwo, typeThree
 }: IBoardMemberCardProps) => {
+  const imgUrl = IMAGE_BASE_URL + data.profile_photo;
+
   return (
     <div className={boardMemberCard}>
       <div className={typeOne ? `${imageContainer} ${cardStyleOne}` : typeTwo ? `${imageContainer} ${cardStyleTwo}` : typeThree ? `${imageContainer} ${cardStyleThree}` : `${imageContainer}`}>
-        <Image className={img} src={bmImage} alt='member'/>
+        <Image className={img} src={imgUrl} alt='member' width={100} height={100} loader={() => imgUrl}/>
       </div>
       <p className={memberName}>{data && data.name}</p>
       <p className={designation}>{data && data.designation}</p>
