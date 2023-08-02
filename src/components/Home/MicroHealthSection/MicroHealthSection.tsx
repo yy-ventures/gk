@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
 import { Button } from '@/shared/components';
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './microHealthSection.module.scss';
 
@@ -27,7 +30,7 @@ const MicroHealthSection = ({ image }: IMicroHealthSectionProps) => {
       </h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={image} alt='bg-img' width={100} height={100}/>
+          <Image className={img} src={IMAGE_BASE_URL + image} alt='bg-img' width={100} height={100} loader={() => IMAGE_BASE_URL + image}/>
         </div>
         <div className={contentContainer}>
           <Button text='Read More' url='#' btnSecondary={true}/>

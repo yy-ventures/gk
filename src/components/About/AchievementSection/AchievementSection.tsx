@@ -1,12 +1,12 @@
+'use client';
+
 import React from 'react';
 
-import imageOne from '@/assets/images/about/achievementSection/grid-1.jpg';
-import imageTwo from '@/assets/images/about/achievementSection/grid-2.jpg';
-
-import achievementsData from '@/assets/data/achievements';
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './achievementSection.module.scss';
 import Image from 'next/image';
+import { IAchievementSection } from './AchievementSection.types';
 
 const {
   achievementSection,
@@ -17,44 +17,39 @@ const {
   squareBox,
   horizontalRightLine,
   heading,
-  text,
   imageContainer,
   contentContainer,
   contentContainerReverse,
   imageContainerReverse
 } = style;
 
-const AchievementSection = () => {
-  const firstAchievement = achievementsData.filter(achievement => achievement.id === 1);
-  const achievements = achievementsData.filter(achievement => achievement.id !== 1);
+const AchievementSection = ({ achievementData }: IAchievementSection) => {
+  const firstAchievement = achievementData.filter(achievement => achievement.id === 1);
+  const achievements = achievementData.filter(achievement => achievement.id !== 1);
 
   return (
     <div className={achievementSection}>
       {
-        firstAchievement.map((data) => {
+        firstAchievement?.map((data) => {
+          const imageUrl = IMAGE_BASE_URL + data.thumb_image;
           return (
             <>
               <div className={imageContainer}>
-                <Image className={img} src={imageOne} alt='1996-2000'/>
+                <Image className={img} src={imageUrl} alt={data.title} width={100} height={100} loader={() => imageUrl}/>
               </div>
               <div className={verticalTopLine}/>
               <div className={contentContainer}>
                 <h3 className={heading}>{data.title}</h3>
-                <p className={text}>08 Health centers were Installed</p>
-                <p className={text}>Community based Primary Health Care program launched</p>
-                <p className={text}>Domiciliary Service began to operate</p>
-                <p className={text}>Satellite Health Program was introduced</p>
-                <p className={text}>Introduced Micro Health Insurance</p>
-                <p className={text}>30,000+ patients were served in the year of inception</p>
-                <p className={text}>Well-being Program was launched</p>
-                <p className={text}>Initiated Emergency Response Program</p>
+                <div dangerouslySetInnerHTML={{ __html: data.details }}></div>
               </div>
             </>
           );
         })
       }
       {
-        achievements.map(data => {
+        achievements?.map(data => {
+          const imageUrl = IMAGE_BASE_URL + data.thumb_image;
+
           if (data.id % 2 === 0) {
             return (
               <>
@@ -63,17 +58,11 @@ const AchievementSection = () => {
                 <div className={horizontalRightLine}/>
                 <div className={`${contentContainer} ${contentContainerReverse}`}>
                   <h3 className={heading}>{data.title}</h3>
-                  <p className={text}>08 Health centers were Installed</p>
-                  <p className={text}>Community based Primary Health Care program launched</p>
-                  <p className={text}>Domiciliary Service began to operate</p>
-                  <p className={text}>Satellite Health Program was introduced</p>
-                  <p className={text}>Introduced Micro Health Insurance</p>
-                  <p className={text}>30,000+ patients were served in the year of inception</p>
-                  <p className={text}>Well-being Program was launched</p>
+                  <div dangerouslySetInnerHTML={{ __html: data.details }}></div>
                 </div>
                 <div className={verticalBottomLine}/>
                 <div className={`${imageContainer} ${imageContainerReverse}`}>
-                  <Image className={img} src={imageTwo} alt='2001-2005'/>
+                  <Image className={img} src={imageUrl} alt={data.title} width={100} height={100} loader={() => imageUrl}/>
                 </div>
               </>
             );
@@ -84,18 +73,12 @@ const AchievementSection = () => {
               <div className={squareBox}/>
               <div className={horizontalRightLine}/>
               <div className={imageContainer}>
-                <Image className={img} src={imageTwo} alt='2001-2005'/>
+                <Image className={img} src={imageUrl} alt={data.title} width={100} height={100} loader={() => imageUrl}/>
               </div>
               <div className={verticalBottomLine}/>
               <div className={contentContainer}>
                 <h3 className={heading}>{data.title}</h3>
-                <p className={text}>08 Health centers were Installed</p>
-                <p className={text}>Community based Primary Health Care program launched</p>
-                <p className={text}>Domiciliary Service began to operate</p>
-                <p className={text}>Satellite Health Program was introduced</p>
-                <p className={text}>Introduced Micro Health Insurance</p>
-                <p className={text}>30,000+ patients were served in the year of inception</p>
-                <p className={text}>Well-being Program was launched</p>
+                <div dangerouslySetInnerHTML={{ __html: data.details }}></div>
               </div>
             </>
           );

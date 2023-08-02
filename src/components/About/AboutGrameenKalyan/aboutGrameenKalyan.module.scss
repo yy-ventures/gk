@@ -13,13 +13,10 @@
         padding: 5rem 3rem;
     }
 
-    .text{
+    p{
         font-size: 2rem;
         color: $color-text-darkGrey;
         text-align: center;
-
-        &:not(:last-of-type){
-            margin-bottom: 2rem;
-        }
+        margin-bottom: 2rem;
     }
 }

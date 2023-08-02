@@ -60,14 +60,34 @@
             font-weight: 900;
             margin-bottom: 2rem;
         }
+        table{
+            border: 1px solid transparent !important;
+            border-collapse: collapse;
+
+            tr{
+                display: block;
+                border: 1px solid transparent !important;
+                margin-bottom: 1rem;
+
+                td{
+                    font-size: 1.8rem;
+                    width: max-content;
+                    border-bottom: 1px solid black;
+                    
+                    &:not(:last-of-type){
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
         .text{
             font-size: 1.8rem;
-            max-width: max-content;
-            border-bottom: 1px solid black;
-
-            &:not(:last-of-type){
-                margin-bottom: 1rem;
-            }
+                max-width: max-content;
+                border-bottom: 1px solid black;
+    
+                &:not(:last-of-type){
+                    margin-bottom: 1rem;
+                }
         }
     }
 
@@ -79,8 +99,15 @@
             border-radius: 10rem 0 0 0;            
         }
 
-        .text{
+        table{
             margin-left: auto;
+            
+            tr{
+                margin-left: auto;
+
+                display: flex;
+                justify-content: flex-end;
+            }
         }
     }
 
@@ -128,3 +155,4 @@
         }
     }
 }
+

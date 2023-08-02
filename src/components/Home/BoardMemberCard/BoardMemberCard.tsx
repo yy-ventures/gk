@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
 import { IBoardMemberData } from './boardMember.type';
+import { IMAGE_BASE_URL } from '@/config';
 
 interface IBoardMemberCardProps {
   memberData: IBoardMemberData
@@ -29,7 +32,7 @@ const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
         memberData.reverse
           ? <div className={`${memberCard} ${reverseMemberCard}`}>
             <div className={`${imageContainer} ${reverseImageContainer}`}>
-              <Image className={img} src={memberData.image} width={100} height={100} alt='Yunus'/>
+              <Image className={img} src={IMAGE_BASE_URL + memberData.image} width={100} height={100} loader={() => IMAGE_BASE_URL + memberData.image} alt='Yunus'/>
             </div>
             <div className={contentContainer}>
               <div className={`${descContainer} ${reverseDescContainer}`} dangerouslySetInnerHTML={{ __html: memberData.description }}>
@@ -48,7 +51,7 @@ const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
             <span className={desig}>{memberData.designation}</span>
           </div>
           <div className={imageContainer}>
-            <Image className={img} src={memberData.image} width={100} height={100} alt='Yunus'/>
+            <Image className={img} src={IMAGE_BASE_URL + memberData.image} width={100} height={100} loader={() => IMAGE_BASE_URL + memberData.image} alt='Yunus'/>
           </div>
         </div> : null
       }

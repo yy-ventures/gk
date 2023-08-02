@@ -1,11 +1,11 @@
 @import '../../../style/utils/base';
 
 .heroSection{
-    height: calc(100Svh - 16rem);
+    height: calc(100svh - 16rem);
     position: relative;
     
     @include response(phone){
-        height: calc(100Svh - 12rem);
+        height: calc(100svh - 12rem);
     }
 
     .bgImage{
@@ -15,22 +15,11 @@
         left: 0;
         bottom: 0;
 
-        background-color: orangered;
-
         .imgContainer{
             height: 100%;
             width: 100%;
 
             @include alignItem();
-        }
-        .imgOne{
-            background-color: purple;
-        }
-        .imgTwo{
-            background-color: pink;
-        }
-        .imgThree{
-            background-color: greenyellow;
         }
 
         .img{
