@@ -23,8 +23,8 @@ const About = async () => {
   const achievementData = await useFetch({ url: '/timeline', revalidateIn: 86400 });
   const boardMemberData = await useFetch({ url: '/members', revalidateIn: 86400 });
 
-  const mission = aboutUsData.data[0].mission;
-  const vision = aboutUsData.data[0].vision;
+  const mission = aboutUsData?.data[0].mission;
+  const vision = aboutUsData?.data[0].vision;
 
   const aboutSectionData = {
     heading: aboutUsData.data[0].company_intro_title,
