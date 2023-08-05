@@ -80,7 +80,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
             </Link>
           </ul>
         </li>
-        <Link className={link} href='#'>
+        <Link className={link} href='/stories'>
           <li className={item}>stories</li>
         </Link>
         <li className={dropdownItem}>

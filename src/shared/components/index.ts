@@ -11,3 +11,4 @@ export * from './TeamGrid';
 export * from './TeamMemberCard';
 export * from './Form';
 export * from './Slider';
+export * from './RecentPost';
