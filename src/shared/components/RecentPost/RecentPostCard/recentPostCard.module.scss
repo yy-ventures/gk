@@ -1,0 +1,48 @@
+@import '../../../../style/utils/base';
+
+.recentPostCard{
+    padding: 0 3rem;
+
+    .container{
+        background-color: $color-primary;
+        border-radius: 3rem 3rem 0 0;
+
+        .imgContainer{
+            height: 40rem;
+            border-radius: 3rem;
+            overflow: hidden;
+
+            @include response(phone){
+                height: 60rem;
+            }
+
+            .img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .contentContainer{
+        background-color: $color-primary;
+        padding: 10rem 0;
+        
+        border-radius: 0 0 3rem 3rem;
+        
+        @include response(tab-port){
+            padding: 7rem 0;
+            
+        }
+        @include response(phone){
+            padding: 15rem 3rem;
+        }
+        
+        .title{
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            text-align: center;
+            color: $color-text-light;
+        }
+    }
+}

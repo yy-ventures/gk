@@ -58,6 +58,7 @@
             padding: .5rem 2rem;
             border-radius: 1rem;
             border: 1px solid $color-text-light;
+            cursor: pointer;
 
             @include response(phone){
                 display: flex;
@@ -72,9 +73,11 @@
             .imgContainer{
                 position: relative;
                 padding: 10%;
+                background-color: orangered;
+                display: none;
 
-                @media screen and (min-width: 640px){
-                    display: none;
+                @include response(phone){
+                    display: inline;
                 }
 
                 .img{
@@ -114,6 +117,7 @@
         width: 70rem;
         border-radius: 50%;
         border: 2rem solid $color-secondary-goldenrod;
+        overflow: hidden;
         
         @include alignItem();
         
@@ -128,6 +132,12 @@
         }
         @include response(phone){
             display: none;
+        }
+
+        .img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
         }
     }
     .rightContent{

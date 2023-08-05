@@ -1,6 +1,13 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './imageDisplay.module.scss';
+import { IImageDisplayProps } from './ImageDisplay.types';
+import { filterData } from './imageDisplay.helpers';
 
 const {
   contentContainer,
@@ -9,90 +16,45 @@ const {
   content,
   imgContainer,
   imageContainer,
-  rightContent
+  rightContent,
+  img
 } = style;
 
-const ImageDisplay = () => {
-  // const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const ImageDisplay = ({ data }: IImageDisplayProps) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // const items = [
-  //   {
-  //     id: 1
-  //     itemName: 'somthing'
-  //     image: 'asdasdasd'
-  //   },
-  //   {
-  //     id: 2
-  //     itemName: 'somthing'
-  //     image: 'asdasdasd'
-  //   },
-  //   {
-  //     id: 3
-  //     itemName: 'somthing'
-  //     image: 'asdasdasd'
-  //   },
-  //   {
-  //     id: 4
-  //     itemName: 'somthing'
-  //     image: 'asdasdasd'
-  //   },
-  //   {
-  //     id: 5
-  //     itemName: 'somthing'
-  //     image: 'asdasdasd'
-  //   },
-  //   {
-  //     id: 6
-  //     itemName: 'somthing'
-  //     image: 'asdasdasd'
-  //   }
-  // ]
+  const leftSideData = filterData({ data, from: 1, to: 3 });
+  const rightSideData = filterData({ data, from: 4, to: 6 });
 
   return (
     <div className={contentContainer}>
       <h2 className={heading}>Stories</h2>
       <div className={leftContent}>
-        <div className={content}>
-          <p>Emergency Response</p>
-          <div className={imgContainer}>
-            {/* <Image className={img} src={testImage} alt='stroy image'/> */}
-          </div>
-        </div>
-        <div className={content}>
-          <p>Fighting the Pandemic</p>
-          <div className={imgContainer}>
-            {/* <Image className={img} src={testImage} alt='stroy image'/> */}
-          </div>
-        </div>
-        <div className={content}>
-          <p>Diagnosis is Key</p>
-          <div className={imgContainer}>
-            {/* <Image className={img} src={testImage} alt='stroy image'/> */}
-          </div>
-        </div>
+        {
+          leftSideData.map(data => <div key={data.id} className={content} onMouseOver={ () => setSelectedImage(data.banner_image)}>
+            <p>{data.name}</p>
+            <div className={imgContainer}>
+              <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='stroy image' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
+            </div>
+          </div>)
+        }
       </div>
       <div className={imageContainer}>
-        <h1>Image</h1>
+        {
+          IMAGE_BASE_URL && selectedImage
+            ? <Image className={img} src={IMAGE_BASE_URL + selectedImage} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + selectedImage}/>
+            : <Image className={img} src={IMAGE_BASE_URL + data[0].banner_image} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + data[0].banner_image}/>
+        }
       </div>
       <div className={rightContent}>
-        <div className={content}>
-          <p>Compliance is Priority</p>
-          <div className={imgContainer}>
-            {/* <Image className={img} src={testImage} alt='stroy image'/> */}
-          </div>
-        </div>
-        <div className={content}>
-          <p>Mother and Child Care</p>
-          <div className={imgContainer}>
-            {/* <Image className={img} src={testImage} alt='stroy image'/> */}
-          </div>
-        </div>
-        <div className={content}>
-          <p>Micro Health Insurance</p>
-          <div className={imgContainer}>
-            {/* <Image className={img} src={testImage} alt='stroy image'/> */}
-          </div>
-        </div>
+        {
+          rightSideData.map(data => <div key={data.id} className={content} onMouseOver={() => setSelectedImage(data.banner_image)}>
+            <p>{data.name}</p>
+            <div className={imgContainer}>
+              <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='stroy image' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
+            </div>
+          </div>)
+        }
       </div>
     </div>
   );

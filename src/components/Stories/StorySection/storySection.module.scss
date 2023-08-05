@@ -1,0 +1,27 @@
+@import '../../../style/utils/base';
+
+.storySection{
+    padding: 20rem 20rem 50rem 20rem;
+    background-color: palegreen;
+
+    .heading{
+        font-size: clamp(1.44rem, calc(0.36rem + 5.40vw), 6.84rem);
+        font-weight: 900;
+        margin-bottom: 4rem;
+        line-height: 1.4;
+        color: $color-primary;
+
+        span{
+            display: block;
+            text-align: center;
+        }
+    }
+    .parag{
+        font-size: 2.2rem;
+        text-align: center;
+    }
+}
+
+.storyDisplay{
+    margin-bottom: 20rem ;
+}

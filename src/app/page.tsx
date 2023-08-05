@@ -9,7 +9,7 @@ import {
   BoardMember,
   AnnuallyServe,
   MicroHealthSection,
-  StorySection
+  StoriesSection
 } from '@/components/Home';
 
 import {
@@ -20,6 +20,7 @@ const Home = async () => {
   const homePageContentData = await useFetch({ url: '/home-contents', revalidateIn: 86400 });
   const summeryReportData = await useFetch({ url: '/summary-report-settings/basic', revalidateIn: 86400 });
   const sliderImages = await useFetch({ url: '/home-slider-content', revalidateIn: 86400 });
+  const storyCategory = await useFetch({ url: '/story-categories', revalidateIn: 86400 });
 
   const heroSliderImages = sliderImages.data;
   const badgeImage = homePageContentData.data[0].badge_image;
@@ -63,7 +64,7 @@ const Home = async () => {
       <AnnuallyServe data={annuallyWeServeData}/>
       <AnnualReportSection data={annuallyReportData} headingText='Annual'/>
       <MicroHealthSection image={microHealthData}/>
-      <StorySection/>
+      <StoriesSection storyCategory={storyCategory.data}/>
       <WorkTogether/>
     </>
   );
