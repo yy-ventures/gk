@@ -11,6 +11,8 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  --scroll-behavior: smooth!important;
+  scroll-behavior: smooth!important;
 
   @include response(lg-desktop) {
     font-size: 55%;

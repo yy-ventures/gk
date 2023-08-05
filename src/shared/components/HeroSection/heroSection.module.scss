@@ -33,9 +33,13 @@
         overflow: hidden;
         padding: 14rem 21rem;
         
+        @include response(M-desktop){
+            padding: 12rem 19rem;
+        }
         @include response(phone){
             width: 100%;
             border-radius: 25rem 0 0 0;
+            padding: 10rem 15rem;
         }
 
         .heading{
@@ -45,12 +49,8 @@
             font-weight: 900;
             line-height: 1.2;
             color: white;
-            
-            @include response(M-desktop){
-                padding: 12rem 19rem;
-            }
+
             @include response(phone){
-                padding: 10rem 15rem;
                 font-size: clamp(1.44rem, calc(0.36rem + 5.40vw), 6.84rem);
             }
 

@@ -7,6 +7,7 @@ import areaIconFour from '@/assets/icons/area-icon-4.svg';
 
 import style from './areaWeServe.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const {
   areaWeServeSection,
@@ -36,36 +37,44 @@ const AreaWeServe = () => {
 
       <div className={areaWeServeContainer}>
         <div className={layout}/>
-        <div className={areaHealthcare}>
-          <h3 className={heading}>Healthcare</h3>
-          <div className={iconContainer}>
-            <Image className={img} src={areaIconOne} alt='icon'/>
+        <Link href='/services#healthcare'>
+          <div className={areaHealthcare}>
+            <h3 className={heading}>Healthcare</h3>
+            <div className={iconContainer}>
+              <Image className={img} src={areaIconOne} alt='icon'/>
+            </div>
           </div>
-        </div>
-        <div className={areaWellBeing}>
-          <h3 className={heading}>Well-Being</h3>
-          <div className={iconContainer}>
-            <Image className={img} src={areaIconTwo} alt='icon'/>
+        </Link>
+        <Link href='/services#wellbeing'>
+          <div className={areaWellBeing}>
+            <h3 className={heading}>Well-Being</h3>
+            <div className={iconContainer}>
+              <Image className={img} src={areaIconTwo} alt='icon'/>
+            </div>
           </div>
-        </div>
-        <div className={areaEmergencyResponse}>
-          <h3 className={heading}>
-            <span>Emergency</span>
-            <span>Response</span>
-          </h3>
-          <div className={iconContainer}>
-            <Image className={img} src={areaIconThree} alt='icon'/>
+        </Link>
+        <Link href='/services#emergency'>
+          <div className={areaEmergencyResponse}>
+            <h3 className={heading}>
+              <span>Emergency</span>
+              <span>Response</span>
+            </h3>
+            <div className={iconContainer}>
+              <Image className={img} src={areaIconThree} alt='icon'/>
+            </div>
           </div>
-        </div>
-        <div className={areaSocialBusiness}>
-          <h3 className={heading}>
-            <span>Social</span>
-            <span>Business</span>
-          </h3>
-          <div className={iconContainer}>
-            <Image className={img} src={areaIconFour} alt='icon'/>
+        </Link>
+        <Link href='/services#social'>
+          <div className={areaSocialBusiness}>
+            <h3 className={heading}>
+              <span>Social</span>
+              <span>Business</span>
+            </h3>
+            <div className={iconContainer}>
+              <Image className={img} src={areaIconFour} alt='icon'/>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
