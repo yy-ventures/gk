@@ -5,10 +5,11 @@ import { ImageDisplay } from '@/shared/components/ImageDisplay';
 
 import layoutBR from '@/assets/layout/layout-br.svg';
 
-import style from './storySection.module.scss';
+import { IStoriesSectionProps } from './StoriesSection.types';
+import style from './storiesSection.module.scss';
 
 const {
-  storySection,
+  storiesSection,
   layout,
   img,
   headingContainer,
@@ -17,9 +18,9 @@ const {
   large
 } = style;
 
-const StorySection = () => {
+const StoriesSection = ({ storyCategory }: IStoriesSectionProps) => {
   return (
-    <div className={storySection}>
+    <div className={storiesSection}>
       <div className={layout}>
         <Image className={img} src={layoutBR} alt='layout' width={100} height={100}/>
       </div>
@@ -29,9 +30,9 @@ const StorySection = () => {
           <span className={large}>Smile</span>
         </h2>
       </div>
-      <ImageDisplay/>
+      <ImageDisplay data={storyCategory}/>
     </div>
   );
 };
 
-export default StorySection;
+export default StoriesSection;
