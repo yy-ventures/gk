@@ -26,9 +26,13 @@
     .contentContainer{
         background-color: $color-primary;
         padding: 10rem 0;
-
+        
         border-radius: 0 0 3rem 3rem;
-
+        
+        @include response(tab-port){
+            padding: 7rem 0;
+            
+        }
         @include response(phone){
             padding: 15rem 3rem;
         }

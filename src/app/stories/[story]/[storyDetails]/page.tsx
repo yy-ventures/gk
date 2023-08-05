@@ -1,8 +1,17 @@
 import React from 'react';
 
+import { HeroSection, DetailSection, CommentSection } from '@/components/StoryDetails';
+import { RecentPost, WorkTogether } from '@/shared/components';
+
 const StoryDetails = () => {
   return (
-    <div>StoryDetails</div>
+    <>
+      <HeroSection/>
+      <DetailSection/>
+      <CommentSection/>
+      <RecentPost/>
+      <WorkTogether/>
+    </>
   );
 };
 
