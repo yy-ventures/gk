@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
-import bmImage from '@/assets/images/about/boardMember/1643174518_Nurjahan-Begum.png';
-import { IBoardMember } from '@/shared/types/boardMember';
+import { ITeamGrid } from '@/shared/types/teanGrid';
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './teamMemberCard.module.scss';
 
@@ -18,7 +20,7 @@ const {
 } = style;
 
 interface IBoardMemberCardProps {
-  data: IBoardMember
+  data: ITeamGrid
   typeOne?: boolean
   typeTwo?: boolean
   typeThree?: boolean
@@ -30,7 +32,7 @@ const TeamMemberCard = ({
   return (
     <div className={boardMemberCard}>
       <div className={typeOne ? `${imageContainer} ${cardStyleOne}` : typeTwo ? `${imageContainer} ${cardStyleTwo}` : typeThree ? `${imageContainer} ${cardStyleThree}` : `${imageContainer}`}>
-        <Image className={img} src={bmImage} alt='member'/>
+        <Image className={img} src={IMAGE_BASE_URL + data.profile_photo} alt='member' width={100} height={100} loader={() => IMAGE_BASE_URL + data.profile_photo}/>
       </div>
       <p className={memberName}>{data && data.name}</p>
       <p className={designation}>{data && data.designation}</p>

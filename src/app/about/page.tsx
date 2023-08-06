@@ -14,7 +14,7 @@ import {
 } from '@/shared/components';
 
 import { useFetch } from '@/shared/hook';
-import { reverseFilterDataByKey } from '@/shared/utils/pageHelpers/filterDataByKey.helper';
+import { reverseFilterDataByKey } from '@/shared/utils/pageHelpers/filterData.helper';
 
 const About = async () => {
   const aboutUsData = await useFetch({ url: '/about-us-contents' });
