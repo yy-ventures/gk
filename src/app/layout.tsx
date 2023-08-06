@@ -2,7 +2,7 @@ import React from 'react';
 import '../style/globals.scss';
 import { Inter } from 'next/font/google';
 
-import { Navbar, Footer } from '@/shared/components';
+import { Navbar, Footer, SidebarSticky } from '@/shared/components';
 import { useFetch } from '@/shared/hook';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -26,6 +26,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Navbar badgeImage={badgeImage}/>
         {children}
+        <SidebarSticky/>
         <Footer />
       </body>
     </html>
