@@ -1,10 +1,14 @@
-import Album from '@/components/PhotoGallery/Album/Album';
 import React from 'react';
 
-const PhotoGallery = () => {
+import { useFetch } from '@/shared/hook';
+import Album from '@/components/PhotoGallery/Album/Album';
+
+const PhotoGallery = async () => {
+  const photoAlbums = await useFetch({ url: '/photo-albums', revalidateIn: 86400 });
+
   return (
     <div>
-      <Album />
+      <Album albumsData={photoAlbums.data}/>
     </div>
   );
 };
