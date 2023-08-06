@@ -1,38 +1,45 @@
 /* eslint-disable comma-dangle */
-import React from 'react';
-import style from './officeLocations.module.scss';
-import gridTopLeaf from '@/assets/images/grid-top-leaf.png';
 
-const OfficeLocations = () => {
-  const {
-    officeLocationContainer,
-    locationContainer,
-    locationCard,
-    cardOne,
-    cardTwo,
-    layoutContainer,
-    mainContainer,
-  } = style;
+import React from 'react';
+import Image from 'next/image';
+
+import layoutLT from '@/assets/layout/locator/GK_website_OPT_01_People_HealthForce-02.svg';
+import { IOfficeLocationsProps } from './OfficeLocations.types';
+
+import style from './officeLocations.module.scss';
+import Link from 'next/link';
+const {
+  officeLocationContainer,
+  locationContainer,
+  locationCard,
+  cardOne,
+  cardTwo,
+  layoutContainer,
+  mainContainer,
+  img,
+  link
+} = style;
+
+const OfficeLocations = ({ officeLocationsData }: IOfficeLocationsProps) => {
   return (
     <div className={mainContainer}>
       <div className={officeLocationContainer}>
         <div className={layoutContainer}>
-          <img src={gridTopLeaf.src} alt="" />
+          <Image className={img} src={layoutLT} alt="layout" />
         </div>
         <h2>Regional Office across Bangladesh</h2>
 
         <div className={locationContainer}>
-          {Array.from({ length: 10 }).map((item, i) => (
+          {officeLocationsData.map((data, i) => (
             <div
               className={`${locationCard} ${i % 2 === 0 ? cardOne : cardTwo}`}
-              key={i}
+              key={data.id}
             >
-              <h3>Dhaka</h3>
-              <p>
-                Holding no. 499-100 (2nd Floor), Plot 17, Road 5, Block-A,
-                Tangail Housing Estate, Pashchim Akur Takur Para, Tangail-1900.
-                +88 (0) 1701-693232
-              </p>
+              <h3>{data.title}</h3>
+              <Link className={link} href={data.map_location} target='__blank'>
+                <p>{data.address}</p>
+              </Link>
+              <p>{data.contact_info}</p>
             </div>
           ))}
         </div>

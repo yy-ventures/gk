@@ -9,6 +9,9 @@
   margin: 0 auto;
   padding: 5% 10%;
 
+  @include response(tab-port){
+    padding: 5% 0;
+  }
   @include response(phone) {
     width: 100%;
   }
@@ -19,15 +22,30 @@
     font-weight: 900;
     color: #0b612d;
     margin-bottom: 5rem;
+
+    position: relative;
+    z-index: 1;
+
+    @include response(phone){
+      text-align: center;
+    }
   }
 
   .layoutContainer {
+    height: 40rem;
+
     position: absolute;
     top: 0;
     left: 0;
 
     @include response(phone) {
       display: none;
+    }
+
+    .img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
     }
   }
 
@@ -37,6 +55,9 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 5rem;
     padding: 8% 5%;
+
+    position: relative;
+    z-index: 1;
 
     @include response(phone) {
       grid-template-columns: 1fr;
@@ -60,6 +81,15 @@
         font-size: 1.9rem;
         font-weight: bold;
         color: #fff;
+        display: block;
+
+        &:not(:last-child){
+          margin-bottom: 2rem;
+        }
+      }
+
+      .link{
+        text-decoration: none;
       }
     }
 

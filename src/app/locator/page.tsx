@@ -1,15 +1,19 @@
+import React from 'react';
+
 import Map from '@/components/Locator/Map/Map';
 import OfficeLocations from '@/components/Locator/OfficeLocations/OfficeLocations';
 import { WorkTogether } from '@/shared/components';
-import React from 'react';
+import { useFetch } from '@/shared/hook';
 
-const LocatorPage = () => {
+const LocatorPage = async () => {
+  const locators = await useFetch({ url: '/locators', revalidateIn: 86400 });
+
   return (
-    <div>
+    <>
       <Map />
-      <OfficeLocations />
+      <OfficeLocations officeLocationsData={locators.data} />
       <WorkTogether />
-    </div>
+    </>
   );
 };
 
