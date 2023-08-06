@@ -21,32 +21,43 @@
   }
 
   .content {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    width: 50%;
-    background-color: $color-secondary;
-    border-radius: 35rem 0 0 0;
-    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 
-    @include response(phone) {
-      width: 100%;
-      border-radius: 25rem 0 0 0;
-      position: relative;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;        
+    
+    background-color: $color-secondary;
+    border-radius: 35rem 0 0 0;
+    overflow: hidden;
+    padding: 10rem 21rem 5rem 21rem;
+    
+    @include response(M-desktop){
+        padding: 10rem 19rem 5rem 19rem;
     }
-
+    @include response(phone){
+        width: 100%;
+        border-radius: 25rem 0 0 0;
+        padding: 10rem 5rem 5rem 5rem;
+        position: relative;
+        border-radius: 15rem 0 0 0;
+      }
+    @include response(s-phone){
+      padding: 10rem 3rem 5rem 3rem;
+    }
+    
     .contentContainer {
+      width: 100%;
+      margin-bottom: 5rem;
+
       display: flex;
-      padding-left: 15%;
       align-items: center;
       gap: 6rem;
-      width: 100%;
-      // height: 100%;
+
       position: relative;
       z-index: 9999;
 
@@ -54,6 +65,7 @@
         padding: 0 5%;
         gap: 2rem;
         align-items: stretch;
+        flex-direction: column;
 
         .contentLeft {
           flex: 1;
@@ -92,7 +104,6 @@
       font-weight: 900;
       line-height: 1.2;
       color: white;
-      padding-left: 15%;
       margin-bottom: 3%;
 
       @include response(phone) {
@@ -106,6 +117,7 @@
         white-space: nowrap;
       }
     }
+
     .layoutContainer {
       height: 45rem;
       width: 45rem;
@@ -133,13 +145,6 @@
 }
 
 .taglineFooter {
-  position: absolute;
-  bottom: 2rem;
-  left: 15%;
-
-  @include response(phone) {
-    left: 5%;
-  }
   a {
     display: flex;
     justify-content: flex-start;

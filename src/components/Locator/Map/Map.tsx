@@ -1,8 +1,12 @@
 /* eslint-disable comma-dangle */
+
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+
 import layoutImg from '@/assets/layout/layout-tr-small.svg';
-import arrow from '@/assets/images/arrow-left.svg';
+import arrowIcon from '@/assets/icons/arrow-left.svg';
+
 import style from './map.module.scss';
 
 const {
@@ -42,10 +46,9 @@ const Map = () => {
         </div>
 
         <div className={taglineFooter}>
-          <a href="#">
-            <img src={arrow.src} alt="" />
-            See our regional locations on the map
-          </a>
+          <Link href="#">
+            <Image src={arrowIcon} alt="" />See our regional locations on the map
+          </Link>
         </div>
       </div>
     </div>
