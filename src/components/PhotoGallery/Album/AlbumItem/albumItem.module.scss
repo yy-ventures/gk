@@ -2,48 +2,35 @@
 
 .albumItem {
   background: #09612e;
-  padding-bottom: 8rem;
   border-radius: 0.25rem 0.25rem 30px 30px !important;
   overflow: hidden;
   border: 1px solid #09612e;
+  height: 100%;
 
-  a {
-    color: #fff;
-    text-decoration: none;
+  .imgContainer{
+    height: 30rem;
 
-    font-weight: 400;
-
-    .textContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      h4 {
-        height: fit-content;
-        padding-top: 2rem;
-        font-size: 1.8rem;
-
-        @media screen and (max-width: 1280px) {
-          padding: 1rem 3rem;
-          line-height: 1.2;
-        }
-
-        @include response(phone) {
-          padding: 2rem;
-        }
+    .img {
+      border-bottom-right-radius: 5rem;
+      border-bottom-left-radius: 5rem;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+  
+      &:hover {
+        transform: scale(1.05);
       }
     }
   }
 
-  img {
-    border-bottom-right-radius: 5rem;
-    border-bottom-left-radius: 5rem;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease-in-out;
+  .textContainer{
+    padding: 5rem 3rem;
 
-    &:hover {
-      transform: scale(1.05);
+    .title{
+      font-size: 2.2rem;
+      line-height: 1.2;
+      color: $color-text-light;
     }
   }
 }

@@ -1,19 +1,31 @@
+/* eslint-disable camelcase */
+
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
+
 import style from './albumItem.module.scss';
-import Link from 'next/link';
-const AlbumItem = () => {
-  const { albumItem, textContainer } = style;
+import { IMAGE_BASE_URL } from '@/config';
+import { IPhotoAlbums } from '@/shared/types/photoAlbums';
+
+const {
+  albumItem, textContainer, imgContainer, img, title
+} = style;
+
+interface IAlbumItemProps{
+  data: IPhotoAlbums
+}
+
+const AlbumItem = ({ data }: IAlbumItemProps) => {
   return (
     <div className={albumItem}>
-      <Link href="/photo-gallery/1">
-        <img
-          src="https://www.grameenkalyan.com/uploads/gallery/thumb_image/1686121791_uchakhila-3.png"
-          alt=""
-        />
-        <div className={textContainer}>
-          <h4>Grameen Kalyan Health Centers</h4>
-        </div>
-      </Link>
+      <div className={imgContainer}>
+        <Image className={img} src={IMAGE_BASE_URL + data.album_photo} alt='album' width={100} height={100} loader={() => IMAGE_BASE_URL + data.album_photo}/>
+      </div>
+      <div className={textContainer}>
+        <h4 className={title}>{data.title}</h4>
+      </div>
     </div>
   );
 };
