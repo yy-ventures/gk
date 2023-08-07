@@ -10,7 +10,7 @@ const Stories = async () => {
 
   return (
     <>
-      <HeroSection/>
+      <HeroSection heroFor='story' titleOne='Stories' titleTwo='that Inspire'/>
       <StorySection stroyCategories={storyCategories.data}/>
       <WorkTogether/>
     </>

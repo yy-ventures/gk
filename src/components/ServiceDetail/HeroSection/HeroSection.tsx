@@ -1,30 +1,31 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
-import bgImg from '@/assets/images/healthcare/grid-1.webp';
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './heroSection.module.scss';
+import { IHeroSectionData } from './HeroSection.types';
 
 const {
   serviceDetail,
   bgImageContainer,
-  bgImage,
-  heading,
-  textLarge,
-  textSmall
+  bgImage
 } = style;
 
-const HeroSection = () => {
+interface IHeroSectionProps{
+  data: IHeroSectionData
+}
+
+const HeroSection = ({ data }: IHeroSectionProps) => {
   return (
 
     <div className={serviceDetail}>
       <div className={bgImageContainer}>
-        <Image className={bgImage} src={bgImg} alt='bg img'/>
+        <Image className={bgImage} src={IMAGE_BASE_URL + data.heroImage} alt='bg img' height={100} width={100} loader={() => IMAGE_BASE_URL + data.heroImage}/>
       </div>
-      <h1 className={heading}>
-        <span className={textLarge}>With Joy</span>
-        <span className={textSmall}>We Grow Together</span>
-      </h1>
+      <div dangerouslySetInnerHTML={{ __html: data.heroTitle }}></div>
     </div>
   );
 };

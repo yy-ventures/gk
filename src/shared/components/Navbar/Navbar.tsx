@@ -51,36 +51,38 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
   return (
     <div className={navbar}>
       <div className={logoContainer}>
-        <Image className={logo} src={gkLogo} alt='GK logo'/>
+        <Link className={link} href='/'>
+          <Image className={logo} src={gkLogo} alt='GK logo'/>
+        </Link>
       </div>
       <ul className={toggle ? `${list} ${openList}` : `${list}`}>
-        <Link className={link} href='/'>
+        <Link className={link} href='/' onClick={handleToggle}>
           <li className={item}>home</li>
         </Link>
-        <Link className={link} href='/about'>
+        <Link className={link} href='/about' onClick={handleToggle}>
           <li className={item}>about us</li>
         </Link>
-        <Link className={link} href='/services'>
+        <Link className={link} href='/services' onClick={handleToggle}>
           <li className={item}>services</li>
         </Link>
-        <Link className={link} href='/healthcare'>
+        <Link className={link} href='/healthcare' onClick={handleToggle}>
           <li className={item}>healthcare</li>
         </Link>
         <li className={dropdownItem}>
           <span className={itemText}>people <BiSolidDownArrow/></span>
           <ul className={dropdownList}>
-            <Link className={link} href='/corporate'>
+            <Link className={link} href='/corporate' onClick={handleToggle}>
               <li className={subItem}>corporate</li>
             </Link>
-            <Link className={link} href='/health-force'>
+            <Link className={link} href='/health-force' onClick={handleToggle}>
               <li className={subItem}>health force</li>
             </Link>
-            <Link className={link} href='/join-us'>
+            <Link className={link} href='/join-us' onClick={handleToggle}>
               <li className={`${subItem} ${subItemNoBorder}`}>join us</li>
             </Link>
           </ul>
         </li>
-        <Link className={link} href='/stories'>
+        <Link className={link} href='/stories' onClick={handleToggle}>
           <li className={item}>stories</li>
         </Link>
         <li className={dropdownItem}>
@@ -91,7 +93,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
             </Link>
           </ul>
         </li>
-        <Link className={link} href='/locator'>
+        <Link className={link} href='/locator' onClick={handleToggle}>
           <li className={item}>locator</li>
         </Link>
         {

@@ -16,7 +16,7 @@ const HealthForce = async () => {
 
   return (
     <>
-      <HeroSection/>
+      <HeroSection titleOne='Serving Bottom of the' titleTwo='Pyramid with Utmost' titleThree='Care and Sincerity'/>
       <AboutSection/>
       <TeamGroup headingTextTwo='Our Doctors'/>
       <TeamGrid datas={filterDoctorsData}/>
