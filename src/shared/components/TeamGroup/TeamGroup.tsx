@@ -12,13 +12,14 @@ const {
   container,
   bgContainer,
   img,
-  annualSectionT
+  annualSectionT,
+  headingSingle
 } = style;
 
 const TeamGroup = ({ headingTextOne, headingTextTwo, marginTop }: ITeamGroup) => {
   return (
     <div className={marginTop ? `${annualSection} ${annualSectionT}` : `${annualSection}`}>
-      <h1 className={heading}>
+      <h1 className={headingTextOne && headingTextTwo ? `${heading}` : `${heading} ${headingSingle}`}>
         <span>{headingTextOne}</span>
         <span>{headingTextTwo}</span>
       </h1>

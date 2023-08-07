@@ -27,7 +27,7 @@ const MedicalCare = () => {
         </h2>
         <p className={parag}>To ensure comprehensive primary healthcare, our disease specific medical care lays on these areas, for patients to choose from</p>
       </div>
-      <ImageDisplay/>
+      {/* <ImageDisplay/> */}
     </div>
   );
 };

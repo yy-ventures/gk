@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useFetch } from '@/shared/hook';
-import { filterDataByKey, reverseFilterDataByKey } from '@/shared/utils/pageHelpers/filterDataByKey.helper';
+import { filterDataByKey, reverseFilterDataByKey } from '@/shared/utils/pageHelpers/filterData.helper';
 
 import {
   HeroSection,

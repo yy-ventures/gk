@@ -1,9 +1,9 @@
-import { IBoardMember } from '@/shared/types/boardMember';
+import { ICorporate } from '@/shared/types/corporate';
 
-export const handleMiddleIndex = (dataSet: IBoardMember[], middleIndex: number) => {
+export const handleMiddleIndex = (dataSet: ICorporate[], middleIndex: number) => {
   let middleIndexOne = middleIndex;
 
-  const middleDataOne = dataSet.map((data: IBoardMember, index: number) => {
+  const middleDataOne = dataSet.map((data: ICorporate, index: number) => {
     let array;
 
     if (index === middleIndexOne) {

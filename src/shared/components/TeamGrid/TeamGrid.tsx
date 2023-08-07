@@ -1,30 +1,37 @@
 import React from 'react';
 
 import HorizontalLayout from '@/components/About/BoardMemberSection/HorizontalLayout/HorizontalLayout';
-import boardMembersData from '@/assets/data/boardMembers';
+
 import { TeamMemberCard } from '../TeamMemberCard';
 import { handleMiddleIndex } from './teamGrid.helpers';
-
 import style from './teamGrid.module.scss';
+import { ITeamGrid } from '@/shared/types/teanGrid';
 
 const { gridContainer, cardContainer, layout } = style;
 
-const TeamGrid = () => {
-  const middleDataOne = handleMiddleIndex(boardMembersData, 1);
-  const middleDataTwo = handleMiddleIndex(boardMembersData, 2);
-  const firstData = handleMiddleIndex(boardMembersData, 0);
-  const lastData = handleMiddleIndex(boardMembersData, 3);
+interface ITeamGridProps{
+  datas: ITeamGrid[]
+}
+
+const TeamGrid = ({ datas }: ITeamGridProps) => {
+  const middleDataOne = handleMiddleIndex(datas, 1);
+  const middleDataTwo = handleMiddleIndex(datas, 2);
+  const firstData = handleMiddleIndex(datas, 0);
+  const lastData = handleMiddleIndex(datas, 3);
   let counter = 0;
 
   return (
     <div className={gridContainer}>
       {
-        boardMembersData.map((data, index) => {
+        datas.map((data, index) => {
           const isAfterFourMember = (index + 1) % 4 === 0;
-          const isDataEnd = index === boardMembersData.length - 1;
+          const isDataEnd = index === datas.length - 1;
           const counterArray: number[] = [];
-          const oddNumber = counterArray.filter(count => count % 2 !== 0);
-          const evenNumber = counterArray.filter(count => count % 2 === 0);
+          const detectLastLineArray: number[] = [];
+          detectLastLineArray.push(index);
+          const isNumberFour = datas.length === 4;
+          const oddNumber = detectLastLineArray.filter(count => count % 2 !== 0);
+          const evenNumber = detectLastLineArray.filter(count => count % 2 === 0);
 
           if (isAfterFourMember === true) {
             counter += 1;
@@ -70,11 +77,11 @@ const TeamGrid = () => {
                 })
               }
               {
-                isDataEnd && evenNumber
+                isDataEnd && evenNumber && isNumberFour === false
                   ? <div className={layout}>
                     <HorizontalLayout/>
                   </div>
-                  : isDataEnd && oddNumber
+                  : isDataEnd && oddNumber && isNumberFour === false
                     ? <div className={layout}>
                       <HorizontalLayout reverse={true}/>
                     </div>

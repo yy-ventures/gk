@@ -1,5 +1,5 @@
 export interface ITeamGroup {
-    headingTextOne: string
+    headingTextOne?: string
     headingTextTwo?: string
     marginTop?: boolean
 }

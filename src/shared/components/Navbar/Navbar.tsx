@@ -72,7 +72,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
             <Link className={link} href='/corporate'>
               <li className={subItem}>corporate</li>
             </Link>
-            <Link className={link} href='#'>
+            <Link className={link} href='/health-force'>
               <li className={subItem}>health force</li>
             </Link>
             <Link className={link} href='/join-us'>
