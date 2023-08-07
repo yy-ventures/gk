@@ -42,7 +42,7 @@ const About = async () => {
 
   return (
     <>
-      <HeroSection/>
+      <HeroSection titleOne='With Joy' titleTwo='We Grow Together' titleThree='We Serve Together'/>
       <MissionVision mission={mission} vision={vision}/>
       <ServiceSection/>
       <AboutUs data={aboutSectionData}/>

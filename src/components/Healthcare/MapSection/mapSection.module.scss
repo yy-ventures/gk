@@ -8,6 +8,17 @@
         font-weight: 900;
         color: $color-secondary-goldenrod;
         padding-left: 20rem;
+
+        @include response(vp-800){
+            padding-left: 0;
+            text-align: center;
+        }
+        @include response(phone){
+            font-size: 5.5rem;
+        }
+        @include response(s-phone){
+            font-size: 4.5rem;
+        }
     }
     .contentContainer{
         background-color: $color-background-paleYellow;
@@ -17,10 +28,41 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 4rem;
 
+        @include response(M-desktop){
+            padding: 10rem 15rem;
+        }
+        @include response(tab-port){
+            padding: 10rem;
+        }
+        @include response(vp-800){
+            grid-template-columns: 1fr;
+        }
+        @include response(phone){
+            padding: 8rem 5rem;
+        }
+        @include response(s-phone){
+            padding: 8rem 3rem;
+        }
+
         .mapContainer{
             svg{
-                #Path_422 {
-                    fill: red !important;
+                .rangpur,
+                .rajshahi,
+                .khulna,
+                .dhaka,
+                .chattogram,
+                .sylhet,
+                .mymensingh,
+                .barisal{
+                    transition: all 500ms;
+
+                    &:hover{
+                        fill: $color-primary;
+                    }
+                }
+
+                path{
+                    cursor: pointer;
                 }
             }
         }
@@ -48,13 +90,20 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                @include response(tab-port){
+                    height: 40rem;
+                }
             }
             .healthCenterName{
                 font-size: 5rem;
                 font-weight: 900;
                 color: $color-text-darkGrey;
-
                 margin-bottom: 3rem;
+
+                @include response(tab-port){
+                    font-size: 4rem;
+                }
             }
             .locationContact{
                 display: flex;
@@ -71,6 +120,10 @@
 
                     font-size: 2rem;
                     font-weight: 600;
+
+                    @include response(tab-port){
+                        font-size: 1.8rem;
+                    }
 
                     .icon{
                         font-size: 2.5rem;

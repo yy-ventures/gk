@@ -95,6 +95,72 @@
                 white-space: nowrap;
             }
         }
+        
+        .healthcareSubHeading{
+            position: relative;
+            z-index: 1;
+
+            color: $color-text-light;
+
+            span{
+                display: block;
+            }
+            span:nth-of-type(1),
+            span:nth-of-type(2){
+                font-weight: 900;                
+                line-height: 1.2;
+            }
+            span:nth-of-type(1){
+                font-size: clamp(0.80rem, calc(0.30rem + 2.28vw), 3.27rem);
+                font-weight: 900;
+            }
+            span:nth-of-type(2){
+                font-size: clamp(1.20rem, calc(0.35rem + 4.27vw), 5.47rem);
+                font-weight: 900;                
+                margin-left: -6rem;
+
+                @include response(phone){
+                    margin-left: -4rem;
+                }
+            }
+        }
+        .healthcareHeading{
+            position: relative;
+            z-index: 1;
+            color: $color-text-light;
+
+            span{
+                display: block;
+                font-size: clamp(1.20rem, calc(0.35rem + 4.27vw), 5.47rem);
+                font-weight: 900;
+                line-height: 1.2;
+            }
+            span:nth-of-type(1){
+                width: 100%;
+                margin-left: 8rem;
+
+                @include response(phone){
+                    margin-left: 4rem;
+                }
+            }
+        }
+        .storyHeading{
+            color: $color-text-light;
+            span{
+                display: block;
+                font-size: clamp(1.20rem, calc(0.35rem + 4.27vw), 5.47rem);
+                font-weight: 900;
+                line-height: 1.2;
+            }
+            span:nth-of-type(1){
+                margin-left: -12rem;
+
+                @include response(phone){
+                    margin-left: -5rem;
+                }
+            }
+            
+        }
 
         .layoutContainer{
             height: 45rem;
@@ -127,6 +193,28 @@
         @include response(phone){
             border-radius: 20rem 0 0 0;
             padding: 8rem 10rem;
+        }
+    }
+    .healthcareContent{
+        padding: 14rem 25rem 14rem 32rem;
+        
+        @include response(M-desktop){
+            padding: 12rem 30rem 12rem 30rem;
+        }
+        @include response(phone){
+            border-radius: 25rem 0 0 0;
+            padding: 10rem 15rem;
+        }
+    }
+    .storyContent{
+        padding: 18rem 25rem 18rem 32rem;
+        
+        @include response(M-desktop){
+            padding: 16rem 30rem 16rem 30rem;
+        }
+        @include response(phone){
+            border-radius: 25rem 0 0 0;
+            padding: 10rem 15rem;
         }
     }
 }
