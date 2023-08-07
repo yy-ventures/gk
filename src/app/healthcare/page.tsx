@@ -6,7 +6,7 @@ import { HealthcareService, MapSection, MedicalCare } from '@/components/Healthc
 const Healthcare = () => {
   return (
     <>
-      <HeroSection/>
+      <HeroSection heroFor='healthcare'/>
       <HealthcareService/>
       <MapSection/>
       <MedicalCare/>
