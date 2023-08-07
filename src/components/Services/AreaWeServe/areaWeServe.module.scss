@@ -4,6 +4,10 @@
     position: relative;
     padding: 10rem 0;
 
+    @include response(phone){
+        padding: 10rem 0 0 0;
+    }
+
     .contentContainer{
         padding: 0 20rem;
         

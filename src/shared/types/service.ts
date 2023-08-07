@@ -1,10 +1,11 @@
 export interface IService {
     id: number
     title: string
-    subTitleOne: string
-    subTitleTwo: string
-    shortDescription: string
-    image: string
+    sub_title_one: string
+    sub_title_two: string
+    short_description: string
+    servicepage_thumb_image: string
+    slug: string
 }
 
 export interface IServiceDetails {

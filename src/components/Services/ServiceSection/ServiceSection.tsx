@@ -1,50 +1,32 @@
 import React from 'react';
-import Image from 'next/image';
 
-import healthImage from '@/assets/images/services/health-care.webp';
-import { Button } from '@/shared/components';
-import { IService } from '@/shared/types/service';
+import ServiceCard from '../ServiceCard/ServiceCard';
 
 import style from './serviceSection.module.scss';
+import { IService } from '@/shared/types/service';
 
-const {
-  serviceSection,
-  heading,
-  imgContainer,
-  contentContainer,
-  img,
-  subTitle,
-  title,
-  parag,
-  headingReverse,
-  contentContainerReverse,
-  imgContainerReverse
-} = style;
+const { serviceSection } = style;
 
-interface IServiceSectionProps {
-  reverse?: boolean
-  serviceData: IService
+interface IServiceSectionProps{
+  servicesData: IService[]
 }
 
-const ServiceSection = ({ reverse, serviceData }: IServiceSectionProps) => {
-  const slitSubtitleOne = serviceData.subTitleOne.split('/');
-
+const ServiceSection = ({ servicesData }: IServiceSectionProps) => {
   return (
     <div className={serviceSection}>
-      <h2 className={reverse ? `${heading} ${headingReverse}` : `${heading}`}>{serviceData.title}</h2>
-      <div className={reverse ? `${imgContainer} ${imgContainerReverse}` : `${imgContainer}`}>
-        <Image className={img} src={healthImage} alt=''/>
-      </div>
-      <div className={reverse ? `${contentContainer} ${contentContainerReverse}` : `${contentContainer}`}>
-        <h4 className={subTitle}>
-          {
-            slitSubtitleOne.map((text, index) => <span key={index}>{text}</span>)
+      {
+        servicesData.map((data, index) => {
+          if (index % 2 === 0) {
+            return <div key={data.id} id={data.slug}>
+              <ServiceCard serviceData={data} reverse={true}/>
+            </div>;
           }
-        </h4>
-        <h3 className={title}>{serviceData.subTitleTwo}</h3>
-        <p className={parag}>{serviceData.shortDescription}</p>
-        <Button text='Learn More' url={serviceData.title === 'healthcare' ? '/healthcare' : '#'} btnSecondary/>
-      </div>
+
+          return <div key={data.id} id={data.slug}>
+            <ServiceCard serviceData={data} key={data.id}/>
+          </div>;
+        })
+      }
     </div>
   );
 };

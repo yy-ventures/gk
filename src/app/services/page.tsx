@@ -2,26 +2,16 @@ import React from 'react';
 
 import { HeroSection } from '@/shared/components';
 import { AreaWeServe, ServiceSection } from '@/components/Services';
-import servicesData from '@/assets/data/service';
+import { useFetch } from '@/shared/hook';
 
-const Services = () => {
+const Services = async () => {
+  const services = await useFetch({ url: '/service-contents/services', revalidateIn: 86400 });
+
   return (
     <>
       <HeroSection/>
       <AreaWeServe/>
-      {
-        servicesData.map(data => {
-          if (data.id % 2 === 0) {
-            return <div key={data.id} id={data.navigate}>
-              <ServiceSection serviceData={data} reverse={true}/>
-            </div>;
-          }
-
-          return <div key={data.id} id={data.navigate}>
-            <ServiceSection serviceData={data} key={data.id}/>
-          </div>;
-        })
-      }
+      <ServiceSection servicesData={services.data}/>
     </>
   );
 };
