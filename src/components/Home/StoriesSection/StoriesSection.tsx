@@ -7,6 +7,7 @@ import layoutBR from '@/assets/layout/layout-br.svg';
 
 import { IStoriesSectionProps } from './StoriesSection.types';
 import style from './storiesSection.module.scss';
+import { ICategory } from '@/shared/types/category';
 
 const {
   storiesSection,
@@ -19,6 +20,10 @@ const {
 } = style;
 
 const StoriesSection = ({ storyCategory }: IStoriesSectionProps) => {
+  const displayImageData = storyCategory.map((data: ICategory) => ({
+    id: data.id, name: data.name, banner_image: data.banner_image, dataType: 'story'
+  }));
+
   return (
     <div className={storiesSection}>
       <div className={layout}>
@@ -30,7 +35,7 @@ const StoriesSection = ({ storyCategory }: IStoriesSectionProps) => {
           <span className={large}>Smile</span>
         </h2>
       </div>
-      <ImageDisplay data={storyCategory}/>
+      <ImageDisplay data={displayImageData}/>
     </div>
   );
 };

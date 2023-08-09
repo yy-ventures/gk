@@ -97,6 +97,9 @@
         }
         
         .healthcareSubHeading{
+            position: relative;
+            z-index: 1;
+
             color: $color-text-light;
 
             span{
@@ -122,6 +125,8 @@
             }
         }
         .healthcareHeading{
+            position: relative;
+            z-index: 1;
             color: $color-text-light;
 
             span{
@@ -191,10 +196,10 @@
         }
     }
     .healthcareContent{
-        padding: 14rem 25rem 14rem 21rem;
+        padding: 14rem 25rem 14rem 32rem;
         
         @include response(M-desktop){
-            padding: 12rem 30rem 12rem 19rem;
+            padding: 12rem 30rem 12rem 30rem;
         }
         @include response(phone){
             border-radius: 25rem 0 0 0;
@@ -203,7 +208,6 @@
     }
     .storyContent{
         padding: 18rem 25rem 18rem 32rem;
-
         
         @include response(M-desktop){
             padding: 16rem 30rem 16rem 30rem;

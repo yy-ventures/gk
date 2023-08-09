@@ -1,12 +1,15 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
 import layoutTopLeft from '@/assets/layout/layout-tl-healthcare.svg';
 import layoutBottomRight from '@/assets/layout/grid-bottom-leaf.svg';
-import healthcareServiceData from '@/assets/data/healthcareService';
-import imageOne from '@/assets/images/healthcare/grid-1.webp';
+import { IHealthcareService } from '@/shared/types/healthcareService';
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './healthcareService.module.scss';
+import Link from 'next/link';
 
 const {
   healthcareService,
@@ -22,7 +25,11 @@ const {
   box
 } = style;
 
-const HealthcareService = () => {
+interface IHealthcareServiceProps{
+  servicesData: IHealthcareService[]
+}
+
+const HealthcareService = ({ servicesData }: IHealthcareServiceProps) => {
   return (
     <div className={healthcareService}>
       <div className={layoutTL}>
@@ -33,13 +40,15 @@ const HealthcareService = () => {
       </div>
       <div className={gridContainer}>
         {
-          healthcareServiceData.map((data, index) => {
+          servicesData.map((data, index) => {
             return (
               <>
                 <div key={data.id} className={healthcareServiceCard}>
-                  <div className={imageContainer}>
-                    <Image className={img} src={imageOne} alt='healthcare'/>
-                  </div>
+                  <Link href={`/healthcare/${data.id}`}>
+                    <div className={imageContainer}>
+                      <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt='healthcare' width={100} height={100} loader={() => IMAGE_BASE_URL + data.thumb_image}/>
+                    </div>
+                  </Link>
                   <h3 className={heading}>{data.title}</h3>
                 </div>
                 {

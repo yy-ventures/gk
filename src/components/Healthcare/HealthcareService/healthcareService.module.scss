@@ -32,11 +32,26 @@
     }
 
     .gridContainer{
+        position: relative;
+        z-index: 1;
         padding: 30rem 20rem 10rem 20rem;
 
         display: grid;
         grid-template-columns: 1fr min-content 1fr;
         gap: 2rem;
+
+        @include response(M-desktop){
+            padding: 20rem 15rem 10rem 15rem;
+        }
+        @include response(tab-port){
+            padding: 20rem 10rem 10rem 10rem;
+        }
+        @include response(phone){
+            padding: 10rem 5rem;
+        }
+        @include response(s-phone){
+            padding: 10rem 3rem;
+        }
 
         .healthcareServiceCard{
             .imageContainer{
@@ -44,11 +59,21 @@
                 margin-bottom: 2rem;
                 border-radius: 1rem;
                 overflow: hidden;
+                cursor: pointer;
+
+                @include response(phone){
+                    height: 30rem;
+                }
+
+                &:hover > .img{
+                    transform: scale(1.1);
+                }
 
                 .img{
                     height: 100%;
                     width: 100%;
                     object-fit: cover;
+                    transition: all 500ms;
                 }
             }
             .heading{
