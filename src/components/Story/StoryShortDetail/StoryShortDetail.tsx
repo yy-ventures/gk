@@ -1,10 +1,13 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
-import bgImg from '@/assets/images/about/about-bg.webp';
+import { Button } from '@/shared/components';
+import { IStoryShortDetailData } from './StoryShortDetail.types';
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './storyShortDetail.module.scss';
-import { Button } from '@/shared/components';
 
 const {
   storyDetail,
@@ -20,11 +23,15 @@ const {
   btnContainer
 } = style;
 
-const StoryShortDetail = () => {
+interface IStoryShortDetailProps{
+  data: IStoryShortDetailData
+}
+
+const StoryShortDetail = ({ data }: IStoryShortDetailProps) => {
   return (
     <div className={storyDetail}>
       <div className={imageContainer}>
-        <Image className={img} src={bgImg} alt='img'/>
+        <Image className={img} src={IMAGE_BASE_URL + data.image} alt='img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.image}/>
       </div>
       <div className={divider}>
         <div className={lineOne}/>
@@ -32,10 +39,10 @@ const StoryShortDetail = () => {
         <div className={lineTwo}/>
       </div>
       <div className={contentContainer}>
-        <h2 className={heading}>Fighting the Pandemic</h2>
+        <h2 className={heading}>{data.title}</h2>
         <p className={shortDesc}>The coronavirus outbreak occurred worldwide at the end of 2019, and Bangladesh was hit by the deadly virus in March 2020. As the fast-spreading coronavirus claimed many lives and affected people countrywide, Grameen Kalyan did not place a...</p>
         <div className={btnContainer}>
-          <Button text='Read More' url='#' btnSecondary/>
+          <Button text='Read More' url={`/stories/${data.id}/${data.id}`} btnSecondary/>
         </div>
       </div>
     </div>

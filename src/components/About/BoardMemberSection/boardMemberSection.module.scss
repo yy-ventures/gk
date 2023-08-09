@@ -58,5 +58,10 @@
         .layout{
             grid-column: 1 / -1;
         }
+
+    }
+    .link{
+        text-decoration: none;
+        color: $color-text-darkGrey;
     }
 }

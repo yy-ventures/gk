@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { handleMiddleIndex } from './boardMemberSection.helpers';
 import { IBoardMemberSectionProps } from './BoardMemberSection.types';
@@ -12,7 +13,8 @@ const {
   heading,
   gridContainer,
   layout,
-  cardContainer
+  cardContainer,
+  link
 } = style;
 
 const BoardMemberSection = ({ boardMembersData }: IBoardMemberSectionProps) => {
@@ -31,9 +33,11 @@ const BoardMemberSection = ({ boardMembersData }: IBoardMemberSectionProps) => {
         chairman.map(data => {
           return (
             <>
-              <div key={data.id} className={cardContainer}>
-                <BoardMemberCard data={data}/>
-              </div>
+              <Link className={link} href={`/board-member/${data.id}`}>
+                <div key={data.id} className={cardContainer}>
+                  <BoardMemberCard data={data}/>
+                </div>
+              </Link>
               <HorizontalLayout key={data.id}/>
             </>
           );
@@ -60,19 +64,21 @@ const BoardMemberSection = ({ boardMembersData }: IBoardMemberSectionProps) => {
 
             return (
               <>
-                <div className={cardContainer}>
-                  {
-                    isMiddleDataOne
-                      ? <BoardMemberCard data={data} typeTwo={true}/>
-                      : isMiddleDataTwo
+                <Link className={link} href={`/board-member/${data.id}`}>
+                  <div className={cardContainer}>
+                    {
+                      isMiddleDataOne
                         ? <BoardMemberCard data={data} typeTwo={true}/>
-                        : isFirstData
-                          ? <BoardMemberCard data={data} typeOne={true}/>
-                          : isLastData
-                            ? <BoardMemberCard data={data} typeThree={true}/>
-                            : <BoardMemberCard data={data}/>
-                  }
-                </div>
+                        : isMiddleDataTwo
+                          ? <BoardMemberCard data={data} typeTwo={true}/>
+                          : isFirstData
+                            ? <BoardMemberCard data={data} typeOne={true}/>
+                            : isLastData
+                              ? <BoardMemberCard data={data} typeThree={true}/>
+                              : <BoardMemberCard data={data}/>
+                    }
+                  </div>
+                </Link>
                 {
                   counterArray.map(counter => {
                     const oddNumber = counter % 2 !== 0;
