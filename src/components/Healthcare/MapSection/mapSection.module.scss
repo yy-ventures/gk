@@ -49,15 +49,24 @@
                 .rangpur,
                 .rajshahi,
                 .khulna,
-                .dhaka,
                 .chattogram,
-                .sylhet,
+                .barisal,
                 .mymensingh,
-                .barisal{
+                .sylhet,
+                .dhaka{
                     transition: all 500ms;
 
                     &:hover{
                         fill: $color-primary;
+                    }
+                }
+                .chattogram{
+                    path{
+                        transition: all 250ms;
+    
+                        &:hover{
+                            fill: $color-primary;
+                        }
                     }
                 }
 

@@ -1,5 +1,4 @@
-import { IService } from '@/shared/types/service';
-
+import { IServiceSectionData } from '@/shared/types/ServiceSection';
 export interface IServiceCardProps {
-    service: IService
+    service: IServiceSectionData
 }

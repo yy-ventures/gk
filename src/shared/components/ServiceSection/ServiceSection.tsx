@@ -2,9 +2,10 @@ import React from 'react';
 import { ServiceCard } from '../ServiceCard';
 
 import { Button } from '@/shared/components';
-import { serviceData } from '@/assets/data';
 
 import style from './serviceSection.module.scss';
+import { IServiceSectionData } from '@/shared/types/ServiceSection';
+import Link from 'next/link';
 
 const {
   serviceSection,
@@ -24,7 +25,11 @@ const {
   squareBox
 } = style;
 
-const ServiceSection = () => {
+interface IServiceSectionProps{
+  serviceData: IServiceSectionData[]
+}
+
+const ServiceSection = ({ serviceData }: IServiceSectionProps) => {
   return (
     <div className={serviceSection}>
       <div className={layout}/>
@@ -32,9 +37,11 @@ const ServiceSection = () => {
         <div className={services}>
           {
             serviceData.map((data) => (
-              <div key={data.id} className={data.id === 1 ? `${serviceOne}` : data.id === 2 ? `${serviceTwo}` : data.id === 3 ? `${serviceThree}` : data.id === 4 ? `${serviceFour}` : ''}>
-                <ServiceCard service={data}/>
-              </div>
+              <Link key={data.id} href={data.title === 'Healthcare' ? '/services#healthcare' : data.title === 'Well-Being' ? '/services#well-being' : data.title === 'Emergency Response' ? '/services#emergency-response' : data.title === 'Social Business' ? '/services#social-business' : '#'}>
+                <div className={data.id === 1 ? `${serviceOne}` : data.id === 2 ? `${serviceTwo}` : data.id === 3 ? `${serviceThree}` : data.id === 4 ? `${serviceFour}` : ''}>
+                  <ServiceCard service={data}/>
+                </div>
+              </Link>
             ))
           }
           <div className={vLineOne}/>

@@ -22,6 +22,7 @@ const About = async () => {
   const ourProudPresenceData = await useFetch({ url: '/summary-report-settings/healthcare', revalidateIn: 86400 });
   const achievementData = await useFetch({ url: '/timeline', revalidateIn: 86400 });
   const boardMemberData = await useFetch({ url: '/members', revalidateIn: 86400 });
+  const serviceContent = await useFetch({ url: '/service-contents/home', revalidateIn: 86400 });
 
   const mission = aboutUsData?.data[0].mission;
   const vision = aboutUsData?.data[0].vision;
@@ -44,7 +45,7 @@ const About = async () => {
     <>
       <HeroSection titleOne='With Joy' titleTwo='We Grow Together' titleThree='We Serve Together'/>
       <MissionVision mission={mission} vision={vision}/>
-      <ServiceSection/>
+      <ServiceSection serviceData={serviceContent.data}/>
       <AboutUs data={aboutSectionData}/>
       <AnnualReportSection data={annuallyReportData} headingTop={true} headingText='Story of Inception'/>
       <EmpoweringSection empoweringData={empoweringSectionData}/>

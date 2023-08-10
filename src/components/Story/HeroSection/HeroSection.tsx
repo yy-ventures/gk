@@ -1,22 +1,29 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
-import bgImg from '@/assets/images/about/about-bg.webp';
+import { IMAGE_BASE_URL } from '@/config';
 
 import style from './heroSection.module.scss';
+import { IHeroSectionData } from './HeroSection.types';
 
 const {
   heroSection, imageContainer, img, content, heading
 } = style;
 
-const HeroSection = () => {
+interface IHeroSectionProps{
+  data: IHeroSectionData
+}
+
+const HeroSection = ({ data }: IHeroSectionProps) => {
   return (
     <div className={heroSection}>
       <div className={imageContainer}>
-        <Image className={img} src={bgImg} alt='bg img'/>
+        <Image className={img} src={IMAGE_BASE_URL + data.image} alt='bg img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.image}/>
       </div>
       <div className={content}>
-        <h1 className={heading}>Fighting the Pandemic</h1>
+        <h1 className={heading}>{data.title}</h1>
       </div>
     </div>
   );

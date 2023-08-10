@@ -1,8 +1,8 @@
 @import '../../../style/utils/base';
 
 .storySection{
+    position: relative;
     padding: 20rem 20rem 50rem 20rem;
-    background-color: palegreen;
 
     .heading{
         font-size: clamp(1.44rem, calc(0.36rem + 5.40vw), 6.84rem);
@@ -11,6 +11,9 @@
         line-height: 1.4;
         color: $color-primary;
 
+        position: relative;
+        z-index: 1;
+        
         span{
             display: block;
             text-align: center;
@@ -19,6 +22,36 @@
     .parag{
         font-size: 2.2rem;
         text-align: center;
+
+        position: relative;
+        z-index: 1;
+    }
+
+    .layoutLeftTop{
+        height: 40rem;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .img{
+            height: 100%;
+            width: 100%;
+            object-fit: Contain;
+        }
+    }
+    .layoutRightBottom{
+        height: 60rem;
+
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        .img{
+            height: 100%;
+            width: 100%;
+            object-fit: Contain;
+        }
     }
 }
 
