@@ -1,10 +1,15 @@
-import Gallery from '@/components/PhotoGallery/Gallery/Gallery';
 import React from 'react';
 
-const GalleryPage = () => {
+import Gallery from '@/components/PhotoGallery/Gallery/Gallery';
+import { useFetch } from '@/shared/hook';
+
+const GalleryPage = async ({ params }: { params: { id: string } }) => {
+  const id = params.id;
+  const galleryPhotos = await useFetch({ url: `/photo-galleries?category_id=${id}` });
+
   return (
     <div>
-      <Gallery />
+      <Gallery data={galleryPhotos.data}/>
     </div>
   );
 };

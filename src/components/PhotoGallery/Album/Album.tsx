@@ -1,10 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
 
 import AlbumItem from './AlbumItem/AlbumItem';
 import { IAlbumsProps } from './Album.types';
 
 import style from './album.module.scss';
-import Link from 'next/link';
 const { albumContainer, albumGrid, link } = style;
 
 const Album = ({ albumsData }: IAlbumsProps) => {
@@ -12,7 +12,7 @@ const Album = ({ albumsData }: IAlbumsProps) => {
     <div className={albumContainer}>
       <div className={albumGrid}>
         {albumsData.map((albumData) => (
-          <Link className={link} key={albumData.id} href='#'>
+          <Link className={link} key={albumData.id} href={`/photo-gallery/${albumData.id}`}>
             <AlbumItem data={albumData}/>
           </Link>
         ))}

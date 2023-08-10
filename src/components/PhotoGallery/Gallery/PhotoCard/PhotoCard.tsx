@@ -1,22 +1,31 @@
 'use client';
 
 import React from 'react';
-import style from './photoCard.module.scss';
+import Image from 'next/image';
+
+import { IMAGE_BASE_URL } from '@/config';
+
 import { PhotoView } from 'react-photo-view';
-// import 'react-photo-view/dist/react-photo-view.css';
+import { IGalleryData } from '../Gallery.types';
 
-const PhotoCard = ({ index, item }: any) => {
-  const { photoCard, mask } = style;
+import style from './photoCard.module.scss';
+const {
+  photoCard, mask, imgContainer, img
+} = style;
+
+interface IPhotoCardProps{
+  data: IGalleryData
+}
+
+const PhotoCard = ({ data }: IPhotoCardProps) => {
   return (
-    <PhotoView src="https://www.grameenkalyan.com/uploads/gallery/thumb_image/1686121791_uchakhila-3.png">
+    <PhotoView src={IMAGE_BASE_URL + data.thumb_image}>
       <div className={photoCard}>
-        <img
-          src="https://www.grameenkalyan.com/uploads/gallery/thumb_image/1686121791_uchakhila-3.png"
-          alt=""
-        />
-
+        <div className={imgContainer}>
+          <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt="" width={100} height={100} loader={() => IMAGE_BASE_URL + data.thumb_image}/>
+        </div>
         <div className={mask}>
-          <h4>Rajnagar Health Center, Savar Region</h4>
+          <h4>{data.title}</h4>
         </div>
       </div>
     </PhotoView>
