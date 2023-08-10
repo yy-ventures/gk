@@ -21,6 +21,7 @@ const Home = async () => {
   const summeryReportData = await useFetch({ url: '/summary-report-settings/basic', revalidateIn: 86400 });
   const sliderImages = await useFetch({ url: '/home-slider-content', revalidateIn: 86400 });
   const storyCategory = await useFetch({ url: '/story-categories', revalidateIn: 86400 });
+  const serviceContent = await useFetch({ url: '/service-contents/home', revalidateIn: 86400 });
 
   const heroSliderImages = sliderImages.data;
   const badgeImage = homePageContentData.data[0].badge_image;
@@ -59,7 +60,7 @@ const Home = async () => {
     <>
       <HeroSection badgeImage={badgeImage} sliderImages={heroSliderImages}/>
       <AboutSection data={aboutSectionData}/>
-      <ServiceSection/>
+      <ServiceSection serviceData={serviceContent.data}/>
       <BoardMember memberData={boardMemberArray}/>
       <AnnuallyServe data={annuallyWeServeData}/>
       <AnnualReportSection data={annuallyReportData} headingText='Annual'/>

@@ -17,12 +17,12 @@ const ServiceSection = ({ servicesData }: IServiceSectionProps) => {
       {
         servicesData.map((data, index) => {
           if (index % 2 === 0) {
-            return <div key={data.id} id={data.slug}>
+            return <div key={data.id} id={data.title === 'Healthcare' ? 'healthcare' : data.title === 'Well-Being' ? 'well-being' : data.title === 'Emergency Response' ? 'emergency-response' : data.title === 'Social Business' ? 'social-business' : '#'}>
               <ServiceCard serviceData={data} reverse={true}/>
             </div>;
           }
 
-          return <div key={data.id} id={data.slug}>
+          return <div key={data.id} id={data.title === 'Healthcare' ? 'healthcare' : data.title === 'Well-Being' ? 'well-being' : data.title === 'Emergency Response' ? 'emergency-response' : data.title === 'Social Business' ? 'social-business' : '#'}>
             <ServiceCard serviceData={data} key={data.id}/>
           </div>;
         })

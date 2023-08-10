@@ -3,8 +3,9 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { IServiceCardProps } from './service.type';
+import { IMAGE_BASE_URL } from '@/config';
 
+import { IServiceCardProps } from './service.type';
 import style from './serviceCard.module.scss';
 
 const {
@@ -18,7 +19,7 @@ const ServiceCard = ({ service }: IServiceCardProps) => {
         <h4 className={heading}>{service.title}</h4>
       </div>
       <div className={imgContainer}>
-        <Image className={img} src={service.image} alt='service' width={100} height={100}/>
+        <Image className={img} src={IMAGE_BASE_URL + service.homepage_thumb_image} alt='service' width={1000} height={1000} loader={() => IMAGE_BASE_URL + service.homepage_thumb_image}/>
       </div>
     </div>
   );
