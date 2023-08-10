@@ -25,8 +25,6 @@ interface IBoarderMemberDetailProps{
 }
 
 const BoardMemberDetail = ({ data }: IBoarderMemberDetailProps) => {
-  console.log('Data: ', data);
-
   return (
     <div className={boardMemberDetail}>
       <div className={contentContainer}>
