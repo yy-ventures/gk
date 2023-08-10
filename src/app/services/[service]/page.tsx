@@ -7,6 +7,7 @@ import { HeroSection, DetailSection } from '@/components/ServiceDetail';
 
 const ServiceDetails = async ({ params }: { params: { service: string } }) => {
   const decodeParams = params.service;
+  console.log('decodeParams: ', decodeParams);
   // const decodeParams = nextBase64.decode(params.service);
   // console.log('decodeParams: ', Number(decodeParams.trim()));
   // const decodeParamsNumber = Number(decodeParams);

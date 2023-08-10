@@ -3,6 +3,7 @@ import React from 'react';
 import RecentPostCard from './RecentPostCard/RecentPostCard';
 import { Sliders } from '../Slider';
 import style from './recentPost.module.scss';
+import { IStories } from '@/shared/types/stories';
 
 const {
   recentPost,
@@ -13,7 +14,11 @@ const {
   lineRight
 } = style;
 
-const RecentPost = () => {
+interface IRecentPostProps{
+  data: IStories[]
+}
+
+const RecentPost = ({ data }: IRecentPostProps) => {
   return (
     <div className={recentPost}>
       <h2 className={heading}>Recent Posts</h2>
@@ -29,10 +34,9 @@ const RecentPost = () => {
         autoPlay={true}
         autoplaySpeed={3000}
       >
-        <RecentPostCard/>
-        <RecentPostCard/>
-        <RecentPostCard/>
-        <RecentPostCard/>
+        {
+          data?.map(data => <RecentPostCard key={data.id} data={data}/>)
+        }
       </Sliders>
     </div>
   );
