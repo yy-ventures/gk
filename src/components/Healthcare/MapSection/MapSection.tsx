@@ -2,7 +2,7 @@
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, KeyboardEvent } from 'react';
 
 import BangladeshMap from './BangladeshMap/BangladeshMap';
 import { FaLocationDot, FaPhone } from 'react-icons/fa6';
@@ -21,6 +21,8 @@ import { getDataByDivisionId, getDataByKeyword, getDataByHealthCenterId } from '
 // console.log('Barisal: ', dataByDivisionId);
 
 import style from './mapSection.module.scss';
+import Image from 'next/image';
+import { IMAGE_BASE_URL } from '@/config';
 
 const {
   mapSection,
@@ -44,15 +46,73 @@ const {
   barisal,
   mymensingh,
   sylhet,
-  dhaka
+  dhaka,
+  img
 } = style;
 
 const MapSection = () => {
-  // const [divisionId, setDivisionId] = useState<number | null>(40);
+  const [divisionId, setDivisionId] = useState<number>(20);
+  const [keyword, setKeyword] = useState<string | null>(null);
+  const [centerId, setCenterId] = useState<string | null>(null);
+  const [data, setData] = useState<any[] | undefined>();
+  const [divisionData, SetDivisionData] = useState<any[] | undefined>();
 
-  // const dataByDivisionId = await getDataByDivisionId(divisionId);
-  // const dataByKeyword = await getDataByDivisionId(40);
-  // const dataByHealthCenterId = await getDataByDivisionId(40);
+  const loadData = async (key: string | number) => {
+    if (key === 'divisionId') {
+      const dataByDivisionId = await getDataByDivisionId(divisionId);
+      setData(dataByDivisionId.data);
+    } else if (key === 'keyword') {
+      const dataByKeyword = await getDataByKeyword(keyword);
+      setData(dataByKeyword.data);
+    } else if (key === 'centerId') {
+      const dataByHealthCenterId = await getDataByHealthCenterId(centerId);
+      setData(dataByHealthCenterId.data);
+    } else {
+      const dataByDivisionId = await getDataByDivisionId(divisionId);
+      setData(dataByDivisionId.data);
+    }
+  };
+
+  const loadDivisionData = async (key: number) => {
+    const dataByDivisionId = await getDataByDivisionId(key);
+    SetDivisionData(dataByDivisionId.data);
+  };
+
+  const loadHealthCenterData = async (key: number) => {
+    const dataByHealthCenterId = await getDataByHealthCenterId(key);
+    setData(dataByHealthCenterId.data);
+
+    console.log('Data: ', dataByHealthCenterId.data);
+  };
+
+  const handleSearch = async (e: KeyboardEvent<HTMLInputElement>) => {
+    console.log('duksi');
+    const value = (e.target as HTMLInputElement).value;
+    const divisionId = data && data[0].division_id;
+    if (e.code === 'Enter') {
+      if ((e.target as HTMLInputElement).value.length <= 3) {
+        alert('Please enter more than 3 characters');
+      }
+      if ((e.target as HTMLInputElement).value.length >= 3) {
+        setKeyword(value);
+        loadData('keyword');
+        loadDivisionData(divisionId);
+      }
+    }
+  };
+
+  useEffect(() => {
+    loadData(divisionId);
+    loadDivisionData(divisionId);
+  }, []);
+
+  // console.log('DATA: ', data);
+
+  const centerImage = data && data[0].banner_image;
+  const centerName = data && data[0].name;
+  const centerDivision = data && data[0].division_name;
+  const centerAddress = data && data[0].address;
+  const centerPhone = data && data[0].contact_info;
 
   return (
     <div className={mapSection}>
@@ -91,34 +151,26 @@ const MapSection = () => {
 
         </div>
         <div className={content}>
-          <h4 className={divisionName}>Dhaka Division</h4>
-          <input className={search} type="text" placeholder='type your location..'/>
+          <h4 className={divisionName}>{centerDivision} Division</h4>
+          <input className={search} type="text" onKeyUp={handleSearch} placeholder='type your location..'/>
           <div className={imageContainer}>
-            <h2>Image</h2>
+            <Image className={img} src={IMAGE_BASE_URL + centerImage} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + centerImage}/>
           </div>
-          <h3 className={healthCenterName}>Rampur Health Center</h3>
+          <h3 className={healthCenterName}>{centerName}</h3>
           <div className={locationContact}>
             <div className={address}>
               <FaLocationDot className={icon}/>
-              <p>Dhankhali College Bazar, Kolapara, Patuakhali, Patuakhali</p>
+              <p>{centerAddress}, {centerDivision}</p>
             </div>
             <div className={contact}>
               <FaPhone className={icon}/>
-              <p>01701 693 470</p>
+              <p>{centerPhone}</p>
             </div>
           </div>
           <div className={listOfHospital}>
-            <p>Kalia Health Center, Tangail, Sakhipur</p>
-            <p>Rampur Health Center, Tangail, Kalihati</p>
-            <p>Kalibari Health Center, Mymensingh, Muktagachha</p>
-            <p>Kaliyaish Health Center, Chattogram, Satkania</p>
-            <p>Dhankhali Health Center, Patuakhali, Kala Para</p>
-            <p>Kalibari Health Center, Mymensingh, Muktagachha</p>
-            <p>Kaliyaish Health Center, Chattogram, Satkania</p>
-            <p>Dhankhali Health Center, Patuakhali, Kala Para</p>
-            <p>Kalibari Health Center, Mymensingh, Muktagachha</p>
-            <p>Kaliyaish Health Center, Chattogram, Satkania</p>
-            <p>Dhankhali Health Center, Patuakhali, Kala Para</p>
+            {
+              divisionData && divisionData.map(item => <p key={item.id} onClick={() => loadHealthCenterData(item.division_id)}>{item.address}</p>)
+            }
           </div>
         </div>
       </div>

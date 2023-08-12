@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, KeyboardEvent } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { FaSearch } from 'react-icons/fa';
 import { BiSolidPhoneCall } from 'react-icons/bi';
@@ -46,6 +47,20 @@ const SidebarSticky = () => {
     setOpenSearch(false);
   };
 
+  const router = useRouter();
+
+  const handleSearch = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Enter') {
+      if ((e.target as HTMLInputElement).value.length <= 3) {
+        alert('Please enter more than 3 characters');
+      }
+      if ((e.target as HTMLInputElement).value.length >= 3) {
+        router.push(`/search/${(e.target as HTMLInputElement).value}`);
+      }
+      setOpenSearch(false);
+    }
+  };
+
   return (
     <div className={container}>
       <div className={positionContainer}>
@@ -68,7 +83,7 @@ const SidebarSticky = () => {
           <div className={exit} onClick={() => handleSearchToggle()}>
             <RxCross2/>
           </div>
-          <input type="text" placeholder='Search...' />
+          <input type="text" placeholder='Search...' onKeyUp={handleSearch}/>
         </div>
         {/* Phone Number */}
         <div className={openPhone ? `${numberContainer} ${visibleNumber}` : `${numberContainer}`}>
