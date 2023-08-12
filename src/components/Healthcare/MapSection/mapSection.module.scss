@@ -96,12 +96,14 @@
                 margin-bottom: 2rem;
                 background-color: orangered;
 
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
                 @include response(tab-port){
                     height: 40rem;
+                }
+
+                .img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
                 }
             }
             .healthCenterName{
@@ -148,9 +150,14 @@
                 p{
                     font-size: 1.8rem;
                     padding: 5px 10px;
+                    cursor: pointer;
 
                     &:nth-of-type(even){
                         background-color: #EED9AA;
+                    }
+
+                    &:active{
+                        background-color: orangered;
                     }
                 }
             }

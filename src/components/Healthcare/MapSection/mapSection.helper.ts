@@ -9,14 +9,14 @@ export async function getDataByDivisionId(divisionId: number) {
   return data;
 }
 
-export async function getDataByKeyword(keyword: string) {
-  const data = await useFetch({ url: `get-health-centers?division_id=${keyword}` });
+export async function getDataByKeyword(keyword: string | null) {
+  const data = await useFetch({ url: `/get-health-centers?keyword=${keyword}` });
 
   return data;
 }
 
-export async function getDataByHealthCenterId(healthCenterId: number) {
-  const data = await useFetch({ url: `get-health-centers?division_id=${healthCenterId}` });
+export async function getDataByHealthCenterId(healthCenterId: number | string | null) {
+  const data = await useFetch({ url: `/get-health-centers?health_center_id=${healthCenterId}` });
 
   return data;
 }
