@@ -26,7 +26,7 @@ const StoryDetails = async ({ params }: { params: { storyDetails: number } }) =>
     <>
       <HeroSection data={heroSectionData}/>
       <DetailSection data={detailData}/>
-      <CommentSection/>
+      <CommentSection storyId={id}/>
       <RecentPost data={recentPostData}/>
       <WorkTogether/>
     </>

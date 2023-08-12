@@ -33,7 +33,7 @@ const {
   cardContainer
 } = style;
 
-const CommentSection = () => {
+const CommentSection = ({ storyId }:{storyId: number}) => {
   // Form Submission Successful
   const [submissionSuccessful, setSubmissionSuccessful] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -41,22 +41,62 @@ const CommentSection = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<IformInputs>();
 
   const onSubmit: SubmitHandler<IformInputs> = async (data) => {
-    const formdata = new FormData();
+    console.log('Data: ', data);
 
-    formdata.append('full_name', data.fullName);
-    formdata.append('email', data.email);
-    formdata.append('comment', data.comment);
+    const userFormData = new FormData();
+    const commentFormData = new FormData();
+
+    // User Data
+    userFormData.append('name', data.fullName);
+    userFormData.append('email', data.email);
 
     try {
-      const response = await fetch(BASE_URL + '#', {
+      const response = await fetch(BASE_URL + '/anonymous-user', {
         method: 'POST',
-        body: formdata
+        body: userFormData
       });
 
       if (!response.ok) {
         throw new Error('Request fail');
       }
+      setSubmissionSuccessful(true);
+    } catch (error: unknown) {
+      const errorInstance = error instanceof Error;
+      const errMessage = errorInstance ? error.message : 'Something went wrong';
+      setErrorMessage(errMessage);
+    }
 
+    const anonymousUser = async () => {
+      try {
+        const res = await fetch(BASE_URL + `/anonymous-user?email=${data.fullName}`);
+
+        if (!res.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        return res.json();
+      } catch (error: unknown) {
+        const errorInstance = error instanceof Error;
+        const errMessage = errorInstance ? error.message : 'Something went wrong';
+        return errMessage;
+      }
+    };
+
+    const userId = await anonymousUser();
+
+    // Comment Data
+    commentFormData.append('user_id', userId);
+    commentFormData.append('comment', data.comment);
+
+    try {
+      const response = await fetch(BASE_URL + '/comments', {
+        method: 'POST',
+        body: userFormData
+      });
+
+      if (!response.ok) {
+        throw new Error('Request fail');
+      }
       setSubmissionSuccessful(true);
     } catch (error: unknown) {
       const errorInstance = error instanceof Error;
