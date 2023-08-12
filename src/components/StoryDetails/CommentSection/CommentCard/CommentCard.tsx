@@ -1,20 +1,25 @@
 import React from 'react';
 
+import { IComment } from '@/shared/types/comment';
 import style from './commentCard.module.scss';
 
 const {
   commentCard, header, userName, commentDate, comment
 } = style;
 
-const CommentCard = () => {
+interface ICommentCard{
+  commentData: IComment
+}
+
+const CommentCard = ({ commentData }: ICommentCard) => {
   return (
     <div className={commentCard}>
       <div className={header}>
         <p className={userName}>ZAP</p>
-        <p className={commentDate}>2023-07-14 02:18:12</p>
+        <p className={commentDate}>{commentData.created_at}</p>
       </div>
       <div className={comment}>
-        <p>Zaproxy dolore alias impedit expedita quisquam.</p>
+        <p>{commentData.comment}</p>
       </div>
     </div>
   );
