@@ -1,0 +1,44 @@
+@import '../../../style/utils/base';
+
+.searchResult{
+    padding: 10rem 20rem;
+    
+    @include response(M-desktop){
+        padding: 10rem 15rem;
+    }
+    @include response(s-desktop){
+        padding: 10rem;
+    }
+    @include response(phone){
+        padding: 5rem;
+    }
+    @include response(s-phone){
+        padding: 5rem 3rem;
+    }
+
+    .searchContainer{
+        margin-bottom: 3rem;
+
+        display: flex;
+        gap: 2rem;
+
+        input{
+            padding: 1rem;
+            font-size: 1.8rem;
+            border-radius: 5px;
+            border: 2px solid $color-primary;
+            outline: none;
+
+            &:focus{
+                border-color: $color-primary;
+            }
+        }
+    }
+    .searchResultContainer{
+        .cardContainer{
+            &:not(:last-of-type){
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
