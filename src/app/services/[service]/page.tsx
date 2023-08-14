@@ -16,12 +16,13 @@ const ServiceDetails = async ({ params }: { params: { service: string } }) => {
 
   const services = await useFetch({ url: `/service-contents/details?id=${decodeParams}` });
 
+  const service = services.split();
+
   const heroSectionData = {
-    heroTitle: services.data[0].service_detail_slogan,
-    heroImage: services.data[0].service_detail_banner_image
+    heroTitle: service.service_detail_slogan,
+    heroImage: service.service_detail_banner_image
   };
-  const serviceDescription = services.data[0].long_description;
-  console.log('service: ', services);
+  const serviceDescription = service.long_description;
 
   return (
     <>
