@@ -56,7 +56,7 @@
                             }
 
                             &:hover path{
-                                fill: #0b612d;
+                                fill: $color-primary;
                             }
                         }
                     }
@@ -69,7 +69,11 @@
                             }
 
                             &:hover path{
-                                fill: #0b612d;
+                                fill: $color-primary;
+                            }
+
+                            .active{
+                                fill: $color-primary;
                             }
                         }
                     }
@@ -79,7 +83,7 @@
                         cursor: pointer;
 
                         &:hover{
-                            fill: #0b612d;
+                            fill: $color-primary;
                         }
                     }
                     .rangpur{
@@ -88,7 +92,7 @@
                         cursor: pointer;
 
                         &:hover{
-                            fill: #0b612d;
+                            fill: $color-primary;
                         }
                     }
                     .rajshahi{
@@ -97,7 +101,7 @@
                         cursor: pointer;
 
                         &:hover{
-                            fill: #0b612d;
+                            fill: $color-primary;
                         }
                     }
                     .dhaka{
@@ -106,7 +110,7 @@
                         cursor: pointer;
 
                         &:hover{
-                            fill: #0b612d;
+                            fill: $color-primary;
                         }
                     }
                     .mymensingh{
@@ -115,7 +119,7 @@
                         cursor: pointer;
 
                         &:hover{
-                            fill: #0b612d;
+                            fill: $color-primary;
                         }
                     }
                     .sylhet{
@@ -124,8 +128,11 @@
                         cursor: pointer;
 
                         &:hover{
-                            fill: #0b612d;
+                            fill: $color-primary;
                         }
+                    }
+                    .active{
+                        fill: $color-primary;
                     }
                 }
             }
