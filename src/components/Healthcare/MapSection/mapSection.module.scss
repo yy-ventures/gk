@@ -46,32 +46,87 @@
 
         .mapContainer{
             svg{
-                .rangpur,
-                .rajshahi,
-                .khulna,
-                .chattogram,
-                .barisal,
-                .mymensingh,
-                .sylhet,
-                .dhaka{
-                    transition: all 500ms;
+                g{
+                    .barisal{
+                        g{
+                            path{
+                                fill: transparent;
+                                transition: all 250ms;
+                                cursor: pointer;
+                            }
 
-                    &:hover{
-                        fill: $color-primary;
-                    }
-                }
-                .chattogram{
-                    path{
-                        transition: all 250ms;
-    
-                        &:hover{
-                            fill: $color-primary;
+                            &:hover path{
+                                fill: #0b612d;
+                            }
                         }
                     }
-                }
+                    .chattogram{
+                        g{
+                            path{
+                                fill: transparent;
+                                transition: all 250ms;
+                                cursor: pointer;
+                            }
 
-                path{
-                    cursor: pointer;
+                            &:hover path{
+                                fill: #0b612d;
+                            }
+                        }
+                    }
+                    .khulna{
+                        fill: transparent;
+                        transition: all 250ms;
+                        cursor: pointer;
+
+                        &:hover{
+                            fill: #0b612d;
+                        }
+                    }
+                    .rangpur{
+                        fill: transparent;
+                        transition: all 250ms;
+                        cursor: pointer;
+
+                        &:hover{
+                            fill: #0b612d;
+                        }
+                    }
+                    .rajshahi{
+                        fill: transparent;
+                        transition: all 250ms;
+                        cursor: pointer;
+
+                        &:hover{
+                            fill: #0b612d;
+                        }
+                    }
+                    .dhaka{
+                        fill: transparent;
+                        transition: all 250ms;
+                        cursor: pointer;
+
+                        &:hover{
+                            fill: #0b612d;
+                        }
+                    }
+                    .mymensingh{
+                        fill: transparent;
+                        transition: all 250ms;
+                        cursor: pointer;
+
+                        &:hover{
+                            fill: #0b612d;
+                        }
+                    }
+                    .sylhet{
+                        fill: transparent;
+                        transition: all 250ms;
+                        cursor: pointer;
+
+                        &:hover{
+                            fill: #0b612d;
+                        }
+                    }
                 }
             }
         }
