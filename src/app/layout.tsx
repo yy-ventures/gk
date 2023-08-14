@@ -19,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const navbarData = await useFetch({ url: '/home-contents', revalidateIn: 86400 });
-  const badgeImage = navbarData?.data[0].badge_image;
+  const badgeImage = navbarData?.badge_image;
 
   return (
     <html lang="en">

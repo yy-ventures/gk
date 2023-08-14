@@ -12,15 +12,15 @@ const StoryDetails = async ({ params }: { params: { storyDetails: number } }) =>
   const stories = await useFetch({ url: '/stories', revalidateIn: 86400 });
 
   const heroSectionData = {
-    title: story.data[0].title,
-    subtitle: story.data[0].sub_title,
-    image: story.data[0].banner_image
+    title: story?.title,
+    subtitle: story?.sub_title,
+    image: story?.banner_image
   };
   const detailData = {
-    id: story.data[0].id,
-    description: story.data[0].desc
+    id: story?.id,
+    description: story?.desc
   };
-  const recentPostData = stories.data.slice((data: IStories) => data.id === id);
+  const recentPostData = stories?.data?.slice((data: IStories) => data.id === id);
 
   return (
     <>
