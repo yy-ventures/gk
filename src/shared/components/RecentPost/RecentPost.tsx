@@ -33,6 +33,7 @@ const RecentPost = ({ data }: IRecentPostProps) => {
         slideToShowMob={1}
         autoPlay={true}
         autoplaySpeed={3000}
+        arrows={true}
       >
         {
           data?.map(data => <RecentPostCard key={data.id} data={data}/>)

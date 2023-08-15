@@ -17,9 +17,14 @@ const Error = ({
   }, [error]);
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
+    <div style={{
+      display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '2rem', height: 'calc(100svh - 16rem)'
+    }}>
+      <h2 style={{ fontSize: '3rem' }}>Something went wrong!</h2>
       <button
+        style={{
+          fontSize: '1.8rem', paddingTop: '.5rem', paddingBottom: '.5rem', paddingLeft: '2rem', paddingRight: '2rem', cursor: 'pointer'
+        }}
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()

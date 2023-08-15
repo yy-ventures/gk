@@ -76,9 +76,18 @@
                         justify-self: start;
                     }
                 }
-                input{
-                    font-size: 1.8rem;
-                    padding: 1rem;
+                .fullNameInput,
+                .commentInput,
+                .emailInput{
+                    display: flex;
+                    flex-direction: column;
+                    
+                    input,
+                    textarea{
+                        font-size: 1.8rem;
+                        padding: 1rem;
+                        width: 100%;
+                    }
                 }
                 .required{
                     color: rgb(253, 47, 47);

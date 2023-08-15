@@ -12,4 +12,5 @@ export interface ISliderProps {
     centerMode?: boolean
     autoplaySpeed?: number
     children: React.ReactNode
+    arrows?: boolean
 }
