@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import layoutTR from '@/assets/layout/layout-tr-large.svg';
-import layoutBL from '@/assets/layout/line-leaf.svg';
+import layoutBL from '@/assets/layout/home/GK_website_OPT_01-04.svg';
 
 import { BoardMemberCard } from '../BoardMemberCard';
 import style from './boardMember.module.scss';
