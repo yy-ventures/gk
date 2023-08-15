@@ -2,7 +2,9 @@ import React from 'react';
 import '../style/globals.scss';
 import { Inter } from 'next/font/google';
 
-import { Navbar, Footer, SidebarSticky } from '@/shared/components';
+import {
+  Navbar, Footer, SidebarSticky
+} from '@/shared/components';
 import { useFetch } from '@/shared/hook';
 
 const inter = Inter({ subsets: ['latin'] });

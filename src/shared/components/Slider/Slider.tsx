@@ -20,7 +20,8 @@ const Sliders = ({
   sliderToShowTab = 1,
   centerMode = true,
   autoplaySpeed = 2000,
-  children
+  children,
+  arrows = false
 }: ISliderProps) => {
   const {
     sliderBox, circleDot, flatDot, slickMain
@@ -34,7 +35,7 @@ const Sliders = ({
     slidesToScroll: 1,
     centerMode: false,
     centerPadding: '0', // added to remove extra padding on both side of the slider
-    arrows: false,
+    arrows: arrows,
     cssEase: 'ease-in-out',
     className: `${slickMain}`,
     autoplay: autoPlay,

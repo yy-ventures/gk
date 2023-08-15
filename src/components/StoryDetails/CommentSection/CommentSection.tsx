@@ -32,7 +32,10 @@ const {
   commentBox,
   required,
   submitBtn,
-  cardContainer
+  cardContainer,
+  fullNameInput,
+  commentInput,
+  emailInput
 } = style;
 
 const CommentSection = ({ storyId }:{storyId: number}) => {
@@ -46,56 +49,55 @@ const CommentSection = ({ storyId }:{storyId: number}) => {
     const userFormData = new FormData();
     const commentFormData = new FormData();
 
-    // User Data
-    userFormData.append('name', data.fullName);
-    userFormData.append('email', data.email);
-
+    // User Form Submit
     try {
-      const response = await fetch(BASE_URL + '/anonymous-user', {
+      userFormData.append('name', data.fullName);
+      userFormData.append('email', data.email);
+
+      const responseUser = await fetch(BASE_URL + '/anonymous-user', {
         method: 'POST',
         body: userFormData
       });
 
-      if (!response.ok) {
+      if (!responseUser.ok) {
         throw new Error('Request fail');
       }
-      setSubmissionSuccessful(true);
     } catch (error: unknown) {
       const errorInstance = error instanceof Error;
       const errMessage = errorInstance ? error.message : 'Something went wrong';
       setErrorMessage(errMessage);
     }
 
+    // Get user
     const anonymousUser = async () => {
       try {
-        const res = await fetch(BASE_URL + `/anonymous-user?email=${data.email}`);
+        const responseUserData = await fetch(BASE_URL + `/anonymous-user?email=${data.email}`);
 
-        if (!res.ok) {
+        if (!responseUserData.ok) {
           throw new Error('Failed to fetch data');
         }
 
-        return res.json();
+        return responseUserData.json();
       } catch (error: unknown) {
         const errorInstance = error instanceof Error;
         const errMessage = errorInstance ? error.message : 'Something went wrong';
         return errMessage;
       }
     };
-
     const userId = await anonymousUser();
 
-    // Comment Data
-    commentFormData.append('user_id', userId.data[0].user_id);
-    commentFormData.append('comment', data.comment);
-    commentFormData.append('content_id', storyId.toString());
-
+    // Comment Form Submit
     try {
-      const response = await fetch(BASE_URL + '/comments', {
+      commentFormData.append('user_id', userId.user_id);
+      commentFormData.append('comment', data.comment);
+      commentFormData.append('content_id', storyId.toString());
+
+      const responseComment = await fetch(BASE_URL + '/comments', {
         method: 'POST',
-        body: userFormData
+        body: commentFormData
       });
 
-      if (!response.ok) {
+      if (!responseComment.ok) {
         throw new Error('Request fail');
       }
       setSubmissionSuccessful(true);
@@ -129,29 +131,38 @@ const CommentSection = ({ storyId }:{storyId: number}) => {
         <form className={form} onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <div className={`${fullNameBox} ${box}`}>
             <label htmlFor="fullName">Full Name<span className={required}>*</span>:</label>
-            <input
-              id='fullName'
-              type='text'
-              {...register('fullName', { required: true })}
-            />
+            <div className={fullNameInput}>
+              <input
+                id='fullName'
+                type='text'
+                {...register('fullName', { required: true })}
+              />
+              {errors.fullName?.type === 'required' && <div><FormErrorMessage message='Please Upload your resume'/></div>}
+            </div>
             <p>Must be 3-20 characters long.</p>
           </div>
           <div className={`${emailBox} ${box}`}>
             <label htmlFor="email">Email ID<span className={required}>*</span>:</label>
-            <input
-              id='email'
-              type='text'
-              {...register('email', { required: true })}
-            />
+            <div className={emailInput}>
+              <input
+                id='email'
+                type='text'
+                {...register('email', { required: true })}
+              />
+              {errors.email?.type === 'required' && <div><FormErrorMessage message='Please Upload your resume'/></div>}
+            </div>
             <p>Email should be valid email.</p>
           </div>
           <div className={`${commentBox} ${box}`}>
             <label htmlFor="comment">Comment<span className={required}>*</span>:</label>
-            <textarea
-              id='comment'
-              rows={6}
-              {...register('comment', { required: true })}
-            />
+            <div className={commentInput}>
+              <textarea
+                id='comment'
+                rows={6}
+                {...register('comment', { required: true })}
+              />
+              {errors.comment?.type === 'required' && <div><FormErrorMessage message='Please Upload your resume'/></div>}
+            </div>
             <p>Must be 3-100 characters long.</p>
           </div>
           <input className={submitBtn} type="submit" value='Post Comment' disabled={isSubmitting}/>

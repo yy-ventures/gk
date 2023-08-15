@@ -30,7 +30,7 @@ const SuccessMessage = ({ textMessage }: ISuccessMessageProps) => {
           </div>
           <h2 className={text}>{textMessage}</h2>
         </div>
-        <div className={btnContainer} onClick={() => (pathName === '/' ? router.refresh() : router.push('/'))}>
+        <div className={btnContainer} onClick={() => router.refresh()}>
           <Button text='Continue' url='#'/>
         </div>
       </div>
