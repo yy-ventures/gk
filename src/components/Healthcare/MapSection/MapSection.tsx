@@ -10,16 +10,6 @@ import { useFetch } from '@/shared/hook';
 
 import { getDataByDivisionId, getDataByKeyword, getDataByHealthCenterId } from './mapSection.helper';
 
-// const dataByDivisionId = async function getDataByDivisionId(divisionId: number) {
-//   const data = await useFetch({ url: `/get-health-centers?division_id=${divisionId}` });
-
-//   return data;
-// };
-
-// const dataByDivisionId = getDataByDivisionId(10);
-
-// console.log('Barisal: ', dataByDivisionId);
-
 import style from './mapSection.module.scss';
 import Image from 'next/image';
 import { IMAGE_BASE_URL } from '@/config';
@@ -63,37 +53,23 @@ const MapSection = () => {
   const [activeHealthCenter, setActiveHealthCenter] = useState<boolean>(false);
   const [centerDivision, setCenterDivision] = useState<string | null>();
 
-  // const loadData = async (key: string | number) => {
-  //   if (key === 'divisionId') {
-  //     const dataByDivisionId = await getDataByDivisionId(divisionId);
-  //     setData(dataByDivisionId.data);
-  //   } else if (key === 'keyword') {
-  //     const dataByKeyword = await getDataByKeyword(keyword);
-  //     setData(dataByKeyword.data);
-  //   } else if (key === 'centerId') {
-  //     const dataByHealthCenterId = await getDataByHealthCenterId(centerId);
-  //     setData(dataByHealthCenterId.data);
-  //   } else {
-  //     const dataByDivisionId = await getDataByDivisionId(key);
-  //     setData(dataByDivisionId.data);
-  //   }
-  // };
-
   const loadDivisionData = async (key: number | string) => {
     const dataByDivisionId = await getDataByDivisionId(key);
     setData(dataByDivisionId.data);
     setCenterDivision(dataByDivisionId.division_name);
 
-    const singleData = dataByDivisionId?.data[0];
-    setMapActive(singleData?.division_id);
+    dataByDivisionId?.data?.map((item: IHealthCenter, index: number) => index === 0 && setMapActive(item.division_id));
   };
 
   const loadHealthCenterData = async (key: number) => {
     const dataByHealthCenterId = await getDataByHealthCenterId(key);
-    console.log('dataByHealthCenterId: ', dataByHealthCenterId);
+    dataByHealthCenterId.data.forEach((element: IHealthCenter) => {
+      setHealthCenterData(element);
+    });
     setActiveHealthCenter(true);
-    setHealthCenterData(dataByHealthCenterId?.data[0]);
   };
+  const healthCenterImage = healthCenterData?.banner_image;
+  console.log('healthCenterImage: ', healthCenterImage);
 
   const handleSearch = async (e: KeyboardEvent<HTMLInputElement>) => {
     const value = (e.target as HTMLInputElement).value;
@@ -152,7 +128,7 @@ const MapSection = () => {
           <h4 className={divisionName}>{centerDivision} Division</h4>
           <input className={search} type="text" onKeyUp={handleSearch} placeholder='type your location..'/>
           <div className={imageContainer}>
-            <Image className={img} src={IMAGE_BASE_URL + centerImage} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + centerImage}/>
+            <Image className={img} src={IMAGE_BASE_URL + (activeHealthCenter ? healthCenterImage : centerImage)} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + (activeHealthCenter ? healthCenterImage : centerImage)}/>
           </div>
           <h3 className={healthCenterName}>{activeHealthCenter ? healthCenterData?.name : centerName}</h3>
           <div className={locationContact}>
@@ -167,7 +143,7 @@ const MapSection = () => {
           </div>
           <div className={listOfHospital}>
             {
-              data?.map(item => <p key={item.id} onClick={() => loadHealthCenterData(item.division_id)}>{item.name}, {item.upazilla_name}, {item.district_name}</p>)
+              data?.map(item => <p key={item.id} onClick={() => loadHealthCenterData(item.id)}>{item.name}, {item.upazilla_name}, {item.district_name}</p>)
             }
           </div>
         </div>

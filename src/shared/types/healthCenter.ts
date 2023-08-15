@@ -5,4 +5,5 @@ export interface IHealthCenter{
   contact_info: string
   banner_image: string
   division_name: string
+  division_id: number
 }
