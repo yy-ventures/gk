@@ -2,6 +2,7 @@
 
 .medicalCare{
     padding-bottom: 15rem;
+    overflow: hidden;
 
     .contentContainer{
         position: relative;
@@ -35,10 +36,11 @@
         }
         .layoutRight{
             position: absolute;
-            bottom: -1rem;
-            right: 0;
+            bottom: 0;
+            right: -20rem;
 
-            height: 40rem;
+            height: 25rem;
+            transform: rotateZ(90deg);
             
             .img{
                 height: 100%;

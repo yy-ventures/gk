@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 
 import { ImageDisplay } from '@/shared/components/ImageDisplay';
-import layoutL from '@/assets/layout/health-left-leaf.svg';
-import layoutR from '@/assets/layout/health-right-up-leaf.svg';
+import layoutL from '@/assets/layout/healthcare/GK_website_OPT_01_Healthcare-04.svg';
+import layoutR from '@/assets/layout/healthcare/GK_website_OPT_01_Locator-04.svg';
 
 import style from './medicalCare.module.scss';
 
