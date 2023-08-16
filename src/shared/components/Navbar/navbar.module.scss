@@ -134,10 +134,17 @@
                         color: $color-secondary-goldenrod;
                     }
                 }
+                .activeSubItem{
+                    color: $color-secondary-goldenrod;
+                }
                 .subItemNoBorder{
                     border: none;
                 }
             }
+        }
+
+        .activeItem{
+            color: $color-secondary-goldenrod !important;
         }
 
         .badgeContainer{
