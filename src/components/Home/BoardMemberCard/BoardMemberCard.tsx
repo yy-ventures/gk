@@ -35,7 +35,8 @@ const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
               <Image className={img} src={IMAGE_BASE_URL + memberData.image} width={100} height={100} loader={() => IMAGE_BASE_URL + memberData.image} alt='Yunus'/>
             </div>
             <div className={contentContainer}>
-              <div className={`${descContainer} ${reverseDescContainer}`} dangerouslySetInnerHTML={{ __html: memberData.description }}>
+              <div className={`${descContainer} ${reverseDescContainer}`}>
+                <p>{memberData.description}</p>
               </div>
               <h5 className={memberName}>{memberData.name}</h5>
               <span className={desig}>{memberData.designation}</span>
