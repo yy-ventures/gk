@@ -23,7 +23,7 @@ const TeamGrid = ({ datas }: ITeamGridProps) => {
   return (
     <div className={gridContainer}>
       {
-        datas.map((data, index) => {
+        datas && datas.map((data, index) => {
           const isAfterFourMember = (index + 1) % 4 === 0;
           const isDataEnd = index === datas.length - 1;
           const counterArray: number[] = [];
@@ -59,7 +59,7 @@ const TeamGrid = ({ datas }: ITeamGridProps) => {
                 }
               </div>
               {
-                counterArray.map(counter => {
+                counterArray && counterArray.map(counter => {
                   const oddNumber = counter % 2 !== 0;
                   const evenNumber = counter % 2 === 0;
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -25,17 +25,32 @@ const {
 } = style;
 
 const ImageDisplay = ({ data, primary }: IImageDisplayProps) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string>('');
+  const [firstImage, setFirstImage] = useState<string>('');
+  const [activeFirstImage, setActiveFirstImage] = useState(false);
 
   const leftSideData = filterData({ data, from: 1, to: 3 });
   const rightSideData = filterData({ data, from: 4, to: 6 });
 
+  const handleFirstImage = () => (
+    data && data.map((item, index) => index === 0 && setFirstImage(item?.banner_image))
+  );
+  const handleOnMouseHover = (imgUrl: string) => {
+    setActiveFirstImage(false);
+    setSelectedImage(imgUrl);
+  };
+
+  useEffect(() => {
+    handleFirstImage();
+    setActiveFirstImage(true);
+  }, []);
+
   return (
     <div className={primary ? `${contentContainer} ${primaryContentContainer}` : `${contentContainer}`}>
-      <h2 className={heading}>Stories</h2>
+      {!primary && <h2 className={heading}>Stories</h2>}
       <div className={leftContent}>
         {
-          leftSideData?.map(data => <div key={data.id} className={content} onMouseOver={ () => setSelectedImage(data.banner_image)}>
+          leftSideData?.map(data => <div key={data.id} className={content} onMouseOver={ () => handleOnMouseHover(data?.banner_image)}>
             <Link className={link} href={data.dataType === 'medical' ? `/medical-care/${data.id}` : data.dataType === 'story' ? `/stories/${data.id}` : '#'}>
               <p>{data.name}</p>
             </Link>
@@ -47,9 +62,7 @@ const ImageDisplay = ({ data, primary }: IImageDisplayProps) => {
       </div>
       <div className={primary ? `${imageContainer} ${primaryImageContainer}` : `${imageContainer}`}>
         {
-          IMAGE_BASE_URL && selectedImage
-            ? <Image className={img} src={IMAGE_BASE_URL + selectedImage} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + selectedImage}/>
-            : <Image className={img} src={IMAGE_BASE_URL + data[0].banner_image} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + data[0].banner_image}/>
+          <Image className={img} src={IMAGE_BASE_URL + (activeFirstImage ? firstImage : selectedImage)} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + (activeFirstImage ? firstImage : selectedImage)}/>
         }
       </div>
       <div className={rightContent}>

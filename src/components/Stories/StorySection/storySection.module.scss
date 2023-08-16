@@ -4,6 +4,19 @@
     position: relative;
     padding: 20rem 20rem 50rem 20rem;
 
+    @include response(M-desktop){
+        padding: 20rem 15rem 40rem 15rem;
+    }
+    @include response(tab-port){
+        padding: 15rem 10rem 30rem 10rem;
+    }
+    @include response(phone){
+        padding: 10rem 5rem 20rem 5rem;
+    }
+    @include response(s-phone){
+        padding: 10rem 3rem;
+    }
+
     .heading{
         font-size: clamp(1.44rem, calc(0.36rem + 5.40vw), 6.84rem);
         font-weight: 900;
@@ -34,6 +47,13 @@
         top: 0;
         left: 0;
 
+        @include response(M-desktop){
+            height: 30rem;
+        }
+        @include response(phone){
+            height: 20rem;
+        }
+
         .img{
             height: 100%;
             width: 100%;
@@ -46,6 +66,16 @@
         position: absolute;
         bottom: 0;
         right: 0;
+
+        @include response(M-desktop){
+            height: 50rem;
+        }
+        @include response(tab-port){
+            height: 40rem;
+        }
+        @include response(phone){
+            height: 30rem;
+        }
 
         .img{
             height: 100%;

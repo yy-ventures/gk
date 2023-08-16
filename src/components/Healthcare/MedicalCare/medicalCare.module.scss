@@ -28,6 +28,10 @@
 
             height: 55rem;
 
+            @include response(phone){
+                height: 25rem;
+            }
+
             .img{
                 height: 100%;
                 width: 100%;
@@ -41,6 +45,10 @@
 
             height: 25rem;
             transform: rotateZ(90deg);
+
+            @include response(phone){
+                height: 20rem;
+            }
             
             .img{
                 height: 100%;

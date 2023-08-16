@@ -114,9 +114,17 @@
 
         .content:nth-of-type(2){
             margin-left: -2rem;
+            
+            @include response(phone){
+                margin-left: 0;                
+            }
         }
         .content:nth-of-type(3){
             margin-left: -4rem;
+
+            @include response(phone){
+                margin-left: 0;                
+            }
         }
     }
     .imageContainer{
@@ -181,9 +189,17 @@
         }
         .content:nth-of-type(2){
             margin-right: 2rem;
+
+            @include response(phone){
+                margin-right: 0;                
+            }
         }
         .content:nth-of-type(3){
             margin-right: 4rem;
+
+            @include response(phone){
+                margin-right: 0;                
+            }
         }
     }
 }
