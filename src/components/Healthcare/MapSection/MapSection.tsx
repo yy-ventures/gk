@@ -3,18 +3,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 import React, { useState, useEffect, KeyboardEvent } from 'react';
-
-import BangladeshMap from './BangladeshMap/BangladeshMap';
 import { FaLocationDot, FaPhone } from 'react-icons/fa6';
-import { useFetch } from '@/shared/hook';
+import Image from 'next/image';
 
 import { getDataByDivisionId, getDataByKeyword, getDataByHealthCenterId } from './mapSection.helper';
 
-import style from './mapSection.module.scss';
-import Image from 'next/image';
 import { IMAGE_BASE_URL } from '@/config';
 import { IHealthCenter } from '@/shared/types/healthCenter';
 
+import style from './mapSection.module.scss';
 const {
   mapSection,
   contentContainer,
@@ -44,9 +41,7 @@ const {
 
 const MapSection = () => {
   const [divisionId, setDivisionId] = useState<string | number>(30);
-  const [keyword, setKeyword] = useState<string | null>(null);
   const [data, setData] = useState<any[] | undefined>();
-  const [divisionData, SetDivisionData] = useState<any[] | undefined>();
   const [mapActive, setMapActive] = useState<number>(20);
   const [healthCenterData, setHealthCenterData] = useState<IHealthCenter | undefined>();
   const [activeHealthCenter, setActiveHealthCenter] = useState<boolean>(false);
@@ -69,17 +64,22 @@ const MapSection = () => {
   };
   const healthCenterImage = healthCenterData?.banner_image;
 
+  const loadHealthCenterDataBySearch = async (key: string) => {
+    const dataByHealthCenterId = await getDataByKeyword(key);
+    dataByHealthCenterId.data.forEach((element: IHealthCenter) => {
+      setHealthCenterData(element);
+    });
+    setActiveHealthCenter(true);
+  };
+
   const handleSearch = async (e: KeyboardEvent<HTMLInputElement>) => {
     const value = (e.target as HTMLInputElement).value;
-    const divisionId = data && data[0].division_id;
     if (e.code === 'Enter') {
       if ((e.target as HTMLInputElement).value.length <= 3) {
         alert('Please enter more than 3 characters');
       }
       if ((e.target as HTMLInputElement).value.length >= 3) {
-        setKeyword(value);
-        // loadData('keyword');
-        loadDivisionData(divisionId);
+        loadHealthCenterDataBySearch(value);
       }
     }
   };

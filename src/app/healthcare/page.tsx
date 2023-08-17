@@ -15,9 +15,11 @@ const Healthcare = async () => {
     id: data.id, name: data.title, banner_image: data.thumb_image, dataType: 'medical'
   }));
 
+  const bgHero = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692259176/healthcare-bg_lgc2rn.png';
+
   return (
     <>
-      <HeroSection heroFor='healthcare'/>
+      <HeroSection heroFor='healthcare' backgroundImage={bgHero}/>
       <HealthcareService servicesData={healthcareService?.data}/>
       <MapSection/>
       <MedicalCare/>

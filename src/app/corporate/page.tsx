@@ -19,9 +19,11 @@ const Corporate = async () => {
   const filterTrainingData = filterDataByDepartment(corporate?.data, 'Training');
   const filterTechnologyData = filterDataByDepartment(corporate?.data, 'Information Technology (IT)');
 
+  const bgHero = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692261660/corporate-bg_yrrcf4.png';
+
   return (
     <>
-      <HeroSection titleOne='Serving Bottom of the' titleTwo='Pyramid with Utmost' titleThree='Care and Sincerity'/>
+      <HeroSection titleOne='Serving Bottom of the' titleTwo='Pyramid with Utmost' titleThree='Care and Sincerity' backgroundImage={bgHero}/>
       <PeopleCulture/>
       <TeamGroup headingTextOne='Management' headingTextTwo='Leadership'/>
       <TeamGrid datas={filterManagementData}/>

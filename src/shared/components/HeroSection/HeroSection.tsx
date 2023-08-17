@@ -34,7 +34,7 @@ interface IHeroSectionProps {
 const HeroSection = ({
   heroFor, backgroundImage, titleOne, titleTwo, titleThree
 }: IHeroSectionProps) => {
-  const isJoinUs = heroFor === 'join-us' || 'search';
+  const isJoinUs = heroFor === ('join-us' || 'search');
   const isHealthcare = heroFor === 'healthcare';
   const isStory = heroFor === 'story';
 
@@ -104,7 +104,7 @@ const HeroSection = ({
   return (
     <div className={heroSection}>
       <div className={bgImageContainer}>
-        <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000}/>
+        <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={1000} height={1000}/>
       </div>
       <div className={content}>
         <h1 className={heading}>

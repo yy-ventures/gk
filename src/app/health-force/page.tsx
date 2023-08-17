@@ -7,6 +7,8 @@ import {
 } from '@/shared/components';
 import { filterDataByDepartment } from '@/shared/utils/pageHelpers/filterData.helper';
 
+const bgHero = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692259177/IMG_1382_bhjrmk.jpg';
+
 const HealthForce = async () => {
   const corporate = await useFetch({ url: '/peoples', revalidateIn: 86400 });
 
@@ -16,7 +18,7 @@ const HealthForce = async () => {
 
   return (
     <>
-      <HeroSection titleOne='Serving Bottom of the' titleTwo='Pyramid with Utmost' titleThree='Care and Sincerity'/>
+      <HeroSection titleOne='Serving Bottom of the' titleTwo='Pyramid with Utmost' titleThree='Care and Sincerity' backgroundImage={bgHero}/>
       <AboutSection/>
       <TeamGroup headingTextTwo='Our Doctors'/>
       <TeamGrid datas={filterDoctorsData}/>

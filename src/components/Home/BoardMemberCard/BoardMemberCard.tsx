@@ -46,7 +46,8 @@ const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
       {
         !memberData.reverse ? <div className={memberCard}>
           <div className={contentContainer}>
-            <div className={descContainer} dangerouslySetInnerHTML={{ __html: memberData.description }}>
+            <div className={`${descContainer} ${reverseDescContainer}`}>
+              <p>{memberData.description}</p>
             </div>
             <h5 className={memberName}>{memberData.name}</h5>
             <span className={desig}>{memberData.designation}</span>

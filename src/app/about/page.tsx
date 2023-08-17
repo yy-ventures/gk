@@ -12,7 +12,6 @@ import {
 import {
   HeroSection, ServiceSection, AnnualReportSection, WorkTogether
 } from '@/shared/components';
-
 import { useFetch } from '@/shared/hook';
 import { reverseFilterDataByKey } from '@/shared/utils/pageHelpers/filterData.helper';
 
