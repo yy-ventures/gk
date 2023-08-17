@@ -3,7 +3,7 @@ import { ICorporate } from '@/shared/types/corporate';
 export const handleMiddleIndex = (dataSet: ICorporate[], middleIndex: number) => {
   let middleIndexOne = middleIndex;
 
-  const middleDataOne = dataSet.map((data: ICorporate, index: number) => {
+  const middleDataOne = dataSet && dataSet.map((data: ICorporate, index: number) => {
     let array;
 
     if (index === middleIndexOne) {
@@ -13,7 +13,7 @@ export const handleMiddleIndex = (dataSet: ICorporate[], middleIndex: number) =>
     return array;
   });
 
-  const filterMiddleDataOne = middleDataOne.filter(data => data !== undefined);
+  const filterMiddleDataOne = middleDataOne && middleDataOne.filter(data => data !== undefined);
 
   return filterMiddleDataOne;
 };

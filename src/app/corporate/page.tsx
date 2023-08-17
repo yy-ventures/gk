@@ -25,11 +25,11 @@ const Corporate = async () => {
       <PeopleCulture/>
       <TeamGroup headingTextOne='Management' headingTextTwo='Leadership'/>
       <TeamGrid datas={filterManagementData}/>
-      <TeamGroup headingTextTwo='Accounts & Finance' marginTop/>
+      <TeamGroup headingTextOne='Accounts & Finance' marginTop/>
       <TeamGrid datas={filterAccountAndFinanceData}/>
       <TeamGroup headingTextOne='Human Resources &' headingTextTwo='Administration' marginTop/>
       <TeamGrid datas={filterHumanResourceData}/>
-      <TeamGroup headingTextTwo='Services & Procurement' marginTop/>
+      <TeamGroup headingTextOne='Services & Procurement' marginTop/>
       <TeamGrid datas={filterServicesAndProcurementData}/>
       <TeamGroup headingTextTwo='Audit & Internal Compliance' marginTop/>
       <TeamGrid datas={filterAuditData}/>

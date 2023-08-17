@@ -240,14 +240,14 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
   };
 
   useEffect(() => {
-    setIsHomePage(true);
-  }, []);
+    handleActivePage(pathName);
+  }, [pathName]);
 
   return (
     <div className={navbar}>
       <div className={logoContainer}>
         <Link className={link} href='/'>
-          <Image className={logo} src={gkLogo} alt='GK logo'/>
+          <Image className={logo} src={gkLogo} alt='GK logo' priority={true}/>
         </Link>
       </div>
       <ul className={toggle ? `${list} ${openList}` : `${list}`}>

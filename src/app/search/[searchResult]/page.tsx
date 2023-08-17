@@ -9,8 +9,6 @@ const Search = async ({ params }: { params: { searchResult: string } }) => {
 
   const searchResult = await useFetch({ url: `/search-results?search=${keyword}` });
 
-  console.log('searchResult: ', searchResult.data.health_centers);
-
   return (
     <>
       <HeroSection heroFor='search'/>

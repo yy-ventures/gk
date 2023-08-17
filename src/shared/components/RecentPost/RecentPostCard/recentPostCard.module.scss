@@ -13,7 +13,7 @@
             overflow: hidden;
 
             @include response(phone){
-                height: 60rem;
+                height: 50rem;
             }
 
             .img{
@@ -25,7 +25,7 @@
     }
     .contentContainer{
         background-color: $color-primary;
-        padding: 10rem 0;
+        padding: 10rem 3rem;
         
         border-radius: 0 0 3rem 3rem;
         
@@ -34,7 +34,7 @@
             
         }
         @include response(phone){
-            padding: 15rem 3rem;
+            padding: 10rem 3rem;
         }
         
         .title{

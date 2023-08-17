@@ -25,6 +25,7 @@
         height: 60rem;
         border-radius: 20rem 0 0 0;
         overflow: hidden;
+        background-color: $color-text-grey;
 
         @include response(vp-800){
             border-radius: 10rem 0 0 0;
