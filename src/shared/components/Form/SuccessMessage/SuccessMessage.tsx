@@ -15,11 +15,18 @@ const {
 
 interface ISuccessMessageProps {
   textMessage: string
+  url: string
+  closeModal: any
 }
 
-const SuccessMessage = ({ textMessage }: ISuccessMessageProps) => {
+const SuccessMessage = ({ textMessage, url, closeModal }: ISuccessMessageProps) => {
   const router = useRouter();
   const pathName = usePathname();
+
+  const handleButton = () => {
+    closeModal();
+    router.refresh();
+  };
 
   return (
     <div className={successMessage}>
@@ -30,8 +37,8 @@ const SuccessMessage = ({ textMessage }: ISuccessMessageProps) => {
           </div>
           <h2 className={text}>{textMessage}</h2>
         </div>
-        <div className={btnContainer} onClick={() => router.refresh()}>
-          <Button text='Continue' url='#'/>
+        <div className={btnContainer} onClick={() => handleButton()}>
+          <Button text='Continue' url={url}/>
         </div>
       </div>
     </div>

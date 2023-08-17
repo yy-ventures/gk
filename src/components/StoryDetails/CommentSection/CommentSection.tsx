@@ -118,6 +118,10 @@ const CommentSection = ({ storyId }:{storyId: number}) => {
     loadCommentData();
   }, []);
 
+  const handleModal = () => {
+    setSubmissionSuccessful(false);
+  };
+
   return (
     <div className={commentSection}>
       <h2 className={heading}>Comments</h2>
@@ -167,7 +171,7 @@ const CommentSection = ({ storyId }:{storyId: number}) => {
           </div>
           <input className={submitBtn} type="submit" value='Post Comment' disabled={isSubmitting}/>
         </form>
-        {submissionSuccessful && <SuccessMessage textMessage='Comment submitted successfully!'/>}
+        {submissionSuccessful && <SuccessMessage textMessage='Comment submitted successfully!' url={`/stories/${storyId}/${storyId}`} closeModal={handleModal}/>}
       </div>
 
       <div className={commentContainer}>

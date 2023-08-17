@@ -60,6 +60,10 @@ const ContactForm = () => {
     }
   };
 
+  const handleModal = () => {
+    setSubmissionSuccessful(false);
+  };
+
   return (
     <div className={contactForm}>
       <h3 className={heading}>CONTACT US</h3>
@@ -105,7 +109,7 @@ const ContactForm = () => {
           <input className={submitBtn} type="submit" value='Send' disabled={isSubmitting} />
         </div>
       </form>
-      {submissionSuccessful && <SuccessMessage textMessage='Application submitted successfully!'/>}
+      {submissionSuccessful && <SuccessMessage textMessage='Application submitted successfully!' url='/' closeModal={handleModal}/>}
     </div>
   );
 };

@@ -66,6 +66,10 @@ const CareerForm = ({ departmentsData }: ICareerFormProps) => {
     }
   };
 
+  const handleModal = () => {
+    setSubmissionSuccessful(false);
+  };
+
   return (
     <div className={careerForm}>
       <h1 className={heading}>Join Us</h1>
@@ -124,7 +128,7 @@ const CareerForm = ({ departmentsData }: ICareerFormProps) => {
           </div>
           <input className={submitBtn} type="submit" disabled={isSubmitting} />
         </form>
-        {submissionSuccessful && <SuccessMessage textMessage='Application submitted successfully!'/>}
+        {submissionSuccessful && <SuccessMessage textMessage='Application submitted successfully!' url='/join-us' closeModal={handleModal}/>}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const nextConfig = {
   },
   output: 'export',
   env: {
-    NEXT_PUBLIC_BASE_URL: 'http://api.grameenkalyan.com/api',
+    NEXT_PUBLIC_BASE_URL: 'https://api.grameenkalyan.com/api',
     NEXT_PUBLIC_IMAGE_URL: 'https://admin.grameenkalyan.com'
   }
 };
