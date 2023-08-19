@@ -35,7 +35,7 @@ const HeroSection = ({ badgeImage, sliderImages }: IHeroSectionProps) => {
           autoplaySpeed={3000}
         >
           {
-            sliderImages.map(data => <div key={data.id} className={`${imgContainer}`}>
+            sliderImages?.map(data => <div key={data.id} className={`${imgContainer}`}>
               <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='Background img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
             </div>)
           }

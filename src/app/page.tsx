@@ -9,7 +9,8 @@ import {
   BoardMember,
   AnnuallyServe,
   MicroHealthSection,
-  StoriesSection
+  StoriesSection,
+  SevenPrinciple
 } from '@/components/Home';
 
 import {
@@ -65,6 +66,7 @@ const Home = async () => {
       <AnnuallyServe data={annuallyWeServeData}/>
       <AnnualReportSection data={annuallyReportData} headingText='Annual'/>
       <MicroHealthSection image={microHealthData}/>
+      <SevenPrinciple/>
       <StoriesSection storyCategory={storyCategory.data}/>
       <WorkTogether/>
     </>

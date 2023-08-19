@@ -20,7 +20,7 @@ const {
 } = style;
 
 const StoriesSection = ({ storyCategory }: IStoriesSectionProps) => {
-  const displayImageData = storyCategory.map((data: ICategory) => ({
+  const displayImageData = storyCategory?.map((data: ICategory) => ({
     id: data.id, name: data.name, banner_image: data.banner_image, dataType: 'story'
   }));
 

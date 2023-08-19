@@ -36,7 +36,7 @@ const ServiceSection = ({ serviceData }: IServiceSectionProps) => {
       <div className={contentContainer}>
         <div className={services}>
           {
-            serviceData.map((data) => (
+            serviceData?.map((data) => (
               <Link key={data.id} href={data.title === 'Healthcare' ? '/services#healthcare' : data.title === 'Well-Being' ? '/services#well-being' : data.title === 'Emergency Response' ? '/services#emergency-response' : data.title === 'Social Business' ? '/services#social-business' : '#'}>
                 <div className={data.id === 1 ? `${serviceOne}` : data.id === 2 ? `${serviceTwo}` : data.id === 3 ? `${serviceThree}` : data.id === 4 ? `${serviceFour}` : ''}>
                   <ServiceCard service={data}/>
