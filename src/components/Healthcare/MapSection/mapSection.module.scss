@@ -47,20 +47,8 @@
         .mapContainer{
             svg{
                 g{
+                    .chattogram,
                     .barisal{
-                        g{
-                            path{
-                                fill: transparent;
-                                transition: all 250ms;
-                                cursor: pointer;
-                            }
-
-                            &:hover path{
-                                fill: $color-primary;
-                            }
-                        }
-                    }
-                    .chattogram{
                         g{
                             path{
                                 fill: transparent;
