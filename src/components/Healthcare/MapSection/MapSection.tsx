@@ -64,12 +64,12 @@ const MapSection = () => {
     setActiveHealthCenter(true);
   };
   const healthCenterImage = healthCenterData?.banner_image;
-  console.log('healthCenterData: ', healthCenterData);
 
   const loadHealthCenterDataBySearch = async (key: string) => {
     const dataByHealthCenterId = await getDataByKeyword(key);
     dataByHealthCenterId?.data?.forEach((element: IHealthCenter) => {
       setHealthCenterData(element);
+      loadDivisionData(element.division_id);
     });
     setActiveHealthCenter(true);
   };
@@ -88,7 +88,7 @@ const MapSection = () => {
 
   useEffect(() => {
     loadDivisionData(divisionId);
-  }, [loadDivisionData]);
+  }, [divisionId]);
 
   const firstData = data && data[0];
   const centerImage = firstData?.banner_image;

@@ -34,7 +34,7 @@ const AnnualReportSection = ({ data, headingText, headingTop }: IAnnualReportSec
         <div className={headingTop ? `${contentContainer} ${contentContainerT}` : `${contentContainer}`}>
           <div className={gridContainer}>
             {
-              data.map((item, index) => <div key={index} className={content}>
+              data?.map((item, index) => <div key={index} className={content}>
                 <p className={text}>
                   <span className={number}>{item.value}+</span>
                   <span className={title}>{item.title}</span>
