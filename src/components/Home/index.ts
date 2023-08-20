@@ -4,3 +4,4 @@ export * from './BoardMember';
 export * from './AnnuallyServe';
 export * from './MicroHealthSection';
 export * from './StoriesSection';
+export * from './SevenPrinciple';
