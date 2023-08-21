@@ -79,7 +79,11 @@ const ImageDisplay = ({ data, primary }: IImageDisplayProps) => {
         }
         <div className={content}>
           <Link className={link} href={firstData.dataType === 'medical' ? '/medical-care-list' : firstData.dataType === 'story' ? '/story-list' : '#'}>
-            <p>More Stories</p>
+            {
+              primary
+                ? <p>More Health Care</p>
+                : <p>More Stories</p>
+            }
           </Link>
         </div>
       </div>
