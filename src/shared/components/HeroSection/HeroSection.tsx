@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import bgImg from '@/assets/images/about/about-bg.webp';
 import layoutImg from '@/assets/layout/layout-tr-small.svg';
@@ -45,14 +48,28 @@ const HeroSection = ({
           <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000}/>
         </div>
         <div className={`${content} ${juContent}`}>
-          <h1 className={juSubHeading}>
+          <motion.h1
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={juSubHeading}
+          >
             <span>How People & Culture Thrive In</span>
             <span>Grameen Kalyan</span>
-          </h1>
-          <h1 className={juHeading}>
+          </motion.h1>
+          <motion.h1
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={juHeading}
+          >
             <span>Be inspired to serve the people</span>
             <span>across the nation</span>
-          </h1>
+          </motion.h1>
           <div className={layoutContainer}>
             <Image className={layoutImage} src={layoutImg} alt='layout'/>
           </div>
@@ -67,14 +84,28 @@ const HeroSection = ({
           <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000}/>
         </div>
         <div className={`${content} ${healthcareContent}`}>
-          <h1 className={healthcareSubHeading}>
+          <motion.h1
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={healthcareSubHeading}
+          >
             <span>Serving People with</span>
             <span>Empathy</span>
-          </h1>
-          <h1 className={healthcareHeading}>
+          </motion.h1>
+          <motion.h1
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={healthcareHeading}
+          >
             <span>Quality &</span>
             <span>Trust</span>
-          </h1>
+          </motion.h1>
           <div className={layoutContainer}>
             <Image className={layoutImage} src={layoutImg} alt='layout'/>
           </div>
@@ -89,10 +120,17 @@ const HeroSection = ({
           <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000}/>
         </div>
         <div className={`${content} ${storyContent}`}>
-          <h1 className={storyHeading}>
+          <motion.h1
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={storyHeading}
+          >
             <span>{titleOne}</span>
             <span>{titleTwo}</span>
-          </h1>
+          </motion.h1>
           <div className={layoutContainer}>
             <Image className={layoutImage} src={layoutImg} alt='layout'/>
           </div>
@@ -107,11 +145,18 @@ const HeroSection = ({
         <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={1000} height={1000}/>
       </div>
       <div className={content}>
-        <h1 className={heading}>
+        <motion.h1
+          style={{ position: 'relative' }}
+          initial={{ opacity: 0, bottom: '-5rem' }}
+          whileInView={{ opacity: 1, bottom: '0' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className={heading}
+        >
           <span>{titleOne}</span>
           <span>{titleTwo}</span>
           <span>{titleThree}</span>
-        </h1>
+        </motion.h1>
         <div className={layoutContainer}>
           <Image className={layoutImage} src={layoutImg} alt='layout'/>
         </div>

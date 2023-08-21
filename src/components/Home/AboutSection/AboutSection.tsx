@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import layoutImage from '@/assets/layout/layout-br.svg';
 
@@ -18,10 +21,31 @@ const AboutSection = ({ data }: IAboutSectionProps) => {
   return (
     <div className={aboutSection}>
       <div className={content}>
-        <h2 className={heading}>{data.title}</h2>
+        <motion.h2
+          initial={{ opacity: 0, bottom: '-10rem' }}
+          whileInView={{ opacity: 1, bottom: '0' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className={heading}>
+          {data.title}
+        </motion.h2>
         <h4 className={subHeading}>
-          <span>{data.subTitleOne}</span>
-          <span>{data.subTitleTwo}</span>
+          <motion.span
+            initial={{ opacity: 0, bottom: '-10rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            {data.subTitleOne}
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, bottom: '-10rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            {data.subTitleTwo}
+          </motion.span>
         </h4>
       </div>
       <div className={layout}>

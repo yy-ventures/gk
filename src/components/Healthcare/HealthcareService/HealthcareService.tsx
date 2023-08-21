@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import layoutTopLeft from '@/assets/layout/layout-tl-healthcare.svg';
 import layoutBottomRight from '@/assets/layout/grid-bottom-leaf.svg';
@@ -43,14 +44,22 @@ const HealthcareService = ({ servicesData }: IHealthcareServiceProps) => {
           servicesData?.map((data, index) => {
             return (
               <>
-                <div key={data.id} className={healthcareServiceCard}>
+                <motion.div
+                  style={{ position: 'relative' }}
+                  initial={{ opacity: 0, bottom: '-5rem' }}
+                  whileInView={{ opacity: 1, bottom: '0' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  key={data.id}
+                  className={healthcareServiceCard}
+                >
                   <Link href={`/healthcare/${data.id}`}>
                     <div className={imageContainer}>
                       <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt='healthcare' width={100} height={100} loader={() => IMAGE_BASE_URL + data.thumb_image}/>
                     </div>
                   </Link>
                   <h3 className={heading}>{data.title}</h3>
-                </div>
+                </motion.div>
                 {
                   index % 2 === 0 && <div className={verticalLine}/>
                 }
