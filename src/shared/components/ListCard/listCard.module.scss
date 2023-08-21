@@ -1,20 +1,19 @@
-@import '../../../../style/utils/base';
+@import '../../../style/utils/base';
 
-.recentPostCard{
-    padding: 0 3rem;
+.listCard{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
 
     .container{
         background-color: $color-primary;
         border-radius: 3rem 3rem 0 0;
 
         .imgContainer{
-            height: 40rem;
+            height: 30rem;
             border-radius: 3rem;
             overflow: hidden;
-
-            @include response(phone){
-                height: 50rem;
-            }
 
             .img{
                 height: 100%;
@@ -24,21 +23,13 @@
         }
     }
     .contentContainer{
+        flex: 1;
         background-color: $color-primary;
-        padding: 10rem 3rem;
-        
+        padding: 3rem;        
         border-radius: 0 0 3rem 3rem;
         
-        @include response(tab-port){
-            padding: 7rem 0;
-            
-        }
-        @include response(phone){
-            padding: 10rem 3rem;
-        }
-        
         .title{
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 900;
             line-height: 1.2;
             text-align: center;
