@@ -201,6 +201,13 @@
                 margin-right: 0;                
             }
         }
+        .content:nth-of-type(4){
+            margin-right: 6rem;
+
+            @include response(phone){
+                margin-right: 0;                
+            }
+        }
     }
 }
 .primaryContentContainer{
