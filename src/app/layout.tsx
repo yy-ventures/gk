@@ -3,7 +3,7 @@ import '../style/globals.scss';
 import { Inter } from 'next/font/google';
 
 import {
-  Navbar, Footer, SidebarSticky
+  Navbar, Footer, SidebarSticky, ButtonScrollTop
 } from '@/shared/components';
 import { useFetch } from '@/shared/hook';
 
@@ -30,6 +30,7 @@ export default async function RootLayout({
         {children}
         <SidebarSticky/>
         <Footer />
+        <ButtonScrollTop/>
       </body>
     </html>
   );

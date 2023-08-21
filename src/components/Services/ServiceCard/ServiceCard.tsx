@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import nextBase64 from 'next-base64';
+import { motion } from 'framer-motion';
 
 import { Button } from '@/shared/components';
 import { IService } from '@/shared/types/service';
@@ -32,11 +32,18 @@ interface IServiceSectionProps {
 const ServiceCard = ({ reverse, serviceData }: IServiceSectionProps) => {
   const slitSubtitleOne = serviceData.sub_title_one.split('/');
 
-  // const encodedId = nextBase64.encode(serviceData.id.toString());
-
   return (
     <div className={serviceSection}>
-      <h2 className={reverse ? `${heading} ${headingReverse}` : `${heading}`}>{serviceData.title}</h2>
+      <motion.h2
+        style={{ position: 'relative' }}
+        initial={{ opacity: 0, bottom: '-5rem' }}
+        whileInView={{ opacity: 1, bottom: '0' }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className={reverse ? `${heading} ${headingReverse}` : `${heading}`}
+      >
+        {serviceData.title}
+      </motion.h2>
       <div className={reverse ? `${imgContainer} ${imgContainerReverse}` : `${imgContainer}`}>
         <Image className={img} src={IMAGE_BASE_URL + serviceData.servicepage_thumb_image} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + serviceData.servicepage_thumb_image}/>
       </div>

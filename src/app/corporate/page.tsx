@@ -20,26 +20,34 @@ const Corporate = async () => {
   const filterTechnologyData = filterDataByDepartment(corporate?.data, 'Information Technology (IT)');
 
   const bgHero = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692261660/corporate-bg_yrrcf4.png';
+  const managementImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608043/management-leadership-_1__cnt3vv.jpg';
+  const accountImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608043/account-finance_apn4ac.jpg';
+  const hrImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608044/resource-full_yrklg7.jpg';
+  const servicesImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608042/procurement_gocoxd.jpg';
+  const auditImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608042/audit-internal_bdrn5d.jpg';
+  const brandingImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608043/brand-full_rpfuxj.jpg';
+  const trainingImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608043/training_section_banner_mukpax.jpg';
+  const itImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608043/information_technology_section_banner_t3wy0u.jpg';
 
   return (
     <>
       <HeroSection titleOne='Serving Bottom of the' titleTwo='Pyramid with Utmost' titleThree='Care and Sincerity' backgroundImage={bgHero}/>
       <PeopleCulture/>
-      <TeamGroup headingTextOne='Management' headingTextTwo='Leadership'/>
+      <TeamGroup headingTextOne='Management' headingTextTwo='Leadership' image={managementImg}/>
       <TeamGrid datas={filterManagementData}/>
-      <TeamGroup headingTextOne='Accounts & Finance' marginTop/>
+      <TeamGroup headingTextOne='Accounts & Finance' marginTop image={accountImg}/>
       <TeamGrid datas={filterAccountAndFinanceData}/>
-      <TeamGroup headingTextOne='Human Resources &' headingTextTwo='Administration' marginTop/>
+      <TeamGroup headingTextOne='Human Resources &' headingTextTwo='Administration' marginTop image={hrImg}/>
       <TeamGrid datas={filterHumanResourceData}/>
-      <TeamGroup headingTextOne='Services & Procurement' marginTop/>
+      <TeamGroup headingTextOne='Services & Procurement' marginTop image={servicesImg}/>
       <TeamGrid datas={filterServicesAndProcurementData}/>
-      <TeamGroup headingTextTwo='Audit & Internal Compliance' marginTop/>
+      <TeamGroup headingTextTwo='Audit & Internal Compliance' marginTop image={auditImg}/>
       <TeamGrid datas={filterAuditData}/>
-      <TeamGroup headingTextOne='M&E, Branding & Communications' headingTextTwo='and Secretariate' marginTop/>
+      <TeamGroup headingTextOne='M&E, Branding & Communications' headingTextTwo='and Secretariate' marginTop image={brandingImg}/>
       <TeamGrid datas={filterBrandingAndSecretariatData}/>
-      <TeamGroup headingTextTwo='Training' marginTop/>
+      <TeamGroup headingTextTwo='Training' marginTop image={trainingImg}/>
       <TeamGrid datas={filterTrainingData}/>
-      <TeamGroup headingTextTwo='Information Technology (IT)' marginTop/>
+      <TeamGroup headingTextTwo='Information Technology (IT)' marginTop image={itImg}/>
       <TeamGrid datas={filterTechnologyData}/>
       <WorkTogether/>
     </>

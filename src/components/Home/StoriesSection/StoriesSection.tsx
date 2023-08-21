@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import { ImageDisplay } from '@/shared/components/ImageDisplay';
 
@@ -31,8 +34,26 @@ const StoriesSection = ({ storyCategory }: IStoriesSectionProps) => {
       </div>
       <div className={headingContainer}>
         <h2 className={heading}>
-          <span className={small}>Making Millions</span>
-          <span className={large}>Smile</span>
+          <motion.span
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={small}
+          >
+            Making Millions
+          </motion.span>
+          <motion.span
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={large}
+          >
+            Smile
+          </motion.span>
         </h2>
       </div>
       <ImageDisplay data={displayImageData}/>

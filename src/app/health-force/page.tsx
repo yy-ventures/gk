@@ -8,6 +8,9 @@ import {
 import { filterDataByDepartment } from '@/shared/utils/pageHelpers/filterData.helper';
 
 const bgHero = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692259177/IMG_1382_bhjrmk.jpg';
+const doctorsImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692609361/our-doctors-full_p5yajx.jpg';
+const dmfsImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692609361/dmfs-full_c7ihh5.jpg';
+const communityImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692609361/assistants-full_b5gaak.jpg';
 
 const HealthForce = async () => {
   const corporate = await useFetch({ url: '/peoples', revalidateIn: 86400 });
@@ -20,11 +23,11 @@ const HealthForce = async () => {
     <>
       <HeroSection titleOne='Serving Bottom of the' titleTwo='Pyramid with Utmost' titleThree='Care and Sincerity' backgroundImage={bgHero}/>
       <AboutSection/>
-      <TeamGroup headingTextTwo='Our Doctors'/>
+      <TeamGroup headingTextTwo='Our Doctors' image={doctorsImg}/>
       <TeamGrid datas={filterDoctorsData}/>
-      <TeamGroup headingTextTwo='Our DMFs' marginTop/>
+      <TeamGroup headingTextTwo='Our DMFs' marginTop image={dmfsImg}/>
       <TeamGrid datas={filterDMFsData}/>
-      <TeamGroup headingTextOne='Our Community' headingTextTwo='Health Assistants' marginTop/>
+      <TeamGroup headingTextOne='Our Community' headingTextTwo='Health Assistants' marginTop image={communityImg}/>
       <TeamGrid datas={filterCommunityHealthAssistantsData}/>
       <WorkTogether/>
     </>

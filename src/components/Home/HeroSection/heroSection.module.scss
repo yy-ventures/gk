@@ -44,7 +44,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        z-index: 1;
+        z-index: 4;
 
         @include response(phone){
             height: 35rem;
@@ -59,13 +59,13 @@
     }
 
     .glory{
-        height: 25rem;
-        width: 25rem;
+        height: 21rem;
+        width: 21rem;
 
         position: absolute;
         top: 8rem;
         right: 13rem;
-        z-index: 2;
+        z-index: 5;
 
         .img{
             height: 100%;
@@ -75,6 +75,8 @@
     }
 
     .contentContainer{
+        background-color: rgba($color: $color-primary, $alpha: 0.3);
+
         position: absolute;
         top: 0;
         right: 0;
@@ -83,40 +85,33 @@
         z-index: 3;
 
         display: flex;
+        align-items: center;
 
-        .emptyBox{
-            flex: 1;
-
-            @include response(phone){
-                flex: 2;
-            }
-        }
-        .content{
-            flex: 1;
-
-            display: flex;
+        @include response(phone){
             align-items: flex-end;
+            justify-content: center;
+        }
+        
+        .imgContainer{
+            position: relative;
+            height: 45rem;
+            width: 45rem;
+            margin-left: 10rem;
 
+            @include response(tab-port){
+                height: 35rem;
+                width: 35rem;
+                margin-bottom: 5rem;
+            }
             @include response(phone){
-                flex: 6;
+                margin-left: 0;
+                margin-bottom: 10rem;
             }
 
-            .imgContainer{
-                height: 45rem;
-                width: 45rem;
-                margin-bottom: 10rem;
-
-                @include response(tab-port){
-                    height: 35rem;
-                    width: 35rem;
-                    margin-bottom: 5rem;
-                }
-
-                .img{
-                    height: 100%;
-                    width: 100%;
-                    object-fit: contain;
-                }
+            .img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
             }
         }
     }

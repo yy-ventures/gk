@@ -2,14 +2,11 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-import { IBoardMemberData } from './boardMember.type';
 import { IMAGE_BASE_URL } from '@/config';
 
-interface IBoardMemberCardProps {
-  memberData: IBoardMemberData
-}
-
+import { IBoardMemberData } from './boardMember.type';
 import style from './boardMemberCard.module.scss';
 
 const {
@@ -25,6 +22,10 @@ const {
   reverseImageContainer
 } = style;
 
+interface IBoardMemberCardProps {
+  memberData: IBoardMemberData
+}
+
 const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
   return (
     <>
@@ -35,22 +36,72 @@ const BoardMemberCard = ({ memberData }: IBoardMemberCardProps) => {
               <Image className={img} src={IMAGE_BASE_URL + memberData.image} width={100} height={100} loader={() => IMAGE_BASE_URL + memberData.image} alt='Yunus'/>
             </div>
             <div className={contentContainer}>
-              <div className={`${descContainer} ${reverseDescContainer}`}>
+              <motion.div
+                style={{ position: 'relative' }}
+                initial={{ opacity: 0, bottom: '-5rem' }}
+                whileInView={{ opacity: 1, bottom: '0' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className={`${descContainer} ${reverseDescContainer}`}
+              >
                 <p>{memberData.description}</p>
-              </div>
-              <h5 className={memberName}>{memberData.name}</h5>
-              <span className={desig}>{memberData.designation}</span>
+              </motion.div>
+              <motion.h5
+                style={{ position: 'relative' }}
+                initial={{ opacity: 0, bottom: '-5rem' }}
+                whileInView={{ opacity: 1, bottom: '0' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className={memberName}
+              >
+                {memberData.name}
+              </motion.h5>
+              <motion.span
+                style={{ position: 'relative' }}
+                initial={{ opacity: 0, bottom: '-5rem' }}
+                whileInView={{ opacity: 1, bottom: '0' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className={desig}
+              >
+                {memberData.designation}
+              </motion.span>
             </div>
           </div> : null
       }
       {
         !memberData.reverse ? <div className={memberCard}>
           <div className={contentContainer}>
-            <div className={`${descContainer} ${reverseDescContainer}`}>
+            <motion.div
+              style={{ position: 'relative' }}
+              initial={{ opacity: 0, bottom: '-5rem' }}
+              whileInView={{ opacity: 1, bottom: '0' }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className={`${descContainer} ${reverseDescContainer}`}
+            >
               <p>{memberData.description}</p>
-            </div>
-            <h5 className={memberName}>{memberData.name}</h5>
-            <span className={desig}>{memberData.designation}</span>
+            </motion.div>
+            <motion.h5
+              style={{ position: 'relative' }}
+              initial={{ opacity: 0, bottom: '-5rem' }}
+              whileInView={{ opacity: 1, bottom: '0' }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className={memberName}
+            >
+              {memberData.name}
+            </motion.h5>
+            <motion.span
+              style={{ position: 'relative' }}
+              initial={{ opacity: 0, bottom: '-5rem' }}
+              whileInView={{ opacity: 1, bottom: '0' }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className={desig}
+            >
+              {memberData.designation}
+            </motion.span>
           </div>
           <div className={imageContainer}>
             <Image className={img} src={IMAGE_BASE_URL + memberData.image} width={100} height={100} loader={() => IMAGE_BASE_URL + memberData.image} alt='Yunus'/>

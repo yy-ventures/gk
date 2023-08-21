@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import bgImage from '@/assets/images/home/annual-section-bg.webp';
 
@@ -36,10 +39,17 @@ const OurProudSection = ({ proudPresenceData, headingText, subHeadingText }: IOu
           <div className={gridContainer}>
             {
               proudPresenceData.map(data => <div key={data.id} className={content}>
-                <p className={text}>
+                <motion.p
+                  style={{ position: 'relative' }}
+                  initial={{ opacity: 0, bottom: '-5rem' }}
+                  whileInView={{ opacity: 1, bottom: '0' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className={text}
+                >
                   <span className={number}>{data.value}</span>
                   <span className={title}>{data.title}</span>
-                </p>
+                </motion.p>
               </div>)
             }
           </div>
