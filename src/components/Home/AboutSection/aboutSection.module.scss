@@ -23,6 +23,7 @@
         }
 
         .heading{
+            position: relative;
             font-size: clamp(1.73rem, calc(0.36rem + 6.82vw), 8.55rem);
             font-weight: 900;
             color: $color-primary;
@@ -34,6 +35,7 @@
             color: $color-secondary-goldenrod;
 
             span{
+                position: relative;
                 display: block;
             }
 

@@ -1,19 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+  optimizeFonts: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'stage.grameenkalyan.com'
-      }
-    ],
-    domains: ['stage.grameenkalyan.com'],
-    unoptimized: true
-  },
-  output: 'export',
-  env: {
-    NEXT_PUBLIC_BASE_URL: 'https://api.grameenkalyan.com/api',
-    NEXT_PUBLIC_IMAGE_URL: 'https://admin.grameenkalyan.com'
+    domains: ['admin.grameenkalyan.com', 'res.cloudinary.com']
   }
 };
 

@@ -31,6 +31,7 @@ const ImageDisplay = ({ data, primary }: IImageDisplayProps) => {
 
   const leftSideData = filterData({ data, from: 1, to: 3 });
   const rightSideData = filterData({ data, from: 4, to: 6 });
+  const [firstData] = rightSideData;
 
   const handleFirstImage = () => (
     data && data.map((item, index) => index === 0 && setFirstImage(item?.banner_image))
@@ -76,6 +77,15 @@ const ImageDisplay = ({ data, primary }: IImageDisplayProps) => {
             </div>
           </div>)
         }
+        <div className={content}>
+          <Link className={link} href={firstData.dataType === 'medical' ? '/medical-care-list' : firstData.dataType === 'story' ? '/story-list' : '#'}>
+            {
+              primary
+                ? <p>More Health Care</p>
+                : <p>More Stories</p>
+            }
+          </Link>
+        </div>
       </div>
     </div>
   );

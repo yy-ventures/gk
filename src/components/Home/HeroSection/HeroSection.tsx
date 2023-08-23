@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import layoutImage from '@/assets/layout/layout-tr-small.svg';
 import titleImage from '@/assets/images/home/title.svg';
@@ -18,8 +19,6 @@ const {
   layout,
   glory,
   contentContainer,
-  content,
-  emptyBox,
   imgContainer
 } = style;
 
@@ -48,12 +47,15 @@ const HeroSection = ({ badgeImage, sliderImages }: IHeroSectionProps) => {
         <Image className={img} src={IMAGE_BASE_URL + badgeImage} alt='glory' width={100} height={100} loader={() => IMAGE_BASE_URL + badgeImage}/>
       </div>
       <div className={contentContainer}>
-        <div className={emptyBox}></div>
-        <div className={content}>
-          <div className={imgContainer}>
-            <Image className={img} src={titleImage} alt='title'/>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, left: '-20rem' }}
+          whileInView={{ opacity: 1, left: '0' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className={imgContainer}
+        >
+          <Image className={img} src={titleImage} alt='title'/>
+        </motion.div>
       </div>
     </div>
   );

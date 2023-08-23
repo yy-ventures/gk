@@ -16,7 +16,9 @@ const {
   headingSingle
 } = style;
 
-const TeamGroup = ({ headingTextOne, headingTextTwo, marginTop }: ITeamGroup) => {
+const TeamGroup = ({
+  headingTextOne, headingTextTwo, marginTop, image
+}: ITeamGroup) => {
   return (
     <div className={marginTop ? `${annualSection} ${annualSectionT}` : `${annualSection}`}>
       <h1 className={headingTextOne && headingTextTwo ? `${heading}` : `${heading} ${headingSingle}`}>
@@ -25,7 +27,7 @@ const TeamGroup = ({ headingTextOne, headingTextTwo, marginTop }: ITeamGroup) =>
       </h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={bgImage} alt='bg-img'/>
+          <Image className={img} src={image || bgImage} alt='bg-img' width={1000} height={1000}/>
         </div>
       </div>
     </div>

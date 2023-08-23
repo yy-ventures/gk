@@ -1,11 +1,14 @@
+'use client';
+
 import React from 'react';
-import { ServiceCard } from '../ServiceCard';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import { Button } from '@/shared/components';
-
-import style from './serviceSection.module.scss';
 import { IServiceSectionData } from '@/shared/types/ServiceSection';
-import Link from 'next/link';
+
+import { ServiceCard } from '../ServiceCard';
+import style from './serviceSection.module.scss';
 
 const {
   serviceSection,
@@ -38,9 +41,24 @@ const ServiceSection = ({ serviceData }: IServiceSectionProps) => {
           {
             serviceData?.map((data) => (
               <Link key={data.id} href={data.title === 'Healthcare' ? '/services#healthcare' : data.title === 'Well-Being' ? '/services#well-being' : data.title === 'Emergency Response' ? '/services#emergency-response' : data.title === 'Social Business' ? '/services#social-business' : '#'}>
-                <div className={data.id === 1 ? `${serviceOne}` : data.id === 2 ? `${serviceTwo}` : data.id === 3 ? `${serviceThree}` : data.id === 4 ? `${serviceFour}` : ''}>
+                <motion.div
+                  style={{ position: 'relative' }}
+                  initial={{ opacity: 0, bottom: '-5rem' }}
+                  whileInView={{ opacity: 1, bottom: '0' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className={data.id === 1
+                    ? `${serviceOne}`
+                    : data.id === 2
+                      ? `${serviceTwo}`
+                      : data.id === 3
+                        ? `${serviceThree}`
+                        : data.id === 4
+                          ? `${serviceFour}`
+                          : ''}
+                >
                   <ServiceCard service={data}/>
-                </div>
+                </motion.div>
               </Link>
             ))
           }
@@ -51,10 +69,25 @@ const ServiceSection = ({ serviceData }: IServiceSectionProps) => {
           <div className={squareBox}/>
         </div>
         <div className={content}>
-          <h2 className={text}>
+          <motion.h2
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className={text}
+          >
             Millions of People at Bottom of the Pyramid are Served with Empathy and Care
-          </h2>
-          <Button text='read more' url='/services'/>
+          </motion.h2>
+          <motion.div
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, bottom: '-5rem' }}
+            whileInView={{ opacity: 1, bottom: '0' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <Button text='read more' url='/services'/>
+          </motion.div>
         </div>
       </div>
     </div>

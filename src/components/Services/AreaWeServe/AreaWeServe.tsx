@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import areaIconOne from '@/assets/icons/area-icon-1.svg';
 import areaIconTwo from '@/assets/icons/area-icon-2.svg';
@@ -28,11 +31,27 @@ const AreaWeServe = () => {
   return (
     <div className={areaWeServeSection}>
       <div className={contentContainer}>
-        <h4 className={subHeading}>
+        <motion.h4
+          style={{ position: 'relative' }}
+          initial={{ opacity: 0, bottom: '-5rem' }}
+          whileInView={{ opacity: 1, bottom: '0' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className={subHeading}
+        >
           <span>Enabling and empowering people</span>
           <span>to elevate themselves out of poverty</span>
-        </h4>
-        <h2 className={heading}>Areas We Serve</h2>
+        </motion.h4>
+        <motion.h2
+          style={{ position: 'relative' }}
+          initial={{ opacity: 0, bottom: '-5rem' }}
+          whileInView={{ opacity: 1, bottom: '0' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className={heading}
+        >
+          Areas We Serve
+        </motion.h2>
       </div>
 
       <div className={areaWeServeContainer}>
