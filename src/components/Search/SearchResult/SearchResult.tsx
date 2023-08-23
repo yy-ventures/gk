@@ -1,13 +1,12 @@
 'use client';
 
-import React, { KeyboardEvent, MouseEvent } from 'react';
+import React, { KeyboardEvent, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 import style from './SearchResult.module.scss';
 import SearchCard from '../SearchCard/SearchCard';
 
 import { ISearchResult } from '@/shared/types/searchResult';
-import { Button } from '@/shared/components';
 
 const {
   searchResult, searchContainer, searchResultContainer, cardContainer
@@ -30,11 +29,22 @@ const SearchResult = ({ searchResultData }: ISerachResultProps) => {
     }
   };
 
+  const searchInput = useRef<HTMLInputElement | null>(null);
+  const handleSearchOnClick = () => {
+    const inputValue = searchInput.current?.value;
+
+    if (inputValue && inputValue.length <= 3) {
+      alert('Please enter more than 3 characters');
+    } else if (inputValue && inputValue.length >= 3) {
+      router.push(`/search/${inputValue}`);
+    }
+  };
+
   return (
     <div className={searchResult}>
       <div className={searchContainer}>
-        <input type='text' placeholder='Search...' onKeyUp={handleSearchOnKeyUp}/>
-        <Button text='Search' url='#'/>
+        <input ref={searchInput} type='text' placeholder='Search...' onKeyUp={handleSearchOnKeyUp}/>
+        <button onClick={() => handleSearchOnClick()}>Search</button>
       </div>
       <div className={searchResultContainer}>
         {
