@@ -4,6 +4,8 @@ import { HeroSection, WorkTogether } from '@/shared/components';
 import { SearchResult } from '@/components/Search';
 import { useFetch } from '@/shared/hook';
 
+const heroImage = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1690783090/joinus-bg_rst7hy.webp';
+
 const Search = async ({ params }: { params: { searchResult: string } }) => {
   const keyword = params.searchResult;
 
@@ -11,7 +13,7 @@ const Search = async ({ params }: { params: { searchResult: string } }) => {
 
   return (
     <>
-      <HeroSection heroFor='search'/>
+      <HeroSection heroFor='search' backgroundImage={heroImage}/>
       <SearchResult searchResultData={searchResult.data.health_centers}/>
       <WorkTogether/>
     </>

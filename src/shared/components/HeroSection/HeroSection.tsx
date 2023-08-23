@@ -37,7 +37,7 @@ interface IHeroSectionProps {
 const HeroSection = ({
   heroFor, backgroundImage, titleOne, titleTwo, titleThree
 }: IHeroSectionProps) => {
-  const isJoinUs = heroFor === ('join-us' || 'search');
+  const isJoinUs = heroFor === 'join-us' || 'search';
   const isHealthcare = heroFor === 'healthcare';
   const isStory = heroFor === 'story';
 
