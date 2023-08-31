@@ -141,7 +141,7 @@ const CommentSection = ({ storyId }:{storyId: number}) => {
                 type='text'
                 {...register('fullName', { required: true })}
               />
-              {errors.fullName?.type === 'required' && <div><FormErrorMessage message='Please Upload your resume'/></div>}
+              {errors.fullName?.type === 'required' && <div><FormErrorMessage message='Please enter your full-name'/></div>}
             </div>
             <p>Must be 3-20 characters long.</p>
           </div>
@@ -151,9 +151,10 @@ const CommentSection = ({ storyId }:{storyId: number}) => {
               <input
                 id='email'
                 type='text'
-                {...register('email', { required: true })}
+                {...register('email', { required: true, pattern: /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/i })}
               />
-              {errors.email?.type === 'required' && <div><FormErrorMessage message='Please Upload your resume'/></div>}
+              {errors.email?.type === 'required' && <div><FormErrorMessage message='Please an email'/></div>}
+              {errors.email?.type === 'pattern' && <div><FormErrorMessage message='Please Provide a valid email address'/></div>}
             </div>
             <p>Email should be valid email.</p>
           </div>
@@ -165,7 +166,7 @@ const CommentSection = ({ storyId }:{storyId: number}) => {
                 rows={6}
                 {...register('comment', { required: true })}
               />
-              {errors.comment?.type === 'required' && <div><FormErrorMessage message='Please Upload your resume'/></div>}
+              {errors.comment?.type === 'required' && <div><FormErrorMessage message='Please enter a comment'/></div>}
             </div>
             <p>Must be 3-100 characters long.</p>
           </div>
