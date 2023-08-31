@@ -4,6 +4,10 @@
     height: 100svh;
     position: relative;
 
+    @include response(phone){
+        height: 45rem;
+    }
+
     .heading{
         font-size: clamp(2.07rem, calc(0.35rem + 8.61vw), 10.68rem);
         font-weight: 900;
@@ -60,6 +64,10 @@
                 width: 100%;
                 object-fit: cover;
                 object-position: top;
+
+                @include response(phone){
+                    object-fit: contain;
+                }
             }
         }
         .contentContainer{

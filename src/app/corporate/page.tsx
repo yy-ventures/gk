@@ -19,7 +19,7 @@ const Corporate = async () => {
   const filterTrainingData = filterDataByDepartment(corporate?.data, 'Training');
   const filterTechnologyData = filterDataByDepartment(corporate?.data, 'Information Technology (IT)');
 
-  const bgHero = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692261660/corporate-bg_yrrcf4.png';
+  const bgHero = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1693472682/MicrosoftTeams-image_80_wmqvsd.png';
   const managementImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608043/management-leadership-_1__cnt3vv.jpg';
   const accountImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608043/account-finance_apn4ac.jpg';
   const hrImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692608044/resource-full_yrklg7.jpg';
