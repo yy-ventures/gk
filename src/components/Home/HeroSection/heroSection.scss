@@ -15,11 +15,13 @@
         left: 0;
         bottom: 0;
 
+        // display: flex;
+
         .imgContainer{
             height: 100%;
             width: 100%;
 
-            @include alignItem();
+            // @include alignItem();
         }
 
         .img{
@@ -34,6 +36,17 @@
             @include response(phone){
                 object-position: 29%;
             }
+        }
+
+        .slick-track {
+            height: calc(100Svh - 16rem);
+          
+            @include response(phone){
+              height: calc(100Svh - 12rem);
+            }
+        }
+        .slick-track .slick-slide > div{
+            height: 100%;
         }
     }
 

@@ -4,10 +4,10 @@ import React from 'react';
 import Slider, { Settings as SliderSettings } from 'react-slick';
 
 import { ISliderProps } from './Slider.types';
-import style from './slider.module.scss';
-
+import './slider.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Arrow } from '../Arrow';
 
 const Sliders = ({
   infinite,
@@ -23,9 +23,9 @@ const Sliders = ({
   children,
   arrows = false
 }: ISliderProps) => {
-  const {
-    sliderBox, circleDot, flatDot, slickMain
-  } = style;
+  // const {
+  //   sliderBox, circleDot, flatDot, slickMain
+  // } = style;
 
   const sliderSettings: SliderSettings = {
     dots: dots,
@@ -36,11 +36,13 @@ const Sliders = ({
     centerMode: false,
     centerPadding: '0', // added to remove extra padding on both side of the slider
     arrows: arrows,
+    prevArrow: <Arrow type='prev'/>,
+    nextArrow: <Arrow type= 'next'/>,
     cssEase: 'ease-in-out',
-    className: `${slickMain}`,
+    className: 'slickMain',
     autoplay: autoPlay,
     autoplaySpeed: autoplaySpeed,
-    dotsClass: `slick-dots ${customDot === 'circle' ? circleDot : customDot === 'flat' ? flatDot : ''}`,
+    dotsClass: `slick-dots ${customDot === 'circle' ? 'circleDot' : customDot === 'flat' ? 'flatDot' : ''}`,
     pauseOnHover: pauseOnHover,
     responsive: [
       {
@@ -61,7 +63,7 @@ const Sliders = ({
   };
 
   return (
-    <div className={sliderBox}>
+    <div className='sliderBox'>
       <Slider {...sliderSettings}>
         {children}
       </Slider>

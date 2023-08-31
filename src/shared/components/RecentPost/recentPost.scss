@@ -46,4 +46,30 @@
             background-color: $color-primary;
         }
     }
+
+    .sliderContainer{
+        height: 65rem;
+
+        @include response(phone){
+            height: 55rem;
+        }
+    }
+    .slick-track {
+        height: 100%;
+    }
+    .slick-slider{
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+    }
+    .slick-list{
+        height: 100%;
+    }
+    .slickMain{
+        height: 100%;
+    }
+    .slick-track .slick-slide > div{
+    height: 100%;
+    }
 }

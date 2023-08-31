@@ -10,22 +10,12 @@ import { Sliders } from '@/shared/components';
 import { IMAGE_BASE_URL } from '@/config';
 
 import { IHeroSectionProps } from './HeroSection.types';
-import style from './heroSection.module.scss';
-
-const {
-  heroSection,
-  bgImage,
-  img,
-  layout,
-  glory,
-  contentContainer,
-  imgContainer
-} = style;
+import './heroSection.scss';
 
 const HeroSection = ({ badgeImage, sliderImages }: IHeroSectionProps) => {
   return (
-    <div className={heroSection}>
-      <div className={bgImage}>
+    <div className='heroSection'>
+      <div className='bgImage'>
         <Sliders
           infinite={true}
           slideShow={1}
@@ -34,27 +24,27 @@ const HeroSection = ({ badgeImage, sliderImages }: IHeroSectionProps) => {
           autoplaySpeed={3000}
         >
           {
-            sliderImages?.map(data => <div key={data.id} className={`${imgContainer}`}>
-              <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='Background img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
+            sliderImages?.map(data => <div key={data.id} className='imgContainer'>
+              <Image className='img' src={IMAGE_BASE_URL + data.banner_image} alt='Background img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
             </div>)
           }
         </Sliders>
       </div>
-      <div className={layout}>
-        <Image className={img} src={layoutImage} alt='layout'/>
+      <div className='layout'>
+        <Image className='img' src={layoutImage} alt='layout'/>
       </div>
-      <div className={glory}>
-        <Image className={img} src={IMAGE_BASE_URL + badgeImage} alt='glory' width={100} height={100} loader={() => IMAGE_BASE_URL + badgeImage}/>
+      <div className='glory'>
+        <Image className='img' src={IMAGE_BASE_URL + badgeImage} alt='glory' width={100} height={100} loader={() => IMAGE_BASE_URL + badgeImage}/>
       </div>
-      <div className={contentContainer}>
+      <div className='contentContainer'>
         <motion.div
           initial={{ opacity: 0, left: '-20rem' }}
           whileInView={{ opacity: 1, left: '0' }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className={imgContainer}
+          className='imgContainer'
         >
-          <Image className={img} src={titleImage} alt='title'/>
+          <Image className='img' src={titleImage} alt='title'/>
         </motion.div>
       </div>
     </div>

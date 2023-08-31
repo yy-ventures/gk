@@ -32,7 +32,7 @@ const AnnualReportSection = ({ data, headingText, headingTop }: IAnnualReportSec
       <h1 className={headingTop ? `${heading} ${headingT}` : `${heading}`}>{headingText}</h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={bgImage} alt='bg-img' height={1000} width={1000}/>
+          <Image className={img} src={bgImage} alt='bg-img' height={1000} width={1000} loader={() => bgImage}/>
         </div>
         <div className={headingTop ? `${contentContainer} ${contentContainerT}` : `${contentContainer}`}>
           <div className={gridContainer}>
