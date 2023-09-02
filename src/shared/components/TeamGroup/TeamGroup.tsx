@@ -27,7 +27,7 @@ const TeamGroup = ({
       </h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={image || bgImage} alt='bg-img' width={1000} height={1000}/>
+          <Image className={img} src={image || bgImage} alt='bg-img' width={3000} height={3000}/>
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@ const OurProudSection = ({ proudPresenceData, headingText, subHeadingText }: IOu
       </h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={bgImage} alt='bg-img' width={1000} height={1000}/>
+          <Image className={img} src={bgImage} alt='bg-img' width={1000} height={1000} loader={() => bgImage}/>
         </div>
         <div className={contentContainer}>
           <div className={gridContainer}>

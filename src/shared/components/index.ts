@@ -17,3 +17,4 @@ export * from './headTag';
 export * from './PreLoader';
 export * from './ListCard';
 export * from './ButtonScrollTop';
+export * from './Arrow';
