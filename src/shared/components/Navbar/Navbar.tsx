@@ -52,12 +52,10 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
   const [isStoriesPage, setIsStoriesPage] = useState(false);
   const [isPhotoGalleryPage, setIsPhotoGalleryPage] = useState(false);
   const [isLocatorPage, setIsLocatorPage] = useState(false);
+  const [isNewsletterPage, setIsNewsletterPage] = useState(false);
 
   const handleToggle = () => {
     setToggle(!toggle);
-  };
-  const closeNavbar = () => {
-    setToggle(false);
   };
 
   const badge = IMAGE_BASE_URL + badgeImage;
@@ -76,6 +74,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'about':
       setIsHomePage(false);
@@ -88,6 +87,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'services':
       setIsHomePage(false);
@@ -100,6 +100,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'healthcare':
       setIsHomePage(false);
@@ -112,6 +113,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'corporate':
       setIsHomePage(false);
@@ -124,6 +126,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'health-force':
       setIsHomePage(false);
@@ -136,6 +139,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'join-us':
       setIsHomePage(false);
@@ -148,6 +152,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'stories':
       setIsHomePage(false);
@@ -160,6 +165,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(true);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'photo-gallery':
       setIsHomePage(false);
@@ -172,6 +178,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(true);
       setIsLocatorPage(false);
+      setIsNewsletterPage(false);
       break;
     case 'locator':
       setIsHomePage(false);
@@ -184,6 +191,20 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       setIsStoriesPage(false);
       setIsPhotoGalleryPage(false);
       setIsLocatorPage(true);
+      setIsNewsletterPage(false);
+      break;
+    case 'newsletter':
+      setIsHomePage(false);
+      setIsAboutPage(false);
+      setIsServicesPage(false);
+      setIsHealthcarePage(false);
+      setIsCorporatePage(false);
+      setIsHealthForcePage(false);
+      setIsJoinUsPage(false);
+      setIsStoriesPage(false);
+      setIsPhotoGalleryPage(false);
+      setIsLocatorPage(false);
+      setIsNewsletterPage(true);
       break;
 
     default:
@@ -233,6 +254,10 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
       handleActiveHomePage('locator');
       setToggle(false);
       break;
+    case '/newsletter':
+      handleActiveHomePage('newsletter');
+      setToggle(false);
+      break;
 
     default:
       break;
@@ -277,9 +302,17 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
             </Link>
           </ul>
         </li>
-        <Link className={link} href='/stories' onClick={() => handleActivePage('/stories')}>
-          <li className={isStoriesPage ? `${item} ${activeItem}` : `${item}`}>stories</li>
-        </Link>
+        <li className={dropdownItem}>
+          <span className={itemText}>publication <BiSolidDownArrow/></span>
+          <ul className={dropdownList}>
+            <Link className={link} href='/stories' onClick={() => handleActivePage('/stories')}>
+              <li className={isStoriesPage ? `${subItem} ${activeSubItem}` : `${subItem}`}>stories</li>
+            </Link>
+            <Link className={link} href='/newsletter' onClick={() => handleActivePage('/newsletter')}>
+              <li className={isNewsletterPage ? `${subItem} ${subItemNoBorder} ${activeSubItem}` : `${subItem} ${subItemNoBorder}`}>Newsletter</li>
+            </Link>
+          </ul>
+        </li>
         <li className={dropdownItem}>
           <span className={itemText}>gallery <BiSolidDownArrow/></span>
           <ul className={dropdownList}>
