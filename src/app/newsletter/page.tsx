@@ -5,7 +5,7 @@ import { WorkTogether } from '@/shared/components';
 import { useFetch } from '@/shared/hook';
 
 const heroData = {
-  image: 'https://res.cloudinary.com/dboyf6lad/image/upload/v1692591523/1659420758_3-min_s2cdxp.jpg',
+  image: 'https://res.cloudinary.com/dboyf6lad/image/upload/v1693724184/IMG_9582_q2mf8c.jpg',
   title: 'Newsletters'
 };
 
