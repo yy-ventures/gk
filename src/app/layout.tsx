@@ -1,13 +1,13 @@
 import React from 'react';
 import '../style/globals.scss';
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
 
 import {
   Navbar, Footer, SidebarSticky, ButtonScrollTop
 } from '@/shared/components';
 import { useFetch } from '@/shared/hook';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Grameen Kalyan',
@@ -25,7 +25,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         <Navbar badgeImage={badgeImage}/>
         {children}
         <SidebarSticky/>

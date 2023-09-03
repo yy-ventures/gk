@@ -33,11 +33,11 @@ const BoardMemberSection = ({ boardMembersData }: IBoardMemberSectionProps) => {
         chairman.map(data => {
           return (
             <>
-              <Link className={link} href={`/board-member/${data.id}`}>
-                <div key={data.id} className={cardContainer}>
+              <div key={data.id} className={cardContainer}>
+                <Link className={link} href={`/board-member/${data.id}`}>
                   <BoardMemberCard data={data}/>
-                </div>
-              </Link>
+                </Link>
+              </div>
               <HorizontalLayout key={data.id}/>
             </>
           );
