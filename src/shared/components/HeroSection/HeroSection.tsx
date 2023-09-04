@@ -45,7 +45,7 @@ const HeroSection = ({
     return (
       <div className={heroSection}>
         <div className={bgImageContainer}>
-          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000}/>
+          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
         </div>
         <div className={`${content} ${juContent}`}>
           <motion.h1
@@ -81,7 +81,7 @@ const HeroSection = ({
     return (
       <div className={heroSection}>
         <div className={bgImageContainer}>
-          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000}/>
+          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
         </div>
         <div className={`${content} ${healthcareContent}`}>
           <motion.h1
@@ -117,7 +117,7 @@ const HeroSection = ({
     return (
       <div className={heroSection}>
         <div className={bgImageContainer}>
-          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000}/>
+          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
         </div>
         <div className={`${content} ${storyContent}`}>
           <motion.h1
@@ -142,7 +142,7 @@ const HeroSection = ({
   return (
     <div className={heroSection}>
       <div className={bgImageContainer}>
-        <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={1000} height={1000}/>
+        <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={1000} height={1000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
       </div>
       <div className={content}>
         <motion.h1
