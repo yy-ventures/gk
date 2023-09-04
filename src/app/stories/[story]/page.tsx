@@ -6,7 +6,7 @@ import { useFetch } from '@/shared/hook';
 import { IStories } from '@/shared/types/stories';
 
 const Story = async ({ params }: { params: { story: number } }) => {
-  const id = Number(params.story);
+  const id = parseInt(params.story.toString());
 
   const story = await useFetch({ url: `/stories?category_id=${id}` });
   const stories = await useFetch({ url: '/stories', revalidateIn: 86400 });

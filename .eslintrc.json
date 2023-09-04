@@ -16,6 +16,7 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "max-len": "off",
     "react/no-unescaped-entities": "off",
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "radix": "off"
   }
 }

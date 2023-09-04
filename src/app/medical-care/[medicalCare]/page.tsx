@@ -4,8 +4,8 @@ import { HeroSection, DetailSection } from '@/components/MedicalCare';
 import { useFetch } from '@/shared/hook';
 import { IMedicalCare } from '@/shared/types/medicalCare';
 
-const MedicalCare = async ({ params }: { params: { medicalCare: string } }) => {
-  const id = Number(params.medicalCare);
+const MedicalCare = async ({ params }: { params: { medicalCare: number } }) => {
+  const id = parseInt(params.medicalCare.toString());
 
   const services = await useFetch({ url: '/disease-specific-medicare' });
 

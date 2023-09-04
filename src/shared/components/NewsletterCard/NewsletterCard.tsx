@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { INewsletter } from '@/shared/types/newsletter';
-import dummyImg from '@/assets/images/lets-work.webp';
+const dummyImg = 'https://res.cloudinary.com/dboyf6lad/image/upload/v1693472682/MicrosoftTeams-image_80_wmqvsd.png';
 
 import style from './newsletterCard.module.scss';
 

@@ -5,8 +5,8 @@ import { useFetch } from '@/shared/hook';
 import { HeroSection, DetailSection } from '@/components/HealthcareServiceDetail';
 import { IHealthcareService } from '@/shared/types/healthcareService';
 
-const ServiceDetails = async ({ params }: { params: { healthcareService: string } }) => {
-  const id = Number(params.healthcareService);
+const ServiceDetails = async ({ params }: { params: { healthcareService: number } }) => {
+  const id = parseInt(params.healthcareService.toString());
 
   const services = await useFetch({ url: '/healthcare-services' });
 

@@ -5,8 +5,8 @@ import { useFetch } from '@/shared/hook';
 
 import { HeroSection, DetailSection } from '@/components/ServiceDetail';
 
-const ServiceDetails = async ({ params }: { params: { service: string } }) => {
-  const decodeParams = Number(params.service);
+const ServiceDetails = async ({ params }: { params: { service: number } }) => {
+  const decodeParams = parseInt(params.service.toString());
 
   const service = await useFetch({ url: `/service-contents/details?id=${decodeParams}` });
 

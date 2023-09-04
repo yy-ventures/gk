@@ -39,6 +39,10 @@
         height: 70%;
         transform: rotateY(180deg);
 
+        @include response(phone){
+             height: 40%;
+        }
+
         .img{
             height: 100%;
             width: 100%;
