@@ -46,7 +46,7 @@ const SevenPrinciple = () => {
     <div className={sevenPrinciple}>
       <h2 className={heading}>7 Principles of Social Business</h2>
       <div className={imgContainer}>
-        <Image className={img} src={sevenPrincipleImage} alt='seven principle'/>
+        <Image className={img} src={sevenPrincipleImage} width={1000} height={1000} alt='seven principle'/>
       </div>
       <div className={divider}/>
       <div className={contentContainer}>

@@ -22,7 +22,7 @@ const PhotoCard = ({ data }: IPhotoCardProps) => {
     <PhotoView src={IMAGE_BASE_URL + data.thumb_image}>
       <div className={photoCard}>
         <div className={imgContainer}>
-          <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt="" width={100} height={100} loader={() => IMAGE_BASE_URL + data.thumb_image}/>
+          <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt="" width={500} height={500}/>
         </div>
         <div className={mask}>
           <h4>{data.title}</h4>

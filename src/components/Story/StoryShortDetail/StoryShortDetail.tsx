@@ -31,7 +31,7 @@ const StoryShortDetail = ({ data }: IStoryShortDetailProps) => {
   return (
     <div className={storyDetail}>
       <div className={imageContainer}>
-        <Image className={img} src={IMAGE_BASE_URL + data.image} alt='img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.image}/>
+        <Image className={img} src={IMAGE_BASE_URL + data.image} alt='img' width={1000} height={1000}/>
       </div>
       <div className={divider}>
         <div className={lineOne}/>

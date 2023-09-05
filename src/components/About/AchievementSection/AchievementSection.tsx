@@ -35,7 +35,7 @@ const AchievementSection = ({ achievementData }: IAchievementSection) => {
           return (
             <>
               <div className={imageContainer}>
-                <Image className={img} src={imageUrl} alt={data.title} width={100} height={100} loader={() => imageUrl}/>
+                <Image className={img} src={imageUrl} alt={data.title} width={500} height={500} priority/>
               </div>
               <div className={verticalTopLine}/>
               <div className={contentContainer}>
@@ -62,7 +62,7 @@ const AchievementSection = ({ achievementData }: IAchievementSection) => {
                 </div>
                 <div className={verticalBottomLine}/>
                 <div className={`${imageContainer} ${imageContainerReverse}`}>
-                  <Image className={img} src={imageUrl} alt={data.title} width={100} height={100} loader={() => imageUrl}/>
+                  <Image className={img} src={imageUrl} alt={data.title} width={500} height={500} priority/>
                 </div>
               </>
             );
@@ -73,7 +73,7 @@ const AchievementSection = ({ achievementData }: IAchievementSection) => {
               <div className={squareBox}/>
               <div className={horizontalRightLine}/>
               <div className={imageContainer}>
-                <Image className={img} src={imageUrl} alt={data.title} width={100} height={100} loader={() => imageUrl}/>
+                <Image className={img} src={imageUrl} alt={data.title} width={500} height={500} priority/>
               </div>
               <div className={verticalBottomLine}/>
               <div className={contentContainer}>

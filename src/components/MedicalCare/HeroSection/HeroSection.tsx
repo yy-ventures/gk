@@ -36,7 +36,7 @@ const HeroSection = ({ data }: IHeroSectionProps) => {
 
     <div className={serviceDetail}>
       <div className={bgImageContainer}>
-        <Image className={bgImage} src={IMAGE_BASE_URL + data.image} alt='bg img' height={100} width={100} loader={() => IMAGE_BASE_URL + data.image}/>
+        <Image className={bgImage} src={IMAGE_BASE_URL + data.image} alt='bg img' height={1000} width={1000}/>
       </div>
       <h1 className={heading}>
         <span>{data.title}</span>

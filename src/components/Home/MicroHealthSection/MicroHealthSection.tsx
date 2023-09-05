@@ -30,7 +30,7 @@ const MicroHealthSection = ({ image }: IMicroHealthSectionProps) => {
       </h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={IMAGE_BASE_URL + image} alt='bg-img' width={100} height={100} loader={() => IMAGE_BASE_URL + image}/>
+          <Image className={img} src={IMAGE_BASE_URL + image} alt='bg-img' width={1000} height={1000} priority/>
         </div>
         <div className={contentContainer}>
           <Button text='Read More' url='/healthcare/4' btnSecondary={true}/>

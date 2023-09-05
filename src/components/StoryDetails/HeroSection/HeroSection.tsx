@@ -26,7 +26,7 @@ const HeroSection = ({ data }: IHeroSectionProps) => {
 
     <div className={storyDetail}>
       <div className={bgImageContainer}>
-        <Image className={bgImage} src={IMAGE_BASE_URL + data.image} alt='bg img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.image}/>
+        <Image className={bgImage} src={IMAGE_BASE_URL + data.image} alt='bg img' width={2000} height={2000}/>
       </div>
       <h1 className={heading}>
         <span className={textLarge}>{data.title}</span>

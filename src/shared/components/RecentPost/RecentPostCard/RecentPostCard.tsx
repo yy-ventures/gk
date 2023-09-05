@@ -21,7 +21,7 @@ const RecentPostCard = ({ data }: IRecentPostCardProps) => {
     <div className={recentPostCard}>
       <div className={container}>
         <div className={imgContainer}>
-          <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt='card img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.thumb_image}/>
+          <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt='card img' width={2000} height={2000}/>
         </div>
       </div>
       <div className={contentContainer}>

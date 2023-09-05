@@ -32,18 +32,20 @@ const AnnualReportSection = ({ data, headingText, headingTop }: IAnnualReportSec
       <h1 className={headingTop ? `${heading} ${headingT}` : `${heading}`}>{headingText}</h1>
       <div className={container}>
         <div className={bgContainer}>
-          <Image className={img} src={bgImage} alt='bg-img' height={1000} width={1000} loader={() => bgImage}/>
+          <Image className={img} src={bgImage} alt='bg-img' height={1000} width={1000} priority/>
         </div>
         <div className={headingTop ? `${contentContainer} ${contentContainerT}` : `${contentContainer}`}>
           <div className={gridContainer}>
             {
               data.map((item, index) => <motion.div
+                key={index}
                 style={{ position: 'relative' }}
                 initial={{ opacity: 0, bottom: '-5rem' }}
                 whileInView={{ opacity: 1, bottom: '0' }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                key={index} className={content}>
+                className={content}
+              >
                 <p className={text}>
                   <span className={number}>{item.value}+</span>
                   <span className={title}>{item.title}</span>

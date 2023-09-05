@@ -55,7 +55,7 @@ const HealthcareService = ({ servicesData }: IHealthcareServiceProps) => {
                 >
                   <Link href={`/healthcare/${data.id}`}>
                     <div className={imageContainer}>
-                      <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt='healthcare' width={100} height={100} loader={() => IMAGE_BASE_URL + data.thumb_image}/>
+                      <Image className={img} src={IMAGE_BASE_URL + data.thumb_image} alt='healthcare' width={500} height={500}/>
                     </div>
                   </Link>
                   <h3 className={heading}>{data.title}</h3>

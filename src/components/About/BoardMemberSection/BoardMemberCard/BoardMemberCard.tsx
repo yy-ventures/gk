@@ -34,7 +34,7 @@ const BoardMemberCard = ({
   return (
     <div className={boardMemberCard}>
       <div className={typeOne ? `${imageContainer} ${cardStyleOne}` : typeTwo ? `${imageContainer} ${cardStyleTwo}` : typeThree ? `${imageContainer} ${cardStyleThree}` : `${imageContainer}`}>
-        <Image className={img} src={imgUrl} alt='member' width={100} height={100} loader={() => imgUrl}/>
+        <Image className={img} src={imgUrl} alt='member' width={500} height={500} priority/>
       </div>
       <p className={memberName}>{data && data.name}</p>
       <p className={designation}>{data && data.designation}</p>

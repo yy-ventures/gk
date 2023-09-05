@@ -4,6 +4,9 @@ const nextConfig = {
   optimizeFonts: true,
   images: {
     domains: ['admin.grameenkalyan.com', 'res.cloudinary.com']
+  },
+  experimental: {
+    appDir: true
   }
 };
 

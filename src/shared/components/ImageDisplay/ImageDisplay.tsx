@@ -56,14 +56,14 @@ const ImageDisplay = ({ data, primary }: IImageDisplayProps) => {
               <p>{data.name}</p>
             </Link>
             <div className={imgContainer}>
-              <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='stroy image' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
+              <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='stroy image' width={500} height={500} priority/>
             </div>
           </div>)
         }
       </div>
       <div className={primary ? `${imageContainer} ${primaryImageContainer}` : `${imageContainer}`}>
         {
-          <Image className={img} src={IMAGE_BASE_URL + (activeFirstImage ? firstImage : selectedImage)} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + (activeFirstImage ? firstImage : selectedImage)}/>
+          <Image className={img} src={IMAGE_BASE_URL + (activeFirstImage ? firstImage : selectedImage)} alt='' width={1000} height={1000} priority/>
         }
       </div>
       <div className={rightContent}>
@@ -73,7 +73,7 @@ const ImageDisplay = ({ data, primary }: IImageDisplayProps) => {
               <p>{data.name}</p>
             </Link>
             <div className={imgContainer}>
-              <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='stroy image' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
+              <Image className={img} src={IMAGE_BASE_URL + data.banner_image} alt='stroy image' width={500} height={500} priority/>
             </div>
           </div>)
         }

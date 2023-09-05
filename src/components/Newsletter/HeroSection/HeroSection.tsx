@@ -18,7 +18,7 @@ const HeroSection = ({ data }: IHeroSectionProps) => {
   return (
     <div className={heroSection}>
       <div className={imageContainer}>
-        <Image className={img} src={data.image} alt='bg img' width={100} height={100} loader={() => data.image}/>
+        <Image className={img} src={data.image} alt='bg img' width={1000} height={1000} priority/>
       </div>
       <div className={content}>
         <h1 className={heading}>{data.title}</h1>

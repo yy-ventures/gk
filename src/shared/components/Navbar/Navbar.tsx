@@ -270,11 +270,11 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
 
   return (
     <div className={navbar}>
-      <div className={logoContainer}>
-        <Link className={link} href='/'>
-          <Image className={logo} src={gkLogo} alt='GK logo' priority={true}/>
-        </Link>
-      </div>
+      <Link className={link} href='/'>
+        <div className={logoContainer}>
+          <Image className={logo} src={gkLogo} alt='GK logo' priority/>
+        </div>
+      </Link>
       <ul className={toggle ? `${list} ${openList}` : `${list}`}>
         <Link className={link} href='/' onClick={() => handleActivePage('/')}>
           <li className={isHomePage ? `${item} ${activeItem}` : `${item}`}>home</li>
@@ -327,7 +327,7 @@ const Navbar = ({ badgeImage }: INavbarProps) => {
         {
           !isHomePage
             ? <li className={badgeContainer}>
-              <Image className={img} src={badge} alt='badge img' width={100} height={100} loader={() => badge}/>
+              <Image className={img} src={badge} alt='badge img' width={100} height={100}/>
             </li>
             : null
         }

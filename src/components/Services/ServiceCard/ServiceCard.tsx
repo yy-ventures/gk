@@ -45,7 +45,7 @@ const ServiceCard = ({ reverse, serviceData }: IServiceSectionProps) => {
         {serviceData.title}
       </motion.h2>
       <div className={reverse ? `${imgContainer} ${imgContainerReverse}` : `${imgContainer}`}>
-        <Image className={img} src={IMAGE_BASE_URL + serviceData.servicepage_thumb_image} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + serviceData.servicepage_thumb_image}/>
+        <Image className={img} src={IMAGE_BASE_URL + serviceData.servicepage_thumb_image} alt='' height={500} width={500} priority/>
       </div>
       <div className={reverse ? `${contentContainer} ${contentContainerReverse}` : `${contentContainer}`}>
         <h4 className={subTitle}>

@@ -128,7 +128,7 @@ const MapSection = () => {
           <h4 className={divisionName}>{centerDivision} Division</h4>
           <input className={search} type="text" onKeyUp={handleSearch} placeholder='type your location..'/>
           <div className={imageContainer}>
-            <Image className={img} src={IMAGE_BASE_URL + (activeHealthCenter ? healthCenterImage : centerImage)} alt='' width={100} height={100} loader={() => IMAGE_BASE_URL + (activeHealthCenter ? healthCenterImage : centerImage)}/>
+            <Image className={img} src={IMAGE_BASE_URL + (activeHealthCenter ? healthCenterImage : centerImage)} alt='' width={500} height={500} loader={() => IMAGE_BASE_URL + (activeHealthCenter ? healthCenterImage : centerImage)}/>
           </div>
           <h3 className={healthCenterName}>{activeHealthCenter ? healthCenterData?.name : centerName}</h3>
           <div className={locationContact}>

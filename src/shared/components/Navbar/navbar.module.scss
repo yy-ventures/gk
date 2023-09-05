@@ -20,7 +20,7 @@
     .logoContainer{
         align-self: center;
         height: 10rem;
-        width: 50rem;
+        width: max-content;
         
         @include response(M-desktop){
             height: 7rem;

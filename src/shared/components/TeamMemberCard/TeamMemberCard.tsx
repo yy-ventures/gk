@@ -32,7 +32,7 @@ const TeamMemberCard = ({
   return (
     <div className={boardMemberCard}>
       <div className={typeOne ? `${imageContainer} ${cardStyleOne}` : typeTwo ? `${imageContainer} ${cardStyleTwo}` : typeThree ? `${imageContainer} ${cardStyleThree}` : `${imageContainer}`}>
-        <Image className={img} src={IMAGE_BASE_URL + data.profile_photo} alt='member' width={100} height={100} loader={() => IMAGE_BASE_URL + data.profile_photo}/>
+        <Image className={img} src={IMAGE_BASE_URL + data.profile_photo} alt='member' width={500} height={500} />
       </div>
       <p className={memberName}>{data && data.name}</p>
       <p className={designation}>{data && data.designation}</p>

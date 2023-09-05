@@ -25,7 +25,7 @@ const HeroSection = ({ badgeImage, sliderImages }: IHeroSectionProps) => {
         >
           {
             sliderImages?.map(data => <div key={data.id} className='imgContainer'>
-              <Image className='img' src={IMAGE_BASE_URL + data.banner_image} alt='Background img' width={100} height={100} loader={() => IMAGE_BASE_URL + data.banner_image}/>
+              <Image className='img' src={IMAGE_BASE_URL + data.banner_image} alt='Background img' width={2000} height={2000} priority/>
             </div>)
           }
         </Sliders>
@@ -34,7 +34,7 @@ const HeroSection = ({ badgeImage, sliderImages }: IHeroSectionProps) => {
         <Image className='img' src={layoutImage} alt='layout'/>
       </div>
       <div className='glory'>
-        <Image className='img' src={IMAGE_BASE_URL + badgeImage} alt='glory' width={100} height={100} loader={() => IMAGE_BASE_URL + badgeImage}/>
+        <Image className='img' src={IMAGE_BASE_URL + badgeImage} alt='glory' width={300} height={300} priority={true}/>
       </div>
       <div className='contentContainer'>
         <motion.div
