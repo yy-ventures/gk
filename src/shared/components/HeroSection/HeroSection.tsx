@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+
 'use client';
 
 import React from 'react';
@@ -13,7 +15,8 @@ const {
   heroSection,
   bgImageContainer,
   bgImage,
-  content, heading,
+  content,
+  heading,
   layoutContainer,
   layoutImage,
   juSubHeading,
@@ -23,19 +26,23 @@ const {
   healthcareSubHeading,
   healthcareHeading,
   storyHeading,
-  storyContent
+  storyContent,
 } = style;
 
 interface IHeroSectionProps {
-   heroFor?: string
-   backgroundImage?: string
-   titleOne?: string
-   titleTwo?: string
-   titleThree?: string
+  heroFor?: string;
+  backgroundImage?: string;
+  titleOne?: string;
+  titleTwo?: string;
+  titleThree?: string;
 }
 
 const HeroSection = ({
-  heroFor, backgroundImage, titleOne, titleTwo, titleThree
+  heroFor,
+  backgroundImage,
+  titleOne,
+  titleTwo,
+  titleThree,
 }: IHeroSectionProps) => {
   const isJoinUs = heroFor === 'join-us' || 'search';
   const isHealthcare = heroFor === 'healthcare';
@@ -45,7 +52,15 @@ const HeroSection = ({
     return (
       <div className={heroSection}>
         <div className={bgImageContainer}>
-          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
+          <Image
+            className={bgImage}
+            src={backgroundImage || bgImg}
+            alt="bg img"
+            width={10000}
+            height={10000}
+            placeholder="blur"
+            blurDataURL={`${backgroundImage}` || `${bgImg}`}
+          />
         </div>
         <div className={`${content} ${juContent}`}>
           <motion.h1
@@ -71,7 +86,7 @@ const HeroSection = ({
             <span>across the nation</span>
           </motion.h1>
           <div className={layoutContainer}>
-            <Image className={layoutImage} src={layoutImg} alt='layout'/>
+            <Image className={layoutImage} src={layoutImg} alt="layout" />
           </div>
         </div>
       </div>
@@ -81,7 +96,15 @@ const HeroSection = ({
     return (
       <div className={heroSection}>
         <div className={bgImageContainer}>
-          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
+          <Image
+            className={bgImage}
+            src={backgroundImage || bgImg}
+            alt="bg img"
+            width={10000}
+            height={10000}
+            placeholder="blur"
+            blurDataURL={`${backgroundImage}` || `${bgImg}`}
+          />
         </div>
         <div className={`${content} ${healthcareContent}`}>
           <motion.h1
@@ -107,7 +130,7 @@ const HeroSection = ({
             <span>Trust</span>
           </motion.h1>
           <div className={layoutContainer}>
-            <Image className={layoutImage} src={layoutImg} alt='layout'/>
+            <Image className={layoutImage} src={layoutImg} alt="layout" />
           </div>
         </div>
       </div>
@@ -117,7 +140,15 @@ const HeroSection = ({
     return (
       <div className={heroSection}>
         <div className={bgImageContainer}>
-          <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={10000} height={10000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
+          <Image
+            className={bgImage}
+            src={backgroundImage || bgImg}
+            alt="bg img"
+            width={10000}
+            height={10000}
+            placeholder="blur"
+            blurDataURL={`${backgroundImage}` || `${bgImg}`}
+          />
         </div>
         <div className={`${content} ${storyContent}`}>
           <motion.h1
@@ -132,7 +163,7 @@ const HeroSection = ({
             <span>{titleTwo}</span>
           </motion.h1>
           <div className={layoutContainer}>
-            <Image className={layoutImage} src={layoutImg} alt='layout'/>
+            <Image className={layoutImage} src={layoutImg} alt="layout" />
           </div>
         </div>
       </div>
@@ -142,7 +173,15 @@ const HeroSection = ({
   return (
     <div className={heroSection}>
       <div className={bgImageContainer}>
-        <Image className={bgImage} src={backgroundImage || bgImg} alt='bg img' width={1000} height={1000} placeholder='blur' blurDataURL={`${backgroundImage}` || `${bgImg}`}/>
+        <Image
+          className={bgImage}
+          src={backgroundImage || bgImg}
+          alt="bg img"
+          width={1000}
+          height={1000}
+          placeholder="blur"
+          blurDataURL={`${backgroundImage}` || `${bgImg}`}
+        />
       </div>
       <div className={content}>
         <motion.h1
@@ -158,7 +197,7 @@ const HeroSection = ({
           <span>{titleThree}</span>
         </motion.h1>
         <div className={layoutContainer}>
-          <Image className={layoutImage} src={layoutImg} alt='layout'/>
+          <Image className={layoutImage} src={layoutImg} alt="layout" />
         </div>
       </div>
     </div>
